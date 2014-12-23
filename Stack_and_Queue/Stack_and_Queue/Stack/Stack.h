@@ -19,20 +19,23 @@
 
 	typedef int	SElemType;
 
-	#define STACK_INIT_SIZE	10		// 存空間初始分配量
-	#define STACK_INCREMENT	1		// 存儲空間分配增量
+	#define STACK_INIT_SIZE		10		// 存空間初始分配量
+	#define STACK_INCREMENT		1		// 存儲空間分配增量
 
 	typedef struct SqStack
 	{
 		SElemType	*top;		// 棧頂指針
 		SElemType	*base;		// 棧底指針，在棧構造之前和銷毀之後，base的值均為NULL
 		int			stacksize;	// 當前已分配的存儲空間，以元素為單位
+	
+		int			iActualLength;	// 棧的實際長度
 	}
 	SqStack,	*PtrSqStack;
 
 	/**********************************************************************/
 	Status InitStack(SqStack *S);
 	Status CreateStack(SqStack *S);
+	Status CreateStackWithSizeN(SqStack *S, int iSizeN);
 
 	Status DestroyStack(SqStack *S);
 
