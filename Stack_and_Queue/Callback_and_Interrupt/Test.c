@@ -9,6 +9,7 @@
 
 
 #include "Test.h"
+#include "Callback/TestCase_Callback.h"
 
 void General_Test_Cases(void)
 {
@@ -19,4 +20,5 @@ void General_Test_Cases(void)
 
 void TestCase_CallbackMechanism(void)
 {
+	Test_Sort_Callback();
 }
