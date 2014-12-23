@@ -19,23 +19,28 @@ void Test_Stack_Operations(void)
 	SElemType elem = 0;
 	SqStack S = {0};
 	
+	printf("Intialize a  new stack\n");
 	InitStack(&S);		// 初始化一個棧
 	CreateStack(&S);	// 實例化一個棧，為棧中的每一個元素賦值
 	
 	DisplayStack(S);	// 打印出棧中所有的元素
 	
 	// 压栈
+	printf("Push stack\n");
 	Push(&S, 21);
 	DisplayStack(S);	// 確認壓棧後的效果
 	
 	// 退棧
+	printf("Pop stack\n");
 	Pop(&S, &elem);
 	DisplayStack(S);	// 確認退棧的效果
 	
 	// 压栈
+	printf("Push stack\n");
 	Push(&S, 99);
 	DisplayStack(S);	// 確認壓棧後的效果
 	
+	printf("Destroy stack\n");
 	DestroyStack(&S);	// 銷毀棧
 	DisplayStack(S);	// 確認是否銷毀棧
 }
