@@ -26,3 +26,8 @@ void fCallback(char *s)
 {
 	printf("This function is a callee which is defined by user.\n");
 }
+
+int sort_function(const void *a, const void *b)
+{
+	return *((int *)a)-*((int *)b);
+}

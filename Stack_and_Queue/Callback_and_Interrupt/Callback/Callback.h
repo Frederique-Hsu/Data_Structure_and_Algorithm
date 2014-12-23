@@ -11,6 +11,7 @@
 #ifndef CALLBACK_H
 #define CALLBACK_H
 
+	#include <stddef.h>
 	/**
 	 
 	 什么是回调 
@@ -54,5 +55,41 @@
 	void Demo_Call_Back_Mechanism(void);
 	void GetCallBack(pCallBack callback);
 	void fCallback(char *s);
+
+
+#if 0
+	/* 參數傳遞規則
+	 */
+	__stdcall int callee(int);					// 被調用函數是以int為參數， 以int為返回值
+	void caller(__cdecl int (*ptr)(int));		// 調用函數以函數指針為參數
+	// 在p中企圖存儲被調用函數地址的非法操作
+	__cdecl int (*p)(int) = callee;				// 將會出錯
+
+	/* 指針p和callee()的類型不兼容，因爲他們有不同的調用規範 __stdcall 與 __cdecl 調用規範不同.
+	 * 因此不能將被調用者的地址賦值給指針p.
+	 * 儘管兩者有相同的返回值和參數列.
+	 */
+#endif
+
+	/***********************************************************************************
+	 *
+	 * C語言的標準庫函數中很多地方就採用回調函數來讓用戶定制處理過程.
+	 * 如常用的快速排序函數和二分搜索函數等
+	 *
+	 * 如下的兩個函數 qsort 和 bsearch 中的參數 fcmp 就是一個回調函數來作爲參數變量.
+	 */
+	// 快速排序法函數原型
+	void qsort(void		*base,
+			   size_t	nelem,
+			   size_t	width,
+			   int		(__cdecl *fcmp)(const void *, const void *));
+	// 二分搜索法函數原型
+	void *bsearch(const void	*key,
+				  const void	*base,
+				  size_t		nelem,
+				  size_t		width,
+				  int			(__cdecl *fcmp)(const void *, const void *));
+
+	int sort_function(const void *a, const void *b);
 
 #endif	/*  CALLBACK_H  */
