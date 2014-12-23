@@ -10,8 +10,10 @@
 
 
 #include "Application.h"
+#include "Stack/Stack_Application.h"
 
 void Application_Demo(void)
 {
+	Stack_Applications();
 	return;
 }

@@ -210,6 +210,14 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Stack\Stack_Application.c"
+				>
+			</File>
+			<File
+				RelativePath=".\Stack\Stack_Application.h"
+				>
+			</File>
+			<File
 				RelativePath=".\Stack\Test_Stack.c"
 				>
 			</File>
