@@ -27,6 +27,31 @@
 	 * 用“期待的急迫程度”来描述
 	 */
 
-	
+/*======================================================================================================*/
+	/* 
+	 * 行編輯程序
+	 *
+	 * 用字符棧來實現對用戶輸入的字符行進行查錯糾正。
+	 */
+	#define CHAR_STACK_INIT_SIZE	20
+	#define CHAR_STACK_INCREMENT	5
+
+	typedef struct CharStack
+	{
+		char *char_stack_top;
+		char *char_stack_base;
+		int char_stack_size;
+		int actual_stack_length;
+	}
+	CharStack,	*PtrCharStack;
+
+	int Init_Char_Stack(PtrCharStack pCStack);
+	int Char_Stack_Pop(PtrCharStack pCStack, char *celem);
+	int Char_Stack_Push(PtrCharStack pCStack, char celem);
+	void Display_Char_Stack(CharStack CStack);
+	int Clear_Char_Stack(PtrCharStack pCStack);
+	int Destroy_Char_Stack(PtrCharStack pCStack);
+
+	void LineEdit(void);
 
 #endif	/*  STACK_APPLICATION_H  */
