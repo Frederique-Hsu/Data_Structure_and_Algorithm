@@ -11,6 +11,8 @@
 #include "Stack_Application.h"
 
 #include "Stack.h"
+#include "Maze/Test_Maze.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -24,6 +26,7 @@
  */
 void Stack_Applications(void)
 {
+	/*
 	printf("Decimal number converting to octal number ====>\n");
 	Decimal_Convert2_Octal();
 
@@ -32,6 +35,9 @@ void Stack_Applications(void)
 
 	printf("Decimal number converting to hex number ====>\n");
 	Decimal_Convert2_Hexadecimal();
+	 */
+
+	Maze_Problem();
 	return;
 }
 
@@ -267,5 +273,15 @@ void LineEdit(void)
 			ch = getchar();
 	}
 	Destroy_Char_Stack(&CS);	// 全文編輯完成，摧毀此字符棧.
+	return;
+}
+
+
+/*=========================================================================================*/
+void Maze_Problem(void)
+/* “迷宮”問題求解
+ */
+{
+	Test_Maze_Problem();
 	return;
 }

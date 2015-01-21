@@ -54,4 +54,6 @@
 
 	void LineEdit(void);
 
+	void Maze_Problem(void);
+
 #endif	/*  STACK_APPLICATION_H  */
