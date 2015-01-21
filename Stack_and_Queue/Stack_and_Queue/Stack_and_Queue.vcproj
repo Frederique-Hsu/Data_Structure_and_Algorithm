@@ -225,6 +225,26 @@
 				RelativePath=".\Stack\Test_Stack.h"
 				>
 			</File>
+			<Filter
+				Name="Maze"
+				>
+				<File
+					RelativePath=".\Stack\Maze\Maze.c"
+					>
+				</File>
+				<File
+					RelativePath=".\Stack\Maze\Maze.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Stack\Maze\Test_Maze.c"
+					>
+				</File>
+				<File
+					RelativePath=".\Stack\Maze\Test_Maze.h"
+					>
+				</File>
+			</Filter>
 		</Filter>
 	</Files>
 	<Globals>

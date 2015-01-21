@@ -18,7 +18,7 @@
 
 int main(int argc, char *argv[])
 {
-	General_Test_Cases();
+	// General_Test_Cases();
 	Application_Demo();
 
 /******************************/
