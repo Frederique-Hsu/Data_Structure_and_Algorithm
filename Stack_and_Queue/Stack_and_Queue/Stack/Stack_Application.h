@@ -56,4 +56,6 @@
 
 	void Maze_Problem(void);
 
+	void Hanoi_Tower_Problem(void);
+
 #endif	/*  STACK_APPLICATION_H  */

@@ -13,6 +13,8 @@
 #include "Stack.h"
 #include "Maze/Test_Maze.h"
 
+#include "Test_Hanoi.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -37,7 +39,9 @@ void Stack_Applications(void)
 	Decimal_Convert2_Hexadecimal();
 	 */
 
-	Maze_Problem();
+	// Maze_Problem();
+
+	Hanoi_Tower_Problem();
 	return;
 }
 
@@ -284,4 +288,9 @@ void Maze_Problem(void)
 {
 	Test_Maze_Problem();
 	return;
+}
+
+void Hanoi_Tower_Problem(void)
+{
+	Demonstrate_Hanoi_Tower();
 }

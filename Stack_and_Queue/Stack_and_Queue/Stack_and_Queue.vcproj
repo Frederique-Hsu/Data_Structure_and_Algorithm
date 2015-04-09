@@ -202,6 +202,18 @@
 			Name="Stack"
 			>
 			<File
+				RelativePath=".\Stack\Hanoi.c"
+				>
+			</File>
+			<File
+				RelativePath=".\Stack\Hanoi.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Stack\Hanoi_Tower_Problem.c"
+				>
+			</File>
+			<File
 				RelativePath=".\Stack\Stack.c"
 				>
 			</File>
@@ -215,6 +227,14 @@
 			</File>
 			<File
 				RelativePath=".\Stack\Stack_Application.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Stack\Test_Hanoi.c"
+				>
+			</File>
+			<File
+				RelativePath=".\Stack\Test_Hanoi.h"
 				>
 			</File>
 			<File
