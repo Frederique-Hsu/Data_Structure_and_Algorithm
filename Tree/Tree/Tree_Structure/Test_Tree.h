@@ -1,18 +1,16 @@
 /******************************************************************************************
- * File name		: Test.h
- * Description		: Execute all test cases for current project.
+ * File name		: Test_Tree.h
+ * Description		: Test the tree structure and its algorithm.
  * Creator			: Frederick Hsu
- * Creation date	: Thur.	April 09, 2015
+ * Creation date	: Mon.	April 13, 2015
  * Copyright(C)		2015	All rights reserved.
  *
  ******************************************************************************************/
 
 
-#ifndef TEST_H
-#define TEST_H
+#ifndef TEST_TREE_H
+#define TEST_TREE_H
 
-	void Execute_General_Test_Cases(void);
+	void TestCase4_TreeManipulate(void);
 
-	void Execute_TestCase4_TreeManipulate(void);
-
-#endif	/*  TEST_H  */
+#endif	/*  TEST_TREE_H  */

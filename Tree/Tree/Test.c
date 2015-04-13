@@ -9,3 +9,15 @@
 
 
 #include "Test.h"
+#include "Tree_Structure/Test_Tree.h"
+
+void Execute_General_Test_Cases(void)
+{
+	Execute_TestCase4_TreeManipulate();
+}
+
+
+void Execute_TestCase4_TreeManipulate(void)
+{
+	TestCase4_TreeManipulate();
+}

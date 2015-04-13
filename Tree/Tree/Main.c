@@ -14,11 +14,12 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "Test.h"
 
 
 int main(int argc, char *argv[])
 {
-
+	Execute_General_Test_Cases();
 
 /******************************/
 	printf("\n");

@@ -190,11 +190,31 @@
 			Name="Tree_Structure"
 			>
 			<File
+				RelativePath=".\Tree_Structure\Stack.c"
+				>
+			</File>
+			<File
+				RelativePath=".\Tree_Structure\Stack.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Tree_Structure\Test_Tree.c"
+				>
+			</File>
+			<File
+				RelativePath=".\Tree_Structure\Test_Tree.h"
+				>
+			</File>
+			<File
 				RelativePath=".\Tree_Structure\Tree.c"
 				>
 			</File>
 			<File
 				RelativePath=".\Tree_Structure\Tree.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Tree_Structure\universal_definitions.h"
 				>
 			</File>
 		</Filter>
