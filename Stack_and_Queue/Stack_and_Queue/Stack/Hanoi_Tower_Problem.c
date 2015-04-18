@@ -21,14 +21,14 @@ void Hanoi(int				nDisks,
 	gTotalRecursiveSteps++;
 	if (nDisks == 1)
 	{
-		move(source_tower, 1, target_tower);
+		move_disk(source_tower, 1, target_tower);
 		Trigger2RefreshDisplay(*source_tower, *aux_tower, *target_tower);
 	}
 	else
 	{
 		Hanoi(nDisks-1, source_tower, target_tower, aux_tower);
 		Trigger2RefreshDisplay(*source_tower, *aux_tower, *target_tower);
-		move(source_tower, nDisks, target_tower);
+		move_disk(source_tower, nDisks, target_tower);
 		
 		Trigger2RefreshDisplay(*source_tower, *aux_tower, *target_tower);
 		

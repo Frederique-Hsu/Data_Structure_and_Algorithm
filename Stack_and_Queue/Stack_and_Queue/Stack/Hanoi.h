@@ -43,9 +43,9 @@
 			   Hanoi_Disk_Stack *aux_tower, 
 			   Hanoi_Disk_Stack *target_tower);
 
-	void move(Hanoi_Disk_Stack	*source_tower, 
-			  int				disk_n, 
-			  Hanoi_Disk_Stack	*target_tower);
+	void move_disk(Hanoi_Disk_Stack     *source_tower,
+    			   int                  disk_n,
+                   Hanoi_Disk_Stack     *target_tower);
 
 	void Trigger2RefreshDisplay(Hanoi_Disk_Stack source_tower,
 								Hanoi_Disk_Stack aux_tower,
