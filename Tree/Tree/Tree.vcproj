@@ -161,18 +161,62 @@
 			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
+			<File
+				RelativePath=".\Main.c"
+				>
+			</File>
+			<File
+				RelativePath=".\Test.c"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="&#22836;&#25991;&#20214;"
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
+			<File
+				RelativePath=".\Test.h"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="&#36164;&#28304;&#25991;&#20214;"
 			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
 			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
 			>
+		</Filter>
+		<Filter
+			Name="Tree_Structure"
+			>
+			<File
+				RelativePath=".\Tree_Structure\Stack.c"
+				>
+			</File>
+			<File
+				RelativePath=".\Tree_Structure\Stack.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Tree_Structure\Test_Tree.c"
+				>
+			</File>
+			<File
+				RelativePath=".\Tree_Structure\Test_Tree.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Tree_Structure\Tree.c"
+				>
+			</File>
+			<File
+				RelativePath=".\Tree_Structure\Tree.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Tree_Structure\universal_definitions.h"
+				>
+			</File>
 		</Filter>
 	</Files>
 	<Globals>
