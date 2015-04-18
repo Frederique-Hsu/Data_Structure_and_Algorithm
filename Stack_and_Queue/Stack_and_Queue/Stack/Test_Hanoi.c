@@ -14,8 +14,6 @@
 void Demonstrate_Hanoi_Tower(void)
 {
 	int n = 3;
-	int elem = 0;
-
 
 	Hanoi_Disk_Stack source_tower	= {NULL, NULL, 0, 0},
 					 aux_tower		= {NULL, NULL, 0, 0},
