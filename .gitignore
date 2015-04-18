@@ -20,6 +20,13 @@
 *.xcuserstate
 *.xccheckout
 *.xcuserdatad
+*.xcscheme
+*.xml
+*.bash
+*.inc
+*.properties
+*.xcworkspace
+*.xcworkspacedata
 
 /String/dist/
 /String/build/
@@ -63,3 +70,5 @@ private.xml
 
 
 /String/String/dist/
+/Tree/dist/
+/Tree_Test/dist/
