@@ -19,6 +19,12 @@
 *.suo
 *.xcuserstate
 *.xccheckout
+*.xcuserdatad
+*.xcscheme
+*.xml
+*.bash
+*.inc
+*.properties
 
 /String/dist/
 /String/build/
@@ -62,3 +68,5 @@ private.xml
 
 
 /String/String/dist/
+/Tree/dist/
+/Tree_Test/dist/
