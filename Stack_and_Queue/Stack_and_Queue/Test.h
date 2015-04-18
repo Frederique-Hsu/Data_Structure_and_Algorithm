@@ -14,5 +14,6 @@
 	void General_Test_Cases(void);
 
 	void TestCase_Stack(void);
+    void TestCase_Queue(void);
 
 #endif	/*  TEST_H  */

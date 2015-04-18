@@ -18,8 +18,8 @@
 
 int main(int argc, char *argv[])
 {
-	// General_Test_Cases();
-	Application_Demo();
+	General_Test_Cases();
+	// Application_Demo();
 
 /******************************/
 	printf("\n");
