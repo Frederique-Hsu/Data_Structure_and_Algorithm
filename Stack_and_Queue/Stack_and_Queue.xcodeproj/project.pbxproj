@@ -13,6 +13,8 @@
 		7B4F46841AE2265100DDCA8F /* Hanoi.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F467D1AE2265100DDCA8F /* Hanoi.c */; };
 		7B4F46851AE2265100DDCA8F /* Stack_Application.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F467F1AE2265100DDCA8F /* Stack_Application.c */; };
 		7B4F46861AE2265100DDCA8F /* Test_Hanoi.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F46811AE2265100DDCA8F /* Test_Hanoi.c */; };
+		7B4F46881AE235F600DDCA8F /* Queue.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F46871AE235F600DDCA8F /* Queue.c */; };
+		7B4F468C1AE2365000DDCA8F /* Test_Queue.c in Sources */ = {isa = PBXBuildFile; fileRef = 7B4F468B1AE2365000DDCA8F /* Test_Queue.c */; };
 		7F7DBC211A2193C5005B8FBE /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 7F7DBC201A2193C5005B8FBE /* main.c */; };
 		7F7DBC291A21A06A005B8FBE /* Test.c in Sources */ = {isa = PBXBuildFile; fileRef = 7F7DBC271A21A06A005B8FBE /* Test.c */; };
 		7F7DBC2C1A21A088005B8FBE /* Application.c in Sources */ = {isa = PBXBuildFile; fileRef = 7F7DBC2A1A21A088005B8FBE /* Application.c */; };
@@ -44,6 +46,10 @@
 		7B4F46801AE2265100DDCA8F /* Stack_Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stack_Application.h; path = Stack/Stack_Application.h; sourceTree = "<group>"; };
 		7B4F46811AE2265100DDCA8F /* Test_Hanoi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Test_Hanoi.c; path = Stack/Test_Hanoi.c; sourceTree = "<group>"; };
 		7B4F46821AE2265100DDCA8F /* Test_Hanoi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Test_Hanoi.h; path = Stack/Test_Hanoi.h; sourceTree = "<group>"; };
+		7B4F46871AE235F600DDCA8F /* Queue.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Queue.c; path = Queue/Queue.c; sourceTree = "<group>"; };
+		7B4F46891AE2360C00DDCA8F /* Queue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Queue.h; path = Queue/Queue.h; sourceTree = "<group>"; };
+		7B4F468A1AE2363B00DDCA8F /* Test_Queue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Test_Queue.h; path = Queue/Test_Queue.h; sourceTree = "<group>"; };
+		7B4F468B1AE2365000DDCA8F /* Test_Queue.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = Test_Queue.c; path = Queue/Test_Queue.c; sourceTree = "<group>"; };
 		7F7DBC1D1A2193C5005B8FBE /* Stack_and_Queue */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Stack_and_Queue; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F7DBC201A2193C5005B8FBE /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		7F7DBC271A21A06A005B8FBE /* Test.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Test.c; sourceTree = "<group>"; };
@@ -132,6 +138,10 @@
 		7F7DBC2E1A21A0BE005B8FBE /* Queue */ = {
 			isa = PBXGroup;
 			children = (
+				7B4F46871AE235F600DDCA8F /* Queue.c */,
+				7B4F46891AE2360C00DDCA8F /* Queue.h */,
+				7B4F468A1AE2363B00DDCA8F /* Test_Queue.h */,
+				7B4F468B1AE2365000DDCA8F /* Test_Queue.c */,
 			);
 			name = Queue;
 			sourceTree = "<group>";
@@ -201,6 +211,8 @@
 				7B4F467A1AE225FA00DDCA8F /* Maze.c in Sources */,
 				7F7DBC211A2193C5005B8FBE /* main.c in Sources */,
 				7B4F46831AE2265100DDCA8F /* Hanoi_Tower_Problem.c in Sources */,
+				7B4F468C1AE2365000DDCA8F /* Test_Queue.c in Sources */,
+				7B4F46881AE235F600DDCA8F /* Queue.c in Sources */,
 				7F7DBC311A21A589005B8FBE /* Stack.c in Sources */,
 				7F7DBC291A21A06A005B8FBE /* Test.c in Sources */,
 			);
