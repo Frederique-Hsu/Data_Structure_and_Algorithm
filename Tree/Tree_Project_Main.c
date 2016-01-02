@@ -13,10 +13,11 @@
 
 
 #include <stdio.h>
+#include "Test.h"
 
 int main(int argc, char *argv[])
 {
-    
+    printf("Hello, this is the 1st project which is fully built on WebIDE environment.");
 /******************************/
     printf("\n");
     return 0;
