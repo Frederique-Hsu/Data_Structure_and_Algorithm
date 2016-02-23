@@ -11,6 +11,7 @@
 #include "Tree.h"
 #include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 
 int PreOrderTraverse(BiTree T, int (*visit)(TElemType e))
@@ -52,7 +53,7 @@ int CreateBiTree(BiTree *T)
 	char sNum[16] = {0};
 	printf("Please enter a number for one tree node (null to terminate): ");
 	scanf("%s", sNum);
-	if (!stricmp(sNum, "null"))
+	if (!strcmp(sNum, "null"))
 	{
 		(*T) = NULL;
 	}
@@ -91,7 +92,7 @@ void BiTreeTraverse(BiTree T, void (*VisitNode)(BiTree T))
 void PrintBiTreeNode(BiTree T)
 {
 	printf(" 0x%08X	| %d	| 0x%08X	| 0x%08X	|\n", 
-		   T, T->data, T->lchild, T->rchild);
+		   T, (T->data), (T->lchild), (T->rchild));
 	printf("-------------------------------------------------------------------------\n");
 	return;
 }
