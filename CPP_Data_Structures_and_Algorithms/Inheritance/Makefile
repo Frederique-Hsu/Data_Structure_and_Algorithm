@@ -12,8 +12,8 @@
 OBJS = main.o test.o BaseClass.o Derived1Level1.o Derived2Level1.o DerivedLevel2.o
 
 
-Inheritance : $(OBJS)
-	g++ $(OBJS) -o Inheritance
+Inheritance.o : $(OBJS)
+	g++ $(OBJS) -o Inheritance.o
 
 
 main.o : main.cpp test.h
@@ -36,4 +36,4 @@ DerivedLevel2.o : DerivedLevel2.cpp DerivedLevel2.h
 
 .PHONY : clean
 clean :
-	-rm -f $(OBJS) Inheritance
+	-rm -f $(OBJS) Inheritance.o
