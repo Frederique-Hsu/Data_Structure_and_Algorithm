@@ -26,6 +26,10 @@
 *.inc
 *.properties
 *.xcworkspace
+*.tlog
+*.log
+*.sdf
+*.filters
 
 
 /String/dist/
