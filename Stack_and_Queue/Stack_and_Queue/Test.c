@@ -11,10 +11,13 @@
 #include "Test.h"
 
 #include "Stack/Test_Stack.h"
+#include "Queue/Test_Queue.h"
 
 void General_Test_Cases(void)
 {
-	TestCase_Stack();
+	// TestCase_Stack();
+    
+    TestCase_Queue();
 	return;
 }
 
@@ -22,4 +25,9 @@ void General_Test_Cases(void)
 void TestCase_Stack(void)
 {
 	Test_Stack_Operations();
+}
+
+void TestCase_Queue(void)
+{
+    TestCase4_ManipulateQueue();
 }

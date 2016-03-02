@@ -235,8 +235,6 @@ Status Pop(SqStack *S, SElemType *e)
  * 用e返回其值，並返回OK, 否則就返回ERROR.
  */
 {
-	SElemType *pSpace2BeFreed = NULL;
-	
 	if (S->top == S->base)
 	{
 	/* At this condition of S->top == S->base, 

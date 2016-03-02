@@ -145,7 +145,7 @@ static void Print_Disk_Line(int a, int b, int c)
 		sprintf(str2, "%s	| %d	|\n", str1, c);
 	}
 
-	printf(str2);
+	printf("%s", str2);
 	return;
 }
 
@@ -182,8 +182,6 @@ int Push_HanoiTowerDiskStack(Hanoi_Disk_Stack *disk_stack, int elem)
 
 int Pop_HanoiTowerDiskStack(Hanoi_Disk_Stack *disk_stack, int *elem)
 {
-	int len = disk_stack->actual_length, size = disk_stack->stacksize;
-
 	*elem = *(disk_stack->top);
 	disk_stack->actual_length -= 1;
 	*(disk_stack->top) = 0;		// Reset the top to 0
@@ -192,9 +190,9 @@ int Pop_HanoiTowerDiskStack(Hanoi_Disk_Stack *disk_stack, int *elem)
 	return OK;
 }
 
-void move(Hanoi_Disk_Stack	*source_tower, 
-		  int				disk_n, 
-		  Hanoi_Disk_Stack	*target_tower)
+void move_disk(Hanoi_Disk_Stack     *source_tower,
+               int                  disk_n,
+               Hanoi_Disk_Stack     *target_tower)
 {
 	int elem = 0;
 	Pop_HanoiTowerDiskStack(source_tower, &elem);
@@ -209,7 +207,7 @@ void move(Hanoi_Disk_Stack	*source_tower,
 
 int Check_HanoiTowerDiskOverlapRule(Hanoi_Disk_Stack disk_stack)
 {
-	int len = disk_stack.actual_length, size = disk_stack.stacksize;
+	int size = disk_stack.stacksize;
 	int i = 0;
 	int result = 0;
 

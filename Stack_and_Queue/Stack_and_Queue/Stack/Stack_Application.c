@@ -210,12 +210,12 @@ void Display_Char_Stack(CharStack CStack)
 			break;
 		}
 	}
-	printf("Stack length		| %d characters	\n");
+	printf("Stack length		|  %d characters	\n", CStack.actual_stack_length);
 	printf("--------------------------------------------------------------------------\n");
-	printf("Stack space size	| %d * %d = %d bytes	\n", 
-		CStack.char_stack_size, 
-		sizeof(char), 
-		(CStack.char_stack_size)*sizeof(char));
+	printf("Stack space size	| %d * %d = %d bytes	\n",
+           CStack.char_stack_size,
+           sizeof(char),
+           (CStack.char_stack_size)*sizeof(char));
 	printf("--------------------------------------------------------------------------\n");
 	return;
 }
