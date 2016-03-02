@@ -36,6 +36,10 @@
 *.properties
 *.xcworkspace
 *.xcworkspacedata
+*.tlog
+*.log
+*.sdf
+*.filters
 
 /String/dist/
 /String/build/
