@@ -18,7 +18,7 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-	performInheritanceTestCases();
+	performTestCases();
 /*******************************/
 	cout<<endl;
 	return 0;

@@ -10,6 +10,9 @@
 #ifndef TEST_H
 #define TEST_H
 
+    void performTestCases(void);
+
  	void performInheritanceTestCases(void);
+ 	void performPolymorphismTestCases(void);
 
 #endif	/*  TEST_H  */

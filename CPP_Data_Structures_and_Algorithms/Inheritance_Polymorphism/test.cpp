@@ -13,6 +13,13 @@
 #include "Derived1Level1.h"
 #include "Derived2Level1.h"
 #include "DerivedLevel2.h"
+#include "Polymorphism.h"
+
+void performTestCases(void)
+{
+    performInheritanceTestCases();
+    performPolymorphismTestCases();
+}
 
 void performInheritanceTestCases(void)
 {
@@ -22,7 +29,7 @@ void performInheritanceTestCases(void)
 	DerivedLevel2 dl2;
 
 	bc.f("main(1)");
-	// bc.g();		// error : BaseClass::g() is not accessible
+	// bc.g();		// error : BaseClass::g() is not accessiblels
 	// bc.h();		// error : BaseClass::h() is not accessible
 	
 	d1l1.f("main(2)");
@@ -38,4 +45,27 @@ void performInheritanceTestCases(void)
 	dl2.h();
 
 	return;
+}
+
+
+void performPolymorphismTestCases(void)
+{
+    Class1 object1, *p;
+    Class2 object2;
+    Class3 object3;
+    
+    p = &object1;
+    p->f();
+    p->g();
+    
+    p = (Class1 *)&object2;
+    p->f();
+    p->g();
+    
+    p = (Class1 *)&object3;
+    p->f();  // Possibly abnormal program termination
+    p->g();
+    // p->h();  // h() is not a member of Class1
+    
+    return;
 }

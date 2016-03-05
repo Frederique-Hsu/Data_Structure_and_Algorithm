@@ -9,7 +9,7 @@
 #==========================================================================
 
 
-OBJS = main.o test.o BaseClass.o Derived1Level1.o Derived2Level1.o DerivedLevel2.o
+OBJS = main.o test.o BaseClass.o Derived1Level1.o Derived2Level1.o DerivedLevel2.o Polymorphism.o
 
 
 Inheritance_Polymorphism.o : $(OBJS)
@@ -19,7 +19,7 @@ Inheritance_Polymorphism.o : $(OBJS)
 main.o : main.cpp test.h
 	g++ -c main.cpp
 
-test.o : test.cpp test.h Derived1Level1.h Derived2Level1.h DerivedLevel2.h
+test.o : test.cpp test.h Derived1Level1.h Derived2Level1.h DerivedLevel2.h Polymorphism.h
 	g++ -c test.cpp
 
 BaseClass.o : BaseClass.cpp BaseClass.h
@@ -39,4 +39,4 @@ Polymorphism.o : Polymorphism.cpp Polymorphism.h
 
 .PHONY : clean
 clean :
-	-rm -f $(OBJS) Inheritance.o
+	-rm -f $(OBJS) Inheritance.o *.o
