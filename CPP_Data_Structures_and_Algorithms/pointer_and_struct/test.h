@@ -12,4 +12,10 @@
 
  	void performTestCases(void);
 
+ 	void performStructTestCases(void);
+ 	void performQuotedVariable(void);
+
+ 	void destroyEncapsulationbByQuotedVariable(void);
+ 	void testFunctionPointer(void);
+
 #endif	/*  TEST_H  */
