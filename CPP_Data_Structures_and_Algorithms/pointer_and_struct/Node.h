@@ -15,6 +15,10 @@
  		char *name;
  		int age;
  		Node(char *n = " ", int a = 0);
+ 		Node(const Node& n);
+ 		~Node(void);
+
+ 		Node& operator=(const Node& n);
  	};
 
 #endif	/*  NODE_H  */
