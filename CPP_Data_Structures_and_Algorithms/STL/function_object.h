@@ -21,4 +21,15 @@
 
  	double sum2(classf cf, int n, int m);
 
+ 	class classf2
+ 	{
+ 	private:
+ 	public:
+ 		classf2(void);
+ 		double run(double x);
+ 	protected:
+ 	};
+
+ 	double sum3(classf2 obj, int n, int m);
+
 #endif	/*  FUNCTION_OBJECT_H  */
