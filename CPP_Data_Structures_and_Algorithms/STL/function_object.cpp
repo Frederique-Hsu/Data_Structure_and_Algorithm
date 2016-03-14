@@ -32,3 +32,23 @@ double sum2(classf func, int n, int m)
 	}
 	return result;
 }
+
+classf2::classf2(void)
+{
+	// Empty
+}
+
+double classf2::run(double x)
+{
+	return 2*x;
+}
+
+double sum3(classf2 obj, int n, int m)
+{
+	double result = 0.00;
+	for (int i = n; i <= m; i++)
+	{
+		result += obj.run(i);
+	}
+	return result;
+}
