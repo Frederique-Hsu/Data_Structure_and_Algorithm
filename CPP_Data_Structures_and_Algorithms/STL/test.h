@@ -13,4 +13,6 @@
 
  	void performTestCases(void);
 
+ 	void testCases4FunctionObject(void);
+
 #endif	/*  TEST_H  */

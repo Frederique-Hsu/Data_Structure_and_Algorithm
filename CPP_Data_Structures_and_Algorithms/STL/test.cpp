@@ -9,8 +9,15 @@
 
 
 #include "test.h"
+#include "test_function_object.h"
+
 
 void performTestCases(void)
 {
-	
+	testCases4FunctionObject();
+}
+
+void testCases4FunctionObject(void)
+{
+	callFunctionObject();
 }
