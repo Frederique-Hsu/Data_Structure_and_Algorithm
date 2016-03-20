@@ -14,5 +14,7 @@
  	void performTestCases(void);
 
  	void testCases4FunctionObject(void);
+ 	
+ 	void testCase4VectorFunctionHandling(void);
 
 #endif	/*  TEST_H  */

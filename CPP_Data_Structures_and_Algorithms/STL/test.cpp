@@ -10,14 +10,21 @@
 
 #include "test.h"
 #include "test_function_object.h"
+#include "vector_function_handling.h"
 
 
 void performTestCases(void)
 {
 	testCases4FunctionObject();
+	testCase4VectorFunctionHandling();
 }
 
 void testCases4FunctionObject(void)
 {
 	callFunctionObject();
+}
+
+void testCase4VectorFunctionHandling(void)
+{
+    performTesting4VectorFcnt();
 }
