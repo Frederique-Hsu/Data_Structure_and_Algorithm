@@ -12,6 +12,15 @@
 *.pdb
 *.d
 *.o
+*.opensdf
+*.sdf
+*.filters
+*.idb
+*.log
+*.tlog
+*.lastbuildstate
+
+
 *.user
 *build*
 *.DS_Store
@@ -26,7 +35,11 @@
 *.inc
 *.properties
 *.xcworkspace
-
+*.xcworkspacedata
+*.tlog
+*.log
+*.sdf
+*.filters
 
 /String/dist/
 /String/build/
