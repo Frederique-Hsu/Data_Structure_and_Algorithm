@@ -52,3 +52,6 @@ double sum3(classf2 obj, int n, int m)
 	}
 	return result;
 }
+
+
+

@@ -31,5 +31,27 @@
  	};
 
  	double sum3(classf2 obj, int n, int m);
-
+ 	
+ 	template<class F>
+ 	double sum(F f, int n, int m)
+ 	{
+ 	    double result = 0;
+ 	    for (int i = n; i <= m; i++)
+ 	    {
+ 	        result += f(i);
+ 	    }
+ 	    return result;
+ 	}
+ 	
+#if 0
+ 	template<class T>
+ 	struct negate::public unary_function<T, T>
+ 	{
+ 	    T operator()(const T& x) const
+ 	    {
+ 	        return -x;
+ 	    }
+ 	};
+#endif
+ 	
 #endif	/*  FUNCTION_OBJECT_H  */
