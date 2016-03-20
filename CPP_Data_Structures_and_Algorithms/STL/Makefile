@@ -9,7 +9,8 @@
 #==============================================================================
 
 
-OBJS = main.o test.o function_object.o test_function_object.o
+OBJS = main.o test.o function_object.o test_function_object.o \
+vector_function_handling.o
 
 STL.o : $(OBJS)
 	g++ $(OBJS) -o STL.o
@@ -18,7 +19,7 @@ STL.o : $(OBJS)
 main.o : main.cpp test.h
 	g++ -c main.cpp
 
-test.o : test.cpp test.h
+test.o : test.cpp test.h test_function_object.h vector_function_handling.h
 	g++ -c test.cpp
 
 function_object.o : function_object.cpp function_object.h
@@ -26,6 +27,9 @@ function_object.o : function_object.cpp function_object.h
 
 test_function_object.o : test_function_object.cpp test_function_object.h
 	g++ -c test_function_object.cpp
+
+vector_function_handling.o : vector_function_handling.cpp vector_function_handling.h
+	g++ -c vector_function_handling.cpp
 
 .PHONY : clean
 clean :
