@@ -10,7 +10,7 @@
 
 
 OBJS = main.o test.o function_object.o test_function_object.o \
-vector_function_handling.o
+vector_function_handling.o Person.o
 
 STL.o : $(OBJS)
 	g++ $(OBJS) -o STL.o
@@ -30,6 +30,9 @@ test_function_object.o : test_function_object.cpp test_function_object.h
 
 vector_function_handling.o : vector_function_handling.cpp vector_function_handling.h
 	g++ -c vector_function_handling.cpp
+
+Person.o : Person.cpp Person.h
+	g++ -c Person.cpp
 
 .PHONY : clean
 clean :
