@@ -28,7 +28,7 @@ function_object.o : function_object.cpp function_object.h
 test_function_object.o : test_function_object.cpp test_function_object.h
 	g++ -c test_function_object.cpp
 
-vector_function_handling.o : vector_function_handling.cpp vector_function_handling.h
+vector_function_handling.o : vector_function_handling.cpp vector_function_handling.h Person.h
 	g++ -c vector_function_handling.cpp
 
 Person.o : Person.cpp Person.h
