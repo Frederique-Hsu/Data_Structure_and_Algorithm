@@ -21,7 +21,7 @@ void performProjectTestCases(void)
 
 void testCase4RandomAccessFile(void)
 {
-	// Database<Personal> test;
+	Database<Personal>().run();
 	// test.run();
 
 	// Database<Student>().run();
