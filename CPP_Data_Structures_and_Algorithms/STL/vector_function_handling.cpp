@@ -77,13 +77,13 @@ void performTesting4VectorFcnt(void)
     v5.front() = 2;
     printVector("v5", v5);
 
-    vector<Person> v6(1, Person("Gregg", 25));
-    v6.push_back(Person("Ann", 30));
-    v6.push_back(Person("Bill", 20));
+    // vector<Person> v6(1, Person("Gregg", 25));
+    // v6.push_back(Person("Ann", 30));
+    // v6.push_back(Person("Bill", 20));
 
-    sort(v6.begin(), v6.end());
-    sort(v6.begin(), v6.end(), greater<Person>());
-    sort(v6.begin(), v6.end(), lesserAge);
+    // sort(v6.begin(), v6.end());
+    // sort(v6.begin(), v6.end(), greater<Person>());
+    // sort(v6.begin(), v6.end(), lesserAge);
     
     return;
 }
