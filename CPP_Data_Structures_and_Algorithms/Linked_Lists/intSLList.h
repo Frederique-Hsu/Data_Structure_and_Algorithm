@@ -11,6 +11,8 @@
 #define INT_SINGLY_LINKED_LIST_H
 
     #include <cstdlib>
+ 
+    /*********************************************************************************************/
 
     class IntSLLNode    // Just one Node of a Linked List
     {
@@ -24,7 +26,9 @@
     protected:
     };
 
-    class IntSLList
+    /*********************************************************************************************/
+
+    class IntSLList     // The linked_list chain, not the independent node
     {
     private:
         IntSLLNode *head;   // head node
