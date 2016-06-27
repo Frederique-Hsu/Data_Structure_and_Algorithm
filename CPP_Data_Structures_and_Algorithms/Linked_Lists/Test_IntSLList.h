@@ -10,5 +10,6 @@
 #ifndef TEST_INTSLLIST_H
 #define TEST_INTSLLIST_H
 
+    void testCase4_VerifySLList(void);
 
 #endif  /* TEST_INTSLLIST_H */
