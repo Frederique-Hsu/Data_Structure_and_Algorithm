@@ -248,3 +248,107 @@ bool IntSLList::isInList(int elem) const
     return (tmp != NULL);
 #endif
 }
+
+unsigned int IntSLList::lengthOfList(void)
+{
+    unsigned int l_uilen = 0;
+    IntSLLNode *pNode = head;
+    while (pNode != NULL)
+    {
+        pNode = pNode->next;
+        l_uilen++;
+    }
+    return l_uilen;
+}
+
+IntSLLNode* IntSLList::locatePosition(int positionN)
+{
+    unsigned int uiLen = lengthOfList(), uiCnt = 0;
+    if ((positionN < 0) || (positionN > uiLen))
+    {
+        return NULL;
+    }
+
+    IntSLLNode *pNode = head;
+    for ( pNode = head;
+          ((pNode != NULL) && (uiCnt < positionN));
+          pNode = pNode->next )
+    {
+        uiCnt++;
+    }
+    return pNode;
+}
+
+int IntSLList::deleteNthNode(int positionN)
+{
+    if ((positionN <= 0) || (positionN > lengthOfList()))
+    {
+        return ((-1)*positionN);
+    }
+
+    if (positionN == 1)
+        deleteFromHead();
+    else if (positionN == lengthOfList())
+        deleteFromTail();
+    else
+    {
+        unsigned int uiCnt = 0;
+        IntSLLNode *pNode = head;
+        while (pNode != NULL)
+        {
+            if (uiCnt == positionN)
+            {
+                break;
+            }
+            pNode = pNode->next;
+            uiCnt++;
+        }
+        IntSLLNode *predecessor_next = pNode,
+                   *successor        = pNode->next;
+        predecessor_next = successor;
+        delete pNode;
+
+    }
+    return 0;
+}
+
+int IntSLList::insertAfterNode(int elem, int afterPosNth)
+{
+    if ((afterPosNth <= 0) || (afterPosNth > lengthOfList()))
+        return ((-1)*afterPosNth);
+
+    unsigned int uiCnt = 0;
+    IntSLLNode *pNode = head;
+    for (pNode = head, uiCnt = 0;
+         ((pNode != NULL) && (uiCnt <= afterPosNth));
+         pNode = pNode->next, uiCnt++);
+    IntSLLNode *pNewNode = new IntSLLNode(elem);
+    IntSLLNode *successor = pNode->next;
+    pNode->next = pNewNode;
+    pNewNode->next = successor;
+
+    return 0;
+}
+
+int IntSLList::insertBeforeNode(int elem, int beforePosNth)
+{
+    if ((beforePosNth < 0) || (beforePosNth > lengthOfList()))
+        return ((-1)*beforePosNth);
+
+    IntSLLNode *pNode = head, *pNewNode = new IntSLLNode(elem);
+    unsigned int uiCnt = 0;
+    while (pNode != NULL)
+    {
+        pNode = pNode->next;
+        uiCnt++;
+        if (uiCnt == beforePosNth)
+        {
+            break;
+        }
+    }
+    IntSLLNode *predecessor_next = pNode;
+    predecessor_next = pNewNode;
+    pNewNode->next = pNode;
+
+    return 0;
+}
