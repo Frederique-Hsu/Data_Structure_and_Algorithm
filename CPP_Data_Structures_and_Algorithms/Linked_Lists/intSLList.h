@@ -40,11 +40,16 @@
         int isEmpty(void);
         void addToHead(int);
         void addToTail(int);
+        int insertBeforeNode(int elem, int beforePosNth);
+        int insertAfterNode(int elem, int afterPosNth);
         int deleteFromHead(void);
         int deleteFromTail(void);
         void deleteNode(int);
+        int deleteNthNode(int positionN);
         bool isInList(int) const;
 
+        unsigned int lengthOfList(void);
+        IntSLLNode* locatePosition(int positionN);
         void printListChain(void);
     protected:
     };
