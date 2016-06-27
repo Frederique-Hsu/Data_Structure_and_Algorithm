@@ -9,6 +9,7 @@
 
 #include "intSLList.h"
 #include <iostream>
+#include <cerrno>
 
 IntSLLNode::IntSLLNode(void)
 {
@@ -80,6 +81,12 @@ void IntSLList::addToTail(int el)
 
 int IntSLList::deleteFromHead(void)
 {
+    // assert(!isEmpty());      // Terminate the program if false
+    if (isEmpty())
+    {
+        throw ("Empty");
+    }
+
     int elem = head->info;          // Stash the info of head node
     IntSLLNode *tmpNode = head;     // and the head node pointer.
 
@@ -98,48 +105,59 @@ int IntSLList::deleteFromHead(void)
 
 int IntSLList::deleteFromTail(void)
 {
-   int elem = tail->info;
-   if (head == tail)    // Only 1 node in the list chain
-   {
+    if (isEmpty())
+    {
+        throw ("Empty");
+    }
+
+    int elem = tail->info;
+    if (head == tail)    // Only 1 node in the list chain
+    {
        delete head;
        head = NULL;
        tail = NULL;
-   }
-   else
-   {
+    }
+    else
+    {
        IntSLLNode *tmpNode = NULL;
-#if 0
+    #if 0
        for (tmpNode = head; tmpNode->next != tail; tmpNode = tmpNode->next)
        {
            ;    // Move to the previous node of tail.
        }
-#else
+    #else
        tmpNode = head;
        do
        {
            tmpNode = tmpNode ->next;
        }
        while (tmpNode->next != tail);   // Move position, till the predecessor of tail node.
-#endif
+    #endif
        delete tail;
        tail = tmpNode;  // the predecessor of tail becomes the tail.
        tail->next = NULL;
-   }
-   return elem;
+    }
+    return elem;
 }
 
 void IntSLList::printListChain(void)
 {
     IntSLLNode *pNode = head;
+
+    std::printf("\n\n");
+    std::printf(" Curr. node	| Data		| Next node		\n");
+    std::printf("------------------------------------------------------------------\n");
     while (pNode != NULL)
     {
-        std::printf(" 0x%016X   | %d    | 0x016X    \n", 
+        std::printf(" 0x%08X	| %d		| 0x%08X    \n",
                     pNode, 
                     pNode->info, 
                     pNode->next);
-
+        std::printf("------------------------------------------------------------------\n");
         pNode = pNode->next;
     }
+
+    std::printf("\n\n");
 }
 
 void IntSLList::deleteNode(int elem)
