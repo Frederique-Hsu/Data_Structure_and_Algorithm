@@ -8,9 +8,11 @@
  *************************************************************************************************/
 
 #include "intSLList.h"
+#include <iostream>
 
 IntSLLNode::IntSLLNode(void)
 {
+    info = 0;
     next = NULL;
 }
 
@@ -74,4 +76,175 @@ void IntSLList::addToTail(int el)
         tail = new IntSLLNode(el);
         head = tail;    // head and tail point to the same node, it means only 1 node now.
     }
+}
+
+int IntSLList::deleteFromHead(void)
+{
+    int elem = head->info;          // Stash the info of head node
+    IntSLLNode *tmpNode = head;     // and the head node pointer.
+
+    if (head == tail)
+    {
+        head = NULL;
+        tail = NULL;
+    }
+    else
+    {
+        head = head->next;      // Move to next node
+    }
+    delete tmpNode;     // Remove the head node
+    return elem;
+}
+
+int IntSLList::deleteFromTail(void)
+{
+   int elem = tail->info;
+   if (head == tail)    // Only 1 node in the list chain
+   {
+       delete head;
+       head = NULL;
+       tail = NULL;
+   }
+   else
+   {
+       IntSLLNode *tmpNode = NULL;
+#if 0
+       for (tmpNode = head; tmpNode->next != tail; tmpNode = tmpNode->next)
+       {
+           ;    // Move to the previous node of tail.
+       }
+#else
+       tmpNode = head;
+       do
+       {
+           tmpNode = tmpNode ->next;
+       }
+       while (tmpNode->next != tail);   // Move position, till the predecessor of tail node.
+#endif
+       delete tail;
+       tail = tmpNode;  // the predecessor of tail becomes the tail.
+       tail->next = NULL;
+   }
+   return elem;
+}
+
+void IntSLList::printListChain(void)
+{
+    IntSLLNode *pNode = head;
+    while (pNode != NULL)
+    {
+        std::printf(" 0x%016X   | %d    | 0x016X    \n", 
+                    pNode, 
+                    pNode->info, 
+                    pNode->next);
+
+        pNode = pNode->next;
+    }
+}
+
+void IntSLList::deleteNode(int elem)
+{
+#if 0   // From Frederick's implementation
+    IntSLLNode *tmpNode = head;
+    if ((head == tail) && (head->info == elem))
+    {
+        delete head;
+        head = NULL;
+        tail = NULL;
+        return;
+    }
+    while (tmpNode != NULL)         // Search the entire list chain
+    {
+        if (tmpNode->info == elem)  // Find and check whether one node's info is identical to elem?
+        {
+            break;
+        }
+        tmpNode = tmpNode->next;    // Move to next node consecutively
+    }
+    if (tmpNode == NULL)
+    {
+        return;     // No node found to meet info == elem, so directly quit.
+    }
+    else
+    {
+        IntSLLNode *successor = tmpNode->next;
+        if (tmpNode == head)
+        {
+            delete head;
+            head = successor;
+            return;
+        }
+        else if (tmpNode == tail)
+        {
+            delete tmpNode;
+            tail = NULL;
+            return;
+        }
+        else
+        {
+            delete tmpNode;
+            tmpNode = successor;
+            return;
+        }
+    }
+    return;
+#else
+    if (head != NULL)   // Non-empty list chain
+    {
+        if ((head == tail) && (elem == head->info))     // Only 1 node in the list chain
+        {
+            delete head;
+            head = NULL;
+            tail = NULL;
+        }
+        else if (elem == head->info)    // If more than 1 node in the list chain
+        {
+            IntSLLNode *tmpNode = head;
+            head = head->next;
+            delete tmpNode;     // and old head node is deleted.
+        }
+        else
+        {
+            IntSLLNode *pred, *tmp;
+            for (pred = head, tmp = head->next;
+                 ((tmp != NULL) && (elem == tmp->info));
+                 pred = pred->next, tmp = tmp->next)
+            {
+                ;
+            }
+            if (tmp != NULL)
+            {
+                pred->next = tmp->next;
+                if (tmp == tail)
+                {
+                    tail = pred;
+                }
+                delete tmp;
+            }
+        }
+    }
+#endif
+}
+
+bool IntSLList::isInList(int elem) const
+{
+#if 1
+    IntSLLNode *pNode = head;
+    while (pNode != NULL)
+    {
+        if (pNode->info == elem)
+        {
+            return true;
+        }
+        pNode = pNode->next;
+    }
+    if (pNode == NULL)
+    {
+        return false;
+    }
+#else
+    IntSLLNode *tmp;
+    for (tmp = head; ((tmp != NULL) && !(elem == tmp->info)); tmp = tmp->next);
+    return (tmp != NULL);
+#endif
 }
