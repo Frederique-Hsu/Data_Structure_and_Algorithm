@@ -44,6 +44,8 @@
         int deleteFromTail(void);
         void deleteNode(int);
         bool isInList(int) const;
+
+        void printListChain(void);
     protected:
     };
 
