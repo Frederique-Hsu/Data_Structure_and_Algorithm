@@ -8,6 +8,7 @@
  *************************************************************************************************/
 
 #include "test.h"
+#include "Test_IntSLList.h"
 
 void performProjectTestCases(void)
 {
