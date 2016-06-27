@@ -12,4 +12,6 @@
 
     void performProjectTestCases(void);
 
+    void perform_SLList_TestCases(void);
+
 #endif  /* TEST_H */
