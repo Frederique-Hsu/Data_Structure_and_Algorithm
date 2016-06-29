@@ -40,8 +40,8 @@
 *.log
 *.sdf
 *.filters
-*.cproject
-*.project
+# *.cproject
+# *.project
 # *.pbxproj
 *.xcbkptlist
 *.xcscheme
