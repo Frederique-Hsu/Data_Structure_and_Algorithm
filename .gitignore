@@ -42,7 +42,7 @@
 *.filters
 *.cproject
 *.project
-*.pbxproj
+# *.pbxproj
 *.xcbkptlist
 *.xcscheme
 *.plist
