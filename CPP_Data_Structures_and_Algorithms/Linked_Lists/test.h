@@ -1,17 +1,13 @@
-/*************************************************************************************************
- * File name    : test.h
- * Description  : Perform the test cases here.
- * Creator      : Frederick Hsu
- * Creation date: Sun.  26 June, 2016
- * Copyright(C) 2016    All rights reserved.
- *
- *************************************************************************************************/
+//
+//  test.h
+//  Linked_Lists
+//
+//  Created by 徐贊 (Frédérick Hsu) on 16/6/29.
+//  Copyright © 2016年 Frédérick Hsu. All rights reserved.
+//
 
-#ifndef TEST_H
-#define TEST_H
+#ifndef test_h
+#define test_h
 
-    void performProjectTestCases(void);
 
-    void perform_SLList_TestCases(void);
-
-#endif  /* TEST_H */
+#endif /* test_h */
