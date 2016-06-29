@@ -42,7 +42,13 @@
 *.filters
 *.cproject
 *.project
-*.xcodeproj/*.*
+*.pbxproj
+*.xcbkptlist
+*.xcscheme
+*.plist
+*.xcworkspacedata
+*.xcuserdatad
+
 
 /String/dist/
 /String/build/
