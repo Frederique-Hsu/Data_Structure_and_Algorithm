@@ -1,17 +1,15 @@
 /*************************************************************************************************
- * File name    : test.h
- * Description  : Perform the test cases here.
+ * File name    : Test_IntSLList.h
+ * Description  : Design some unit test cases to verify the Singly Linked Lists.
  * Creator      : Frederick Hsu
- * Creation date: Sun.  26 June, 2016
+ * Creation date: Mon.  27 June, 2016
  * Copyright(C) 2016    All rights reserved.
  *
  *************************************************************************************************/
 
-#ifndef TEST_H
-#define TEST_H
+#ifndef TEST_INTSLLIST_H
+#define TEST_INTSLLIST_H
 
-void performProjectTestCases(void);
+void testCase4_VerifySLList(void);
 
-void perform_SLList_TestCases(void);
-
-#endif  /* TEST_H */
+#endif  /* TEST_INTSLLIST_H */
