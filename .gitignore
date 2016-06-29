@@ -40,6 +40,9 @@
 *.log
 *.sdf
 *.filters
+*.cproject
+*.project
+*.xcodeproj/*.*
 
 /String/dist/
 /String/build/
