@@ -12,6 +12,15 @@
 *.pdb
 *.d
 *.o
+*.opensdf
+*.sdf
+*.filters
+*.idb
+*.log
+*.tlog
+*.lastbuildstate
+
+
 *.user
 *build*
 *.DS_Store
@@ -26,6 +35,20 @@
 *.inc
 *.properties
 *.xcworkspace
+*.xcworkspacedata
+*.tlog
+*.log
+*.sdf
+*.filters
+*.cproject
+*.project
+*.metadata
+# *.pbxproj
+*.xcbkptlist
+*.xcscheme
+*.plist
+*.xcworkspacedata
+*.xcuserdatad
 
 
 /String/dist/

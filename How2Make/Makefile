@@ -11,8 +11,8 @@
 
 OBJS = main.o kbd.o command.o display.o insert.o search.o files.o utils.o
 
-How2Make : $(OBJS)
-	gcc $(OBJS) -o How2Make
+How2Make.o : $(OBJS)
+	gcc $(OBJS) -o How2Make.o
 
 main.o : main.c defs.h
 	gcc -c main.c
@@ -41,4 +41,4 @@ utils.o : utils.c defs.h
 
 
 clean :
-	rm How2Make $(OBJS)
+	rm How2Make.o $(OBJS)
