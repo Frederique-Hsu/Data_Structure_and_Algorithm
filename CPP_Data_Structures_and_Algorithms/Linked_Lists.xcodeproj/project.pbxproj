@@ -11,6 +11,7 @@
 		7BAFD11A1D24329400B6B4EC /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7BAFD1171D24329400B6B4EC /* test.cpp */; };
 		7BAFD1201D2434C600B6B4EC /* intSLList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7BAFD11C1D2434C600B6B4EC /* intSLList.cpp */; };
 		7BAFD1211D2434C600B6B4EC /* Test_IntSLList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7BAFD11E1D2434C600B6B4EC /* Test_IntSLList.cpp */; };
+		7BC3D3CA1D24E5DC00AF6A69 /* data_types.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7BC3D3C91D24E5DC00AF6A69 /* data_types.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +35,8 @@
 		7BAFD11D1D2434C600B6B4EC /* intSLList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = intSLList.h; path = Singly_Linked_List/intSLList.h; sourceTree = "<group>"; };
 		7BAFD11E1D2434C600B6B4EC /* Test_IntSLList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Test_IntSLList.cpp; path = Singly_Linked_List/Test_IntSLList.cpp; sourceTree = "<group>"; };
 		7BAFD11F1D2434C600B6B4EC /* Test_IntSLList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Test_IntSLList.h; path = Singly_Linked_List/Test_IntSLList.h; sourceTree = "<group>"; };
+		7BC3D3C91D24E5DC00AF6A69 /* data_types.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = data_types.cpp; sourceTree = "<group>"; };
+		7BC3D3CB1D24E60700AF6A69 /* data_types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = data_types.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +73,8 @@
 				7BAFD1151D24329400B6B4EC /* Main.cpp */,
 				7BAFD1171D24329400B6B4EC /* test.cpp */,
 				7BAFD1181D24329400B6B4EC /* test.h */,
+				7BC3D3C91D24E5DC00AF6A69 /* data_types.cpp */,
+				7BC3D3CB1D24E60700AF6A69 /* data_types.h */,
 			);
 			path = Linked_Lists;
 			sourceTree = "<group>";
@@ -141,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BC3D3CA1D24E5DC00AF6A69 /* data_types.cpp in Sources */,
 				7BAFD1211D2434C600B6B4EC /* Test_IntSLList.cpp in Sources */,
 				7BAFD1191D24329400B6B4EC /* Main.cpp in Sources */,
 				7BAFD1201D2434C600B6B4EC /* intSLList.cpp in Sources */,
