@@ -10,8 +10,10 @@
 #ifndef TEST_H
 #define TEST_H
 
-void performProjectTestCases(void);
+    void performProjectTestCases(void);
 
-void perform_SLList_TestCases(void);
+    void perform_SLList_TestCases(void);
+
+    void listSizeOfAllBasicDataTypes(void);
 
 #endif  /* TEST_H */

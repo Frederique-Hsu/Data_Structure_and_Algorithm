@@ -9,13 +9,21 @@
 
 #include "test.h"
 #include "Singly_Linked_List/Test_IntSLList.h"
+#include "data_types.h"
 
 void performProjectTestCases(void)
 {
     perform_SLList_TestCases();
+    listSizeOfAllBasicDataTypes();
 }
 
 void perform_SLList_TestCases(void)
 {
     testCase4_VerifySLList();
 }
+
+void listSizeOfAllBasicDataTypes(void)
+{
+    checkSizeOfAllBasicDataTypes();
+}
+
