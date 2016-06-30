@@ -145,11 +145,11 @@ void IntSLList::printListChain(void)
     IntSLLNode *pNode = head;
     
     std::printf("\n\n");
-    std::printf(" Curr. node	| Data		| Next node		\n");
+    std::printf(" Curr. node				| Data		| Next node		\n");
     std::printf("------------------------------------------------------------------\n");
     while (pNode != NULL)
     {
-        std::printf(" 0x%08X	| %d		| 0x%08X    \n",
+        std::printf(" 0x%016X		|	%d		| 0x%016X    \n",
                     pNode,
                     pNode->info,
                     pNode->next);

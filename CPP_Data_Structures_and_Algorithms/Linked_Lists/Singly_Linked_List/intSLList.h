@@ -31,13 +31,19 @@
     class IntSLList     // The linked_list chain, not the independent node
     {
     private:
-        IntSLLNode *head;   // head node
-        IntSLLNode *tail;   // tail node
+        IntSLLNode *head;   // head node    // 8 bytes
+        IntSLLNode *tail;   // tail node    // 8 bytes
+#if defined (CLASS_MEMBER_VARIABLE_MEMORY_ALIGNMENT)
+                                            // Remark :
+        char sNum;                          // 1 byte, but this variable memory bytes will be
+                                            // aligned to the largest member variable's memory bytes
+                                            // 8 bytes
+#endif  /* CLASS_MEMBER_VARIABLE_MEMORY_ALIGNMENT */
     public:
         IntSLList(void);
         ~IntSLList(void);
         
-        int isEmpty(void);
+        int isEmpty(void);                  // Member functions doesn't occupy the memory bytes
         void addToHead(int);
         void addToTail(int);
         int insertBeforeNode(int elem, int beforePosNth);
