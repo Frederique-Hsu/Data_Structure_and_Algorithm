@@ -149,7 +149,7 @@ void IntSLList::printListChain(void)
     std::printf("------------------------------------------------------------------\n");
     while (pNode != NULL)
     {
-        std::printf(" 0x%016X		|	%d		| 0x%016X    \n",
+        std::printf(" 0x%016lX		|	%d		| 0x%016lX    \n",
                     pNode,
                     pNode->info,
                     pNode->next);
