@@ -89,10 +89,3 @@
 *.x86_64
 *.hex
 
-private.xml
-/.project
-
-
-/String/String/dist/
-/Tree/dist/
-/Tree_Test/dist/
