@@ -40,7 +40,7 @@
 *.log
 *.sdf
 *.filters
-*.cproject
+
 *.project
 *.metadata
 # *.pbxproj
@@ -49,7 +49,8 @@
 *.plist
 *.xcworkspacedata
 *.xcuserdatad
-
+*.gitignore
+*.cproject
 
 /String/dist/
 /String/build/
