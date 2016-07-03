@@ -43,6 +43,7 @@
 
 *.project
 *.metadata
+*.settings
 # *.pbxproj
 *.xcbkptlist
 *.xcscheme
@@ -51,6 +52,7 @@
 *.xcuserdatad
 *.gitignore
 *.cproject
+
 
 /String/dist/
 /String/build/
