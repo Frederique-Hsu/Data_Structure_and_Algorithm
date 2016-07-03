@@ -41,6 +41,19 @@
 *.sdf
 *.filters
 
+*.project
+*.metadata
+*.settings
+# *.pbxproj
+*.xcbkptlist
+*.xcscheme
+*.plist
+*.xcworkspacedata
+*.xcuserdatad
+*.gitignore
+*.cproject
+
+
 /String/dist/
 /String/build/
 
@@ -78,10 +91,3 @@
 *.x86_64
 *.hex
 
-private.xml
-/.project
-
-
-/String/String/dist/
-/Tree/dist/
-/Tree_Test/dist/
