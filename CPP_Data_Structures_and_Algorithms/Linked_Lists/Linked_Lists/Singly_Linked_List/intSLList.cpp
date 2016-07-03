@@ -10,6 +10,7 @@
 #include "intSLList.h"
 #include <iostream>
 #include <cerrno>
+#include <cstdio>
 
 IntSLLNode::IntSLLNode(void)
 {
