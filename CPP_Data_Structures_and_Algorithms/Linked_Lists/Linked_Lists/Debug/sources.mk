@@ -23,6 +23,8 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+Circular_Linked_List \
+Doubly_Linked_List \
 . \
 Singly_Linked_List \
 

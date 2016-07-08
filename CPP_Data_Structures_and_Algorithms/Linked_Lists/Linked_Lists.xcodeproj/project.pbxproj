@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B66FEFE1D2A8E51000B8DC9 /* DoublyLinkedList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7B66FEFA1D2A8E51000B8DC9 /* DoublyLinkedList.cpp */; };
+		7B66FEFF1D2A8E51000B8DC9 /* Test_DoublyLinkedList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7B66FEFC1D2A8E51000B8DC9 /* Test_DoublyLinkedList.cpp */; };
+		7B66FF031D2AA598000B8DC9 /* CircularLinkedList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7B66FF011D2AA598000B8DC9 /* CircularLinkedList.cpp */; };
 		7BAFD1191D24329400B6B4EC /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7BAFD1151D24329400B6B4EC /* Main.cpp */; };
 		7BAFD11A1D24329400B6B4EC /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7BAFD1171D24329400B6B4EC /* test.cpp */; };
 		7BAFD1201D2434C600B6B4EC /* intSLList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7BAFD11C1D2434C600B6B4EC /* intSLList.cpp */; };
@@ -28,6 +31,12 @@
 
 /* Begin PBXFileReference section */
 		7B63FFC51D2432300004BF5D /* Linked_Lists */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Linked_Lists; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B66FEFA1D2A8E51000B8DC9 /* DoublyLinkedList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = DoublyLinkedList.cpp; path = Doubly_Linked_List/DoublyLinkedList.cpp; sourceTree = "<group>"; };
+		7B66FEFB1D2A8E51000B8DC9 /* DoublyLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DoublyLinkedList.h; path = Doubly_Linked_List/DoublyLinkedList.h; sourceTree = "<group>"; };
+		7B66FEFC1D2A8E51000B8DC9 /* Test_DoublyLinkedList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Test_DoublyLinkedList.cpp; path = Doubly_Linked_List/Test_DoublyLinkedList.cpp; sourceTree = "<group>"; };
+		7B66FEFD1D2A8E51000B8DC9 /* Test_DoublyLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Test_DoublyLinkedList.h; path = Doubly_Linked_List/Test_DoublyLinkedList.h; sourceTree = "<group>"; };
+		7B66FF011D2AA598000B8DC9 /* CircularLinkedList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = CircularLinkedList.cpp; path = Circular_Linked_List/CircularLinkedList.cpp; sourceTree = "<group>"; };
+		7B66FF021D2AA598000B8DC9 /* CircularLinkedList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CircularLinkedList.h; path = Circular_Linked_List/CircularLinkedList.h; sourceTree = "<group>"; };
 		7BAFD1151D24329400B6B4EC /* Main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Main.cpp; sourceTree = "<group>"; };
 		7BAFD1171D24329400B6B4EC /* test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = test.cpp; sourceTree = "<group>"; };
 		7BAFD1181D24329400B6B4EC /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
@@ -69,6 +78,8 @@
 		7B63FFC71D2432300004BF5D /* Linked_Lists */ = {
 			isa = PBXGroup;
 			children = (
+				7B66FF001D2AA587000B8DC9 /* Circular_Linked_List */,
+				7B66FEF91D2A8D13000B8DC9 /* Doubly_Linked_List */,
 				7BAFD11B1D2434A200B6B4EC /* Singly_Linked_List */,
 				7BAFD1151D24329400B6B4EC /* Main.cpp */,
 				7BAFD1171D24329400B6B4EC /* test.cpp */,
@@ -77,6 +88,26 @@
 				7BC3D3CB1D24E60700AF6A69 /* data_types.h */,
 			);
 			path = Linked_Lists;
+			sourceTree = "<group>";
+		};
+		7B66FEF91D2A8D13000B8DC9 /* Doubly_Linked_List */ = {
+			isa = PBXGroup;
+			children = (
+				7B66FEFA1D2A8E51000B8DC9 /* DoublyLinkedList.cpp */,
+				7B66FEFB1D2A8E51000B8DC9 /* DoublyLinkedList.h */,
+				7B66FEFC1D2A8E51000B8DC9 /* Test_DoublyLinkedList.cpp */,
+				7B66FEFD1D2A8E51000B8DC9 /* Test_DoublyLinkedList.h */,
+			);
+			name = Doubly_Linked_List;
+			sourceTree = "<group>";
+		};
+		7B66FF001D2AA587000B8DC9 /* Circular_Linked_List */ = {
+			isa = PBXGroup;
+			children = (
+				7B66FF011D2AA598000B8DC9 /* CircularLinkedList.cpp */,
+				7B66FF021D2AA598000B8DC9 /* CircularLinkedList.h */,
+			);
+			name = Circular_Linked_List;
 			sourceTree = "<group>";
 		};
 		7BAFD11B1D2434A200B6B4EC /* Singly_Linked_List */ = {
@@ -148,9 +179,12 @@
 			files = (
 				7BC3D3CA1D24E5DC00AF6A69 /* data_types.cpp in Sources */,
 				7BAFD1211D2434C600B6B4EC /* Test_IntSLList.cpp in Sources */,
+				7B66FEFF1D2A8E51000B8DC9 /* Test_DoublyLinkedList.cpp in Sources */,
 				7BAFD1191D24329400B6B4EC /* Main.cpp in Sources */,
+				7B66FEFE1D2A8E51000B8DC9 /* DoublyLinkedList.cpp in Sources */,
 				7BAFD1201D2434C600B6B4EC /* intSLList.cpp in Sources */,
 				7BAFD11A1D24329400B6B4EC /* test.cpp in Sources */,
+				7B66FF031D2AA598000B8DC9 /* CircularLinkedList.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
