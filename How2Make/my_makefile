@@ -1,0 +1,36 @@
+#=============================================================================
+# Project       : How2Make
+# File name     : my_makefile
+# Description   : The project build script
+# Author        : Frederick Hsu
+# Creation date : Sat.  9 July, 2016
+# Copyright(C)  2016    All rights reserved.
+#
+#=============================================================================
+
+
+all : How2Make.o
+
+# which compiler
+CC = gcc
+
+# where to install
+INSTDIR = 
+
+# where are the included files kept
+INCLUDE = 
+
+# options for debug
+CDFLAGS = -g -Wall
+
+# options for release
+CRFLAGS = -O3 -Wall
+
+# objects to generate
+OBJS = main.o kbd.o command.o display.o insert.o search.o files.o utils.o
+
+How2Make.o : $(OBJS)
+    $(CC) $(CDFLAGS) -o How2Make.o
+
+main.o : main.c defs.h
+    $(CC) $(CDFLAGS) -c main.c
