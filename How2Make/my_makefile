@@ -9,7 +9,7 @@
 #=============================================================================
 
 
-all : How2Make.o
+all : How2Make
 
 # which compiler
 CC = gcc
@@ -21,7 +21,7 @@ INSTDIR =
 INCLUDE = 
 
 # options for debug
-CDFLAGS = -g -Wall
+CDFLAGS = -g3 -O0 -Wall
 
 # options for release
 CRFLAGS = -O3 -Wall
@@ -29,8 +29,33 @@ CRFLAGS = -O3 -Wall
 # objects to generate
 OBJS = main.o kbd.o command.o display.o insert.o search.o files.o utils.o
 
-How2Make.o : $(OBJS)
-    $(CC) $(CDFLAGS) -o How2Make.o
+How2Make : $(OBJS)
+	$(CC) $(OBJS) -o How2Make
 
 main.o : main.c defs.h
-    $(CC) $(CDFLAGS) -c main.c
+	$(CC) $(CDFLAGS) -c main.c
+
+kbd.o : kbd.c defs.h command.h
+	$(CC) $(CDFLAGS) -c kbd.c
+
+command.o : command.c defs.h buffer.h
+	$(CC) $(CDFLAGS) -c command.c
+
+display.o : display.c defs.h buffer.h
+	$(CC) $(CDFLAGS) -c display.c
+
+insert.o : insert.c defs.h buffer.h
+	$(CC) $(CDFLAGS) -c insert.c
+
+search.o : search.c defs.h buffer.h
+	$(CC) $(CDFLAGS) -c search.c
+
+files.o : files.c defs.h buffer.h command.h
+	$(CC) $(CDFLAGS) -c files.c
+
+utils.o : utils.c defs.h
+	$(CC) $(CDFLAGS) -c utils.c
+
+
+clean :
+	-rm -f $(OBJS) How2Make
