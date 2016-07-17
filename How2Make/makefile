@@ -53,8 +53,9 @@ main.o: main.c defs.h
 
 
 clean :
-# -rm -f $(OBJS) How2Make
-	-rm -f *.o How2Make
+# -rm -f $(OBJS) 
+# -rm -f *.o How2Make
+	-rm -f $(objects) How2Make
 
 
 print : *.c
