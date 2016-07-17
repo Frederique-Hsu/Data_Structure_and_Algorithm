@@ -7,3 +7,13 @@ utils.o: utils.c defs.h
 command.o: command.c defs.h command.h
 files.o: files.c defs.h buffer.h command.h
 main.o: main.c defs.h
+proc.o: proc.c headers/error_code.h headers/type_defines.h
+error_code.o: error_code.c ../headers/error_code.h
+error_code.o: src/error_code.c src/../headers/error_code.h
+clean.o: clean.c clean.h
+utils.o: utils/utils.c utils/../defs.h
+prog1.o: prog1.c check.h
+check.o: check.c check.h
+prog2.o: prog2.c prog2.h test.h
+sort.o: sort.c sort.h test.h
+test.o: test.c test.h
