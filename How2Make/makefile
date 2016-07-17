@@ -38,6 +38,9 @@ OBJS = main.o kbd.o command.o display.o insert.o search.o files.o utils.o
 # 因此在不需要列出所有的.o文件，就可以将当前工作目录下的所有的.c文件进行编译，并最后链接成为一个可执行文件
 objects := $(patsubst %.c, %.o, $(wildcard *.c))
 
+vpath %.h headers
+# vpath %.c src
+
 How2Make : $(objects)
 	$(CC) $(objects) -o How2Make
 
@@ -50,6 +53,9 @@ utils.o: utils.c defs.h
 command.o: command.c defs.h command.h
 files.o: files.c defs.h buffer.h command.h
 main.o: main.c defs.h
+# proc.o: proc.c headers/error_code.h headers/type_defines.h
+proc.o: proc.c error_code.h type_defines.h
+# error_code.o: src/error_code.c error_code.h
 
 
 clean :
