@@ -71,6 +71,7 @@
 		T deleteNodeOfPositionN(int n);
 		T getElementOfPositionN(int n);
 		DoublyLinkedListNode<T>* getNodeOfPositionN(int N);
+		DoublyLinkedListNode<T>* getNodeOfSpecificElem(T& specificElem);
 		void setElementOfPositionN(T& elem, int n);
 		int getPositionOfSpecificElem(T& specificElem);
 		void exchangeHeadWithAnotherNode(int posN2);
@@ -768,6 +769,62 @@
 			pNode1->prev = pPrevNode2;
 			pNode1->next = pNextNode2;
 		}
+	}
+
+	template<class T>
+	int DoublyLinkedList<T>::getPositionOfSpecificElem(T& specificElem)
+	{
+		int pos = 0, flag = 0;
+		DoublyLinkedListNode<T> *pNode = head;
+		while (pNode != NULL)
+		{
+			pos++;
+			if (pNode->info == specificElem)
+			{
+				flag++;
+				break;
+			}
+			pNode = pNode->next;
+		}
+		if (flag == 0)
+			return 0;
+		else
+			return pos;
+	}
+
+	template<class T>
+	int DoublyLinkedList<T>::doStatCountsForSpecificElem(T& specificElem)
+	{
+		int flag = 0;
+		DoublyLinkedListNode<T> *pNode = head;
+		while (pNode != NULL)
+		{
+			if (pNode->info == specificElem)
+			{
+				flag++;
+			}
+			pNode = pNode->next;
+		}
+		return flag;
+	}
+
+	template<class T>
+	DoublyLinkedListNode<T>* DoublyLinkedList<T>::getNodeOfSpecificElem(T& specificElem)
+	{
+		DoublyLinkedListNode<T> *pNode = head;
+		int flag = 0;
+		while(pNode != NULL)
+		{
+			if (pNode->info == specificElem)
+			{
+				break;
+			}
+			pNode = pNode->next;
+		}
+		if (flag == 0)
+			return NULL;
+		else
+			return pNode;
 	}
 
 #endif  /* DOUBLY_LINKED_LIST_H */
