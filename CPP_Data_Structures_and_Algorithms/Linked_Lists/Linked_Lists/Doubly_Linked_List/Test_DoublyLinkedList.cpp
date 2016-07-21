@@ -61,6 +61,16 @@ void testCase4_VerifyDoublyLinkedList(void)
     DoublyLinkedList<int> *pMyList = new DoublyLinkedList<int>(*pDLList);
     pMyList->printDoublyLinkedList();
     
+/************************************************************************************************/
+    
+    pMyList->deleteNodeOfPositionN(5);
+    pMyList->printDoublyLinkedList();
+    pMyList->deleteNodeOfPositionN(1);
+    pMyList->deleteNodeOfPositionN(pMyList->numberOfNodes());
+    pMyList->printDoublyLinkedList();
+    
+/************************************************************************************************/
+    
     delete pDLList;
     delete pMyList;
 }
