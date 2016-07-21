@@ -12,6 +12,9 @@
 
     #include <cstdlib>
 
+    // #define DISABLE_DEFAULT_DESTRUCTOR
+    #undef DISABLE_DEFAULT_DESTRUCTOR
+
     /*********************************************************************************************/
 
     class IntSLLNode    // Just one Node of a Linked List
@@ -23,6 +26,9 @@
         
         IntSLLNode(void);
         IntSLLNode(int el, IntSLLNode *ptr = NULL);
+#if defined (DISABLE_DEFAULT_DESTRUCTOR)
+        ~IntSLLNode(void);
+#endif  /* DISABLE_DEFAULT_DESTRUCTOR */
     protected:
     };
 
@@ -56,6 +62,9 @@
         
         unsigned int lengthOfList(void);
         IntSLLNode* locatePosition(int positionN);
+        int changeElementOfPositionN(int positionN, int newElem);
+        void replaceSameOldElements(int oldElem, int newElem);
+        
         void printListChain(void);
     protected:
     };

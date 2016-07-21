@@ -10,6 +10,7 @@
 #include "intSLList.h"
 #include <iostream>
 #include <cerrno>
+#include <cstdio>
 
 IntSLLNode::IntSLLNode(void)
 {
@@ -22,6 +23,15 @@ IntSLLNode::IntSLLNode(int el, IntSLLNode *ptr)
     info = el;
     next = ptr;
 }
+
+#if defined (DISABLE_DEFAULT_DESTRUCTOR)
+    IntSLLNode::~IntSLLNode(void)
+    {
+        info = 0;
+        next = NULL;
+        // delete this;
+    }
+#endif  /* DISABLE_DEFAULT_DESTRUCTOR */
 
 /*************************************************************************************************/
 
@@ -39,16 +49,15 @@ IntSLList::~IntSLList(void)
  */
 {
     IntSLLNode *pNode = head;
-    
-    while (pNode != NULL)       // Till the next pointer of tail node
+    while (head != NULL)
     {
-        pNode = head->next;     // Must get the next node's pointer firstly.
-        delete head;            // Delete current node
-        head = pNode;           // Assign the pointer of next node to head pointer, move to next node
+        pNode = head->next;
+        delete head;
+        head = pNode;
     }
-    
-    head = NULL;
-    tail = NULL;
+    // delete tail;     // At this moment, DO NOT delete tail node once again,
+                        // because it is already NULL now.
+                        // Although the tail node is still shown a meaningful poointer address.
 }
 
 int IntSLList::isEmpty(void)
@@ -149,7 +158,7 @@ void IntSLList::printListChain(void)
     std::printf("------------------------------------------------------------------\n");
     while (pNode != NULL)
     {
-        std::printf(" 0x%016X		|	%d		| 0x%016X    \n",
+        std::printf(" 0x%016lX		|	%d		| 0x%016lX    \n",
                     pNode,
                     pNode->info,
                     pNode->next);
@@ -162,50 +171,41 @@ void IntSLList::printListChain(void)
 
 void IntSLList::deleteNode(int elem)
 {
-#if 0   // From Frederick's implementation
-    IntSLLNode *tmpNode = head;
-    if ((head == tail) && (head->info == elem))
+#if 1   // From Frederick's implementation
+    IntSLLNode *pNode = head;
+    
+    if (elem == head->info)
     {
-        delete head;
-        head = NULL;
-        tail = NULL;
+        deleteFromHead();
         return;
     }
-    while (tmpNode != NULL)         // Search the entire list chain
+    else if (elem == tail->info)
     {
-        if (tmpNode->info == elem)  // Find and check whether one node's info is identical to elem?
-        {
-            break;
-        }
-        tmpNode = tmpNode->next;    // Move to next node consecutively
-    }
-    if (tmpNode == NULL)
-    {
-        return;     // No node found to meet info == elem, so directly quit.
+        deleteFromTail();
+        return;
     }
     else
     {
-        IntSLLNode *successor = tmpNode->next;
-        if (tmpNode == head)
+        while (pNode != NULL)
         {
-            delete head;
-            head = successor;
-            return;
+            if ((pNode->next)->info == elem)
+            {
+                break;
+            }
+            pNode = pNode->next;
         }
-        else if (tmpNode == tail)
+        if (pNode == NULL)
         {
-            delete tmpNode;
-            tail = NULL;
-            return;
+            return;     // It means that the info of every node does NOT equal to elem
         }
         else
         {
-            delete tmpNode;
-            tmpNode = successor;
+            IntSLLNode *successor = pNode->next;
+            pNode->next = successor->next;
+            delete successor;
             return;
         }
     }
-    return;
 #else
     if (head != NULL)   // Non-empty list chain
     {
@@ -282,17 +282,19 @@ unsigned int IntSLList::lengthOfList(void)
 
 IntSLLNode* IntSLList::locatePosition(int positionN)
 {
-    unsigned int uiLen = lengthOfList(), uiCnt = 0;
+    unsigned int uiLen = lengthOfList();
     if ((positionN < 0) || (positionN > uiLen))
     {
         return NULL;
     }
     
     IntSLLNode *pNode = head;
-    for ( pNode = head;
-         ((pNode != NULL) && (uiCnt < positionN));
-         pNode = pNode->next )
+    unsigned int uiCnt = 1;
+    while (pNode != NULL)
     {
+        if (uiCnt == positionN)
+            break;
+        pNode = pNode->next;
         uiCnt++;
     }
     return pNode;
@@ -311,22 +313,20 @@ int IntSLList::deleteNthNode(int positionN)
         deleteFromTail();
     else
     {
-        unsigned int uiCnt = 0;
+        unsigned int uiCnt = 1;
         IntSLLNode *pNode = head;
         while (pNode != NULL)
         {
-            if (uiCnt == positionN)
+            if (uiCnt == positionN-1)
             {
                 break;
             }
             pNode = pNode->next;
             uiCnt++;
         }
-        IntSLLNode *predecessor_next = pNode,
-        *successor        = pNode->next;
-        predecessor_next = successor;
-        delete pNode;
-        
+        IntSLLNode *successor = pNode->next;
+        pNode->next = successor->next;
+        delete successor;        
     }
     return 0;
 }
@@ -336,11 +336,23 @@ int IntSLList::insertAfterNode(int elem, int afterPosNth)
     if ((afterPosNth <= 0) || (afterPosNth > lengthOfList()))
         return ((-1)*afterPosNth);
     
-    unsigned int uiCnt = 0;
+    if (afterPosNth == lengthOfList())
+    {
+        addToTail(elem);
+        return 0;
+    }
+    
+    unsigned int uiCnt = 1;     // NOTICE : This count should start from 1, not 0.
     IntSLLNode *pNode = head;
-    for (pNode = head, uiCnt = 0;
-         ((pNode != NULL) && (uiCnt <= afterPosNth));
-         pNode = pNode->next, uiCnt++);
+    while (pNode != NULL)
+    {
+        if (uiCnt == afterPosNth)   // Move, till the n node
+        {
+            break;
+        }
+        pNode = pNode->next;
+        uiCnt++;
+    }
     IntSLLNode *pNewNode = new IntSLLNode(elem);
     IntSLLNode *successor = pNode->next;
     pNode->next = pNewNode;
@@ -354,20 +366,62 @@ int IntSLList::insertBeforeNode(int elem, int beforePosNth)
     if ((beforePosNth < 0) || (beforePosNth > lengthOfList()))
         return ((-1)*beforePosNth);
     
+    if (beforePosNth == 1)
+    {
+        addToHead(elem);
+        return 0;
+    }
+    
     IntSLLNode *pNode = head, *pNewNode = new IntSLLNode(elem);
-    unsigned int uiCnt = 0;
+    unsigned int uiCnt = 1;     // NOTICE : This count should start from 1, not 0.
     while (pNode != NULL)
     {
-        pNode = pNode->next;
-        uiCnt++;
-        if (uiCnt == beforePosNth)
+        if (uiCnt == beforePosNth-1)    // Move, till the (n-1) node
         {
             break;
         }
+        pNode = pNode->next;
+        uiCnt++;
+
     }
-    IntSLLNode *predecessor_next = pNode;
-    predecessor_next = pNewNode;
-    pNewNode->next = pNode;
+    IntSLLNode *pNodeN = pNode->next;
+    pNode->next = pNewNode;
+    pNewNode->next = pNodeN;
+    return 0;
+}
+
+int IntSLList::changeElementOfPositionN(int positionN, int newElem)
+{
+    if ((positionN <= 0) || (positionN > lengthOfList()))
+    {
+        return ((-1)*positionN);
+    }
+    
+    unsigned int uiCnt = 1;
+    IntSLLNode *pNode = head;
+    while (pNode != NULL)
+    {
+        if (uiCnt == positionN)
+        {
+            break;
+        }
+        pNode = pNode->next;
+        uiCnt++;
+    }
+    pNode->info = newElem;
     
     return 0;
+}
+
+void IntSLList::replaceSameOldElements(int oldElem, int newElem)
+{
+    IntSLLNode *pNode = head;
+    while (pNode != NULL)
+    {
+        if (pNode->info == oldElem)
+        {
+            pNode->info = newElem;
+        }
+        pNode = pNode->next;
+    }
 }
