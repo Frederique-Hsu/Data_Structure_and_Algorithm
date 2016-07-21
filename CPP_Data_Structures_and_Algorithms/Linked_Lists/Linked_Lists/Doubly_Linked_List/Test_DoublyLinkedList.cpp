@@ -84,8 +84,20 @@ void testCase4_VerifyDoublyLinkedList(void)
     pMyList->exchangePositionBetween2Nodes(5, pMyList->numberOfNodes());
     pMyList->printDoublyLinkedList();
     
+    int specificElem = 8;
+    std::cout<<"The position of element '"<<specificElem<<"' locates at "
+             <<pMyList->getPositionOfSpecificElem(specificElem)<<"th node."<<std::endl;
+    // std::printf("And its memory address is 0x%016lX  \n\n", (pMyList->getNodeOfSpecificElem(specificElem)));
+    
+    specificElem = -30;
+    std::cout<<"On statistic, "<<pMyList->doStatCountsForSpecificElem(specificElem)
+             <<" nodes have the identical element : "<<specificElem<<"\n\n"<<std::endl;
+    
 /************************************************************************************************/
     
     delete pDLList;
     delete pMyList;
+    
+    std::cout<<"Congratulations! The Doubly-Linked-List data structure and algorithm had finally done.\n"
+             <<std::endl;
 }
