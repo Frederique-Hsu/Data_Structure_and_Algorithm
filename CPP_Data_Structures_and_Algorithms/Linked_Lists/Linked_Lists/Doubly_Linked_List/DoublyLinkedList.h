@@ -34,6 +34,10 @@
                              DoublyLinkedListNode *successor = NULL,
                              DoublyLinkedListNode *predecessor = NULL);
 		~DoublyLinkedListNode(void);
+
+		void setNodeInfo(T& elem);
+		T& getNodeInfo(void);
+		void printNodesChain(void);
 	protected:
 	};
 
@@ -41,6 +45,7 @@
 																	   DoublyLinkedListNode<const char*> *successor,
 																	   DoublyLinkedListNode<const char*> *predecessor);
 	template<> DoublyLinkedListNode<const char*>::~DoublyLinkedListNode(void);
+	template<> void DoublyLinkedListNode<const char*>::setNodeInfo(const char* &elem);
 
 	// template<class T> void operator=(DoublyLinkedList<T> &assignedList, const DoublyLinkedList<T> &originList);
 
@@ -65,8 +70,12 @@
 		void insertNewNodeAfterPositionN(T& elem, int n);
 		T deleteNodeOfPositionN(int n);
 		T getElementOfPositionN(int n);
+		DoublyLinkedListNode<T>* getNodeOfPositionN(int N);
 		void setElementOfPositionN(T& elem, int n);
 		int getPositionOfSpecificElem(T& specificElem);
+		void exchangeHeadWithAnotherNode(int posN2);
+		void exchangeTailWithAnotherNode(int posN1);
+		void exchangeHeadWithTail(void);
 		void exchangePositionBetween2Nodes(int posN1, int posN2);
 		int doStatCountsForSpecificElem(T& specificElem);
 
@@ -100,6 +109,28 @@
 	{
 		prev = NULL;
 		next = NULL;
+	}
+
+	template<class T>
+	void DoublyLinkedListNode<T>::setNodeInfo(T& elem)
+	{
+		info = elem;
+	}
+
+	template<>
+	void DoublyLinkedListNode<const char*>::setNodeInfo(const char* &elem)
+	{
+		if (strlen(elem) != 0)
+		{
+			info = new char[strlen(elem) + 1];
+            memcpy(&info, &elem, strlen(elem)+1);
+		}
+	}
+
+	template<class T>
+	T& DoublyLinkedListNode<T>::getNodeInfo(void)
+	{
+		return info;
 	}
 
 	template<>
@@ -242,6 +273,24 @@
 	    	pNode = pNode->next;
 	    }
 	    std::printf("\n\n");
+	}
+
+	template<class T>
+	void DoublyLinkedListNode<T>::printNodesChain(void)
+	{
+		DoublyLinkedListNode<T> *pNode = this;
+		std::printf(" Prev. node		| Curr. node		| Data		| Next  node	\n");
+		std::printf("----------------------------------------------------------------------------------------------------\n");
+		while (pNode != NULL)
+		{
+			std::printf(" 0x%016lX	| 0x%016lX	| ", pNode->prev, pNode);
+			std::cout<<(pNode->info)<<"			| ";
+			std::printf("0x%016lX	\n", pNode->next);
+			std::printf("----------------------------------------------------------------------------------------------------\n");
+
+			pNode = pNode->next;
+		}
+		std::printf("\n\n");
 	}
 
 	template<class T>
@@ -474,6 +523,251 @@
 			pNextNode->prev = pPrevNode;
 		}
 		return elem;
+	}
+
+	template<class T>
+	T DoublyLinkedList<T>::getElementOfPositionN(int n)
+	{
+		int pos;
+		int num = numberOfNodes();
+		if ((n <= 0) || (n > num))
+		{
+			std::cout<<"The position number you entered is wrong."<<std::endl;
+			return 0;
+		}
+		DoublyLinkedListNode<T> *pNode;
+		if (n <= num/2)
+		{
+			pos = 0;
+			pNode = head;
+			while (pNode != NULL)
+			{
+				pos++;
+				if (pos == n)
+					break;
+				pNode = pNode->next;
+			}
+		}
+		else
+		{
+			pos = num;
+			pNode = tail;
+			while (pNode != NULL)
+			{
+				if (pos == n)
+					break;
+				pNode = pNode->prev;
+				pos--;
+			}
+		}
+		return (pNode->getNodeInfo());
+	}
+
+	template<class T>
+	void DoublyLinkedList<T>::setElementOfPositionN(T& elem, int n)
+	{
+		int num = numberOfNodes();
+		if ((n <= 0) || (n > num))
+		{
+			std::cout<<"The position number you entered is wrong."<<std::endl;
+            return;
+		}
+		int pos;
+		DoublyLinkedListNode<T> *pNode;
+		if (n <= num/2)
+		{
+			pos = 0;
+			pNode = head;
+			while (pNode != NULL)
+			{
+				pos++;
+				if (pos == n)
+				{
+					break;
+				}
+				pNode = pNode->next;
+			}
+		}
+		else
+		{
+			pos = num;
+			pNode = tail;
+			while (pNode != NULL)
+			{
+				if (pos == n)
+				{
+					break;
+				}
+				pNode = pNode->prev;
+				pos--;
+			}
+		}
+		pNode->setNodeInfo(elem);
+	}
+
+	template<class T>
+	DoublyLinkedListNode<T>* DoublyLinkedList<T>::getNodeOfPositionN(int n)
+	{
+		int num = numberOfNodes();
+		if ((n <= 0) || (n > num))
+		{
+			std::cout<<"The position number you entered is wrong."<<std::endl;
+			return NULL;
+		}
+		int pos;
+		DoublyLinkedListNode<T> *pNode;
+		if (n <= num/2)
+		{
+			pos = 0;
+			pNode = head;
+			while (pNode != NULL)
+			{
+				pos++;
+				if (pos == n)
+				{
+					break;
+				}
+				pNode = pNode->next;
+			}
+		}
+		else
+		{
+			pos = num;
+			pNode = tail;
+			while (pNode != NULL)
+			{
+				if (pos == n)
+				{
+					break;
+				}
+				pNode = pNode->prev;
+				pos--;
+			}
+		}
+		return pNode;
+	}
+
+	template<class T>
+	void DoublyLinkedList<T>::exchangeHeadWithAnotherNode(int posN2)
+	{
+		int num = numberOfNodes();
+		if ( ((posN2 == 1) || (posN2 == num)) ||
+			 ((posN2 <= 0) || (posN2 > num)) )
+		{
+			std::cout<<"The position 2 number you entered is wrong."<<std::endl;
+			return;
+		}
+		DoublyLinkedListNode<T> *pHead = head, *pHead_Successor = head->next;
+		DoublyLinkedListNode<T> *pNode2 = getNodeOfPositionN(posN2), *pPrevNode2, *pNextNode2;
+        pPrevNode2 = pNode2->prev;
+        pNextNode2 = pNode2->next;
+
+		pNode2->next = pHead_Successor;
+		pNode2->prev = NULL;
+		pHead_Successor->prev = pNode2;
+		head = pNode2;
+
+		pPrevNode2->next = pHead;
+		pNextNode2->prev = pHead;
+		pHead->next = pNextNode2;
+		pHead->prev = pPrevNode2;
+	}
+
+	template<class T>
+	void DoublyLinkedList<T>::exchangeTailWithAnotherNode(int posN1)
+	{
+		int num = numberOfNodes();
+		if ( ((posN1 == 1) || (posN1 == num)) ||
+			 ((posN1 <= 0) || (posN1 > num)) )
+		{
+			std::cout<<"The position 1 number you entered is wrong."<<std::endl;
+			return;
+		}
+
+		DoublyLinkedListNode<T> *pTail = tail, *pTail_Predecessor = tail->prev;
+		DoublyLinkedListNode<T> *pNode1 = getNodeOfPositionN(posN1), *pPrevNode1, *pNextNode1;
+        pPrevNode1 = pNode1->prev;
+        pNextNode1 = pNode1->next;
+
+		pPrevNode1->next = pTail;
+		pNextNode1->prev = pTail;
+		pTail->prev = pPrevNode1;
+		pTail->next = pNextNode1;
+
+		pTail_Predecessor->next = pNode1;
+		pNode1->prev = pTail_Predecessor;
+		pNode1->next = NULL;
+		tail = pNode1;
+	}
+
+	template<class T>
+	void DoublyLinkedList<T>::exchangeHeadWithTail(void)
+	{
+		DoublyLinkedListNode<T> *pHead = head, *pHead_Successor = head->next,
+								*pTail = tail, *pTail_Predecessor = tail->prev;
+		pTail_Predecessor->next = pHead;
+		pHead->next = NULL;
+		pHead->prev = pTail_Predecessor;
+		tail = pHead;
+
+		pHead_Successor->prev = pTail;
+		pTail->prev = NULL;
+		pTail->next = pHead_Successor;
+		head = pTail;
+	}
+
+	template<class T>
+	void DoublyLinkedList<T>::exchangePositionBetween2Nodes(int posN1, int posN2)
+	{
+		int num = numberOfNodes();
+		if ((posN1 <= 0) || (posN1 > num))
+		{
+			std::cout<<"The position 1 number you entered is wrong."<<std::endl;
+			return;
+		}
+		if ((posN2 <= 0) || (posN2 > num))
+		{
+			std::cout<<"The position 2 number you entered is wrong."<<std::endl;
+			return;
+		}
+
+		if ((posN1 ==1) && (posN2 != num))
+		{
+			exchangeHeadWithAnotherNode(posN2);
+		}
+		else if ((posN1 != 1) && (posN2 == num))
+		{
+			exchangeTailWithAnotherNode(posN1);
+		}
+        else if ((posN1 == num) && (posN2 != 1))
+        {
+            exchangeTailWithAnotherNode(posN2);
+        }
+        else if ( ((posN1 == 1) && (posN2 == num)) ||
+                 ((posN1 == num) && (posN2 == 1)) )
+        {
+            exchangeHeadWithTail();
+        }
+		else if ((posN1 != 1) && (posN2 != num))
+		{
+			DoublyLinkedListNode<T> *pNode1 = getNodeOfPositionN(posN1), *pPrevNode1, *pNextNode1;
+			DoublyLinkedListNode<T> *pNode2 = getNodeOfPositionN(posN2), *pPrevNode2, *pNextNode2;
+			pPrevNode1 = pNode1->prev;
+			pNextNode1 = pNode1->next;
+			pPrevNode2 = pNode2->prev;
+			pNextNode2 = pNode2->next;
+
+			// Exchange now
+			pPrevNode1->next = pNode2;
+			pNextNode1->prev = pNode2;
+			pNode2->prev = pPrevNode1;
+			pNode2->next = pNextNode1;
+
+			pPrevNode2->next = pNode1;
+			pNextNode2->prev = pNode1;
+			pNode1->prev = pPrevNode2;
+			pNode1->next = pNextNode2;
+		}
 	}
 
 #endif  /* DOUBLY_LINKED_LIST_H */
