@@ -157,7 +157,7 @@
         	pSelfListNode = pSelfListNode->next;
         	pExternalListNode = pExternalListNode->next;
         }
-        tail = pSelfListNode->prev;
+        tail = pSelfListNode;
 	}
 
 	template<class T>
@@ -413,6 +413,67 @@
 			if (pNextNode != NULL)
                 pNextNode->prev = pNewNode;
 		}
+	}
+
+	template<class T>
+	T DoublyLinkedList<T>::deleteNodeOfPositionN(int n)
+	{
+		T elem;
+		int num = numberOfNodes();
+		if ((n<=0) || (n>num))
+		{
+			std::cout<<"The position number you entered is wrong."<<std::endl;
+			return 0;
+		}
+		if (n == 1)
+		{
+			elem = head->info;
+			deleteFromDoublyLinkedListHead();
+		}
+		else if (n == num)
+		{
+			elem = tail->info;
+			deleteFromDoublyLinkedListTail();
+		}
+		else
+		{
+			int pos;
+			DoublyLinkedListNode<T> *pNode;
+			if (n <= num/2)
+			{
+				pos = 0;
+				pNode = head;
+				while (pNode != NULL)
+				{
+					pos++;
+					if (pos == n)
+					{
+						break;
+					}
+					pNode = pNode->next;
+				}
+			}
+			else
+			{
+				pos = num;
+				pNode = tail;
+				while (pNode != NULL)
+				{
+					pNode = pNode->prev;
+					pos--;
+					if (pos == n)
+					{
+						break;
+					}
+				}
+			}
+			DoublyLinkedListNode<T> *pPrevNode = pNode->prev, *pNextNode = pNode->next;
+			elem = pNode->info;
+			delete pNode;
+			pPrevNode->next = pNextNode;
+			pNextNode->prev = pPrevNode;
+		}
+		return elem;
 	}
 
 #endif  /* DOUBLY_LINKED_LIST_H */
