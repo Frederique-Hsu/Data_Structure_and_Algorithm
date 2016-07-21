@@ -15,9 +15,6 @@
 
 void testCase4_VerifySLList(void)
 {
-    std::printf("\n\n");
-    std::cout<<"Verify the Singly Linked Lists"<<std::endl;
-    
     IntSLList *pList = new IntSLList();
     
     pList->addToHead(10);
