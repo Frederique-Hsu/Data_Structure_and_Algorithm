@@ -68,6 +68,21 @@ void testCase4_VerifyDoublyLinkedList(void)
     pMyList->deleteNodeOfPositionN(1);
     pMyList->deleteNodeOfPositionN(pMyList->numberOfNodes());
     pMyList->printDoublyLinkedList();
+
+/************************************************************************************************/
+
+    DoublyLinkedListNode<int> *pMyNode = pMyList->getNodeOfPositionN(3);
+    pMyNode->printNodesChain();
+    pMyList->exchangePositionBetween2Nodes(5, 8);
+    pMyList->printDoublyLinkedList();
+    pMyList->exchangePositionBetween2Nodes(1, pMyList->numberOfNodes());
+    pMyList->printDoublyLinkedList();
+    pMyList->exchangePositionBetween2Nodes(pMyList->numberOfNodes(), 1);
+    pMyList->printDoublyLinkedList();
+    pMyList->exchangePositionBetween2Nodes(1, 4);
+    pMyList->printDoublyLinkedList();
+    pMyList->exchangePositionBetween2Nodes(5, pMyList->numberOfNodes());
+    pMyList->printDoublyLinkedList();
     
 /************************************************************************************************/
     
