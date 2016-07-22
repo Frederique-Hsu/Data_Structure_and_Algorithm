@@ -11,6 +11,7 @@
 #define CIRCULAR_LINKED_LIST_H
 
     #include <cstdio>
+	#include <cstdlib>
     #include <cstring>
 	#include <iostream>
 
@@ -33,6 +34,7 @@
 		CircularLinkedListNode(const T& elem,       // 注意，此处用上const是为了让类模板函数能够进行隐含的类型推断，否则就必须使用显性的类型变量。
                                CircularLinkedListNode *LHand = NULL,
                                CircularLinkedListNode *RHand = NULL);
+		void printNodeChain(void);
 	protected:
 	};
 
@@ -73,6 +75,11 @@
         const T& deleteNodeOfPositionN(int n);
         const T& getElementOfPositionN(int n);
         void setElementOfPositionN(const T& elem, int n);
+        CircularLinkedListNode<T>* getNodeOfPositionN(int n);
+        void exchangeBetween2Nodes(int posN1, int posN2);
+        void getPositionOfSpecificElem(const T& specificElem, int position[], int *repeatedNum);
+        void getNodesOfSpecificElem(const T& elem, CircularLinkedListNode<T>* nodes[], int *repeatedNum);
+        int doStatDuplicateElemCount(const T& duplicateElem);
 	protected:
 	};
 
@@ -115,6 +122,23 @@
 			info = NULL;
 		left = NULL;
 		right = NULL;
+	}
+
+	template<class T>
+	void CircularLinkedListNode<T>::printNodeChain(void)
+	{
+		CircularLinkedListNode<T> *pNode = this;
+		std::printf("\n\n");
+		std::printf(" Left  node		| Curr. node		| Curr. data	| Right node	\n");
+		std::printf("---------------------------------------------------------------------------------------------\n");
+		while (pNode->right != this)
+		{
+			std::printf(" 0x%016lX	| 0x%016lX	| ", pNode->left, pNode);
+			std::cout<<pNode->info<<"		| ";
+			std::printf("0x%016lX	\n", pNode->right);
+			std::printf("---------------------------------------------------------------------------------------------\n");
+			pNode = pNode->right;
+		}
 	}
 
 	/**************************************************************************************************/
@@ -496,6 +520,123 @@
         }
         pNode->info = elem;
         return;
+	}
+
+	template<class T>
+	CircularLinkedListNode<T>* CircularLinkedList<T>::getNodeOfPositionN(int n)
+	{
+        int len = numberOfNodes();
+        if ((n <= 0) || (n > len))
+        {
+            std::cout<<"The position number n you entered is wrong."<<std::endl;
+            return NULL;
+        }
+        int pos;
+        CircularLinkedListNode<T> *pNode;
+        if (n <= len/2)
+        {
+            pos = 0;
+            pNode = head;
+            while (pNode != tail)
+            {
+                pos++;
+                if (pos == n)
+                {
+                    break;
+                }
+                pNode = pNode->right;
+            }
+        }
+        else
+        {
+            pos = len;
+            pNode = tail;
+            while (pNode != head)
+            {
+                if (pos == n)
+                {
+                    break;
+                }
+                pos--;
+                pNode = pNode->left;
+            }
+        }
+        return pNode;
+	}
+
+	template<class T>
+	void CircularLinkedList<T>::exchangeBetween2Nodes(int posN1, int posN2)
+	{
+        T elem1 = getElementOfPositionN(posN1), elem2 = getElementOfPositionN(posN2);
+        setElementOfPositionN(elem2, posN1);
+        setElementOfPositionN(elem1, posN2);
+	}
+
+	template<class T>
+	void CircularLinkedList<T>::getPositionOfSpecificElem(const T& specificElem,
+														  int position[],
+														  int *repeatedNum)
+	{
+		CircularLinkedListNode<T> *pNode = head;
+		int *pos = new int[numberOfNodes()];
+		int node_num = 1, duplicateNum = 0;
+		std::memset(pos, 0, numberOfNodes());	// Initialize the pos array to 0.
+		do
+		{
+			if (pNode->info == specificElem)
+			{
+				*(pos+duplicateNum) = node_num;
+				duplicateNum++;
+			}
+			node_num++;
+			pNode = pNode->right;
+		}
+		while (pNode != head);
+
+		*repeatedNum = duplicateNum;
+		for (int i=0; i<duplicateNum; i++)
+		{
+			position[i] = *(pos+i);
+		}
+		delete [] pos;
+	}
+
+	template<class T>
+	int CircularLinkedList<T>::doStatDuplicateElemCount(const T& duplicateElem)
+	{
+		CircularLinkedListNode<T> *pNode = head;
+		int count = 0;
+		do
+		{
+			if (duplicateElem == pNode->info)
+			{
+				count++;
+			}
+			pNode = pNode->right;
+		}
+		while (pNode != head);
+        return count;
+	}
+
+	template<class T>
+	void CircularLinkedList<T>::getNodesOfSpecificElem(const T& elem,
+													   CircularLinkedListNode<T>* nodes[],
+													   int *repeatedNum)
+	{
+		CircularLinkedListNode<T> *pNode = head;
+		int duplicateNum = 0;
+		do
+		{
+			if (pNode->info == elem)
+			{
+                nodes[duplicateNum] = pNode;
+				duplicateNum++;
+			}
+			pNode = pNode->right;
+		}
+		while (pNode != head);
+
+		*repeatedNum = duplicateNum;
 	}
 
 #endif	/* CIRCULAR_LINKED_LIST_H */
