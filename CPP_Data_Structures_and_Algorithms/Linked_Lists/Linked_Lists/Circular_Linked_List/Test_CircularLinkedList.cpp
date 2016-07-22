@@ -48,6 +48,34 @@ void testCase4_VerifyCircularLinkedList(void)
     std::cout<<"Check the element of 9th node, its element is "<<pCLList->getElementOfPositionN(9)<<std::endl;
     pCLList->printCircularLinkedList();
 
+    CircularLinkedListNode<int> *pNode = pCLList->getNodeOfPositionN(3);
+    pNode->printNodeChain();
+    
+    std::cout<<"Exchange between position 2 and position 7"<<std::endl;
+    pCLList->exchangeBetween2Nodes(2, 7);
+    pCLList->printCircularLinkedList();
+    
+    pCLList->insertNewNodeAfterPositionN(5, 5);
+    pCLList->insertNewNodeAfterPositionN(5, 8);
+    pCLList->insertNewNodeAfterPositionN(5, 10);
+    pCLList->addToCircularLinkedListHead(5);
+    pCLList->addToCircularLinkedListTail(5);
+    pCLList->printCircularLinkedList();
+
+    CircularLinkedListNode<int>* nodesWithIdenticalElem[50] = {0};
+    int numWithIdenticalElem = 0;
+    int positionsWithIdenticalElem[50] = {0};
+    pCLList->getPositionOfSpecificElem(5, positionsWithIdenticalElem, &numWithIdenticalElem);
+    pCLList->getNodesOfSpecificElem(5, nodesWithIdenticalElem, &numWithIdenticalElem);
+    std::cout<<"For the element '5', there are "<<pCLList->doStatDuplicateElemCount(5)<<" duplicates."<<std::endl;
+    std::cout<<" Node addr          | Position      "<<std::endl;
+    std::cout<<"---------------------------------------------------------"<<std::endl;
+    for (int i=0; i<numWithIdenticalElem; i++)
+    {
+        std::printf(" 0x%016lX  | %d    \n", nodesWithIdenticalElem[i], positionsWithIdenticalElem[i]);
+        std::cout<<"---------------------------------------------------------"<<std::endl;
+    }
+
     delete pCLList;
 }
 
