@@ -43,6 +43,11 @@ void testCase4_VerifyCircularLinkedList(void)
     std::cout<<"Delete the 8th node, its element is : "<<pCLList->deleteNodeOfPositionN(8)<<std::endl;
     pCLList->printCircularLinkedList();
 
+    std::cout<<"Change the 9th node with element -100"<<std::endl;
+    pCLList->setElementOfPositionN(-100, 9);
+    std::cout<<"Check the element of 9th node, its element is "<<pCLList->getElementOfPositionN(9)<<std::endl;
+    pCLList->printCircularLinkedList();
+
     delete pCLList;
 }
 
