@@ -14,6 +14,7 @@
 
     void perform_SLList_TestCases(void);
     void perform_DLList_TestCases(void);
+    void perform_CLList_TestCases(void);
 
     void listSizeOfAllBasicDataTypes(void);
 

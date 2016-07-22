@@ -10,6 +10,7 @@
 #include "test.h"
 #include "Singly_Linked_List/Test_IntSLList.h"
 #include "Doubly_Linked_List/Test_DoublyLinkedList.h"
+#include "Circular_Linked_List/Test_CircularLinkedList.h"
 #include "data_types.h"
 
 #include <cstdio>
@@ -19,6 +20,7 @@ void performProjectTestCases(void)
 {
     perform_SLList_TestCases();
     perform_DLList_TestCases();
+    perform_CLList_TestCases();
 
 
     // listSizeOfAllBasicDataTypes();
@@ -34,6 +36,14 @@ void perform_DLList_TestCases(void)
 {
 	std::cout<<"\n\n"<<"Verify the Doubly Linked Lists : \n"<<std::endl;
 	testCase4_VerifyDoublyLinkedList();
+}
+
+void perform_CLList_TestCases(void)
+{
+    std::cout<<"\n\n"<<"Verify the Circular Linked Lists : \n"<<std::endl;
+    testCase4_VerifyCircularLinkedList();
+    
+    testCase4_VerifySpecializedCircularLinkedList();
 }
 
 void listSizeOfAllBasicDataTypes(void)
