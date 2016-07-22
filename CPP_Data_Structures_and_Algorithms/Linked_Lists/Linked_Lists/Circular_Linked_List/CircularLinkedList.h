@@ -71,6 +71,8 @@
         const T& deleteFromHead(void);
         const T& deleteFromTail(void);
         const T& deleteNodeOfPositionN(int n);
+        const T& getElementOfPositionN(int n);
+        void setElementOfPositionN(const T& elem, int n);
 	protected:
 	};
 
@@ -407,6 +409,93 @@
 			pRNode->left = pLNode;
 			return elem;
 		}
+	}
+
+	template<class T>
+	const T& CircularLinkedList<T>::getElementOfPositionN(int n)
+	{
+        int len = numberOfNodes();
+        if ((n <= 0) || (n > len))
+        {
+            std::cout<<"The position number n you entered is wrong."<<std::endl;
+            return 0;
+        }
+        int pos;
+        T elem;
+        CircularLinkedListNode<T> *pNode;
+        if (n <= len/2)
+        {
+            pos = 0;
+            pNode = head;
+            while (pNode != tail)
+            {
+                pos++;
+                if (pos == n)
+                {
+                    break;
+                }
+                pNode = pNode->right;
+            }
+        }
+        else
+        {
+            pos = len;
+            pNode = tail;
+            while (pNode != head)
+            {
+                if (pos == n)
+                {
+                    break;
+                }
+                pos--;
+                pNode = pNode->left;
+            }
+        }
+        elem = pNode->info;
+        return elem;
+	}
+
+	template<class T>
+	void CircularLinkedList<T>::setElementOfPositionN(const T& elem, int n)
+	{
+        int len = numberOfNodes();
+        if ((n <= 0) || (n > len))
+        {
+            std::cout<<"The position number n yoou entered is wrong."<<std::endl;
+            return;
+        }
+        int pos;
+        CircularLinkedListNode<T> *pNode;
+        if (n <= len/2)
+        {
+            pos = 0;
+            pNode = head;
+            while (pNode != tail)
+            {
+                pos++;
+                if (pos == n)
+                {
+                    break;
+                }
+                pNode = pNode->right;
+            }
+        }
+        else
+        {
+            pos = len;
+            pNode = tail;
+            while (pNode != head)
+            {
+                if (pos == n)
+                {
+                    break;
+                }
+                pos--;
+                pNode = pNode->left;
+            }
+        }
+        pNode->info = elem;
+        return;
 	}
 
 #endif	/* CIRCULAR_LINKED_LIST_H */
