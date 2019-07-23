@@ -3,3 +3,16 @@
 *.o
 *.obj
 *.log
+*.ipch
+*.json
+*.sqlite
+*.user
+*.filters
+*.tlog
+*.txt
+*.idb
+*.pdb
+*.ilk
+*.db
+*.opendb
+*.suo
