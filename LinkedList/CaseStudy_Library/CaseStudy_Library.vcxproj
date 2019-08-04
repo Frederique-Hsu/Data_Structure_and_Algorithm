@@ -19,11 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Book.cpp" />
+    <ClCompile Include="action.cpp" />
+    <ClCompile Include="Book_Author_Patron.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Book.h" />
+    <ClInclude Include="action.h" />
+    <ClInclude Include="Book_Author_Patron.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
