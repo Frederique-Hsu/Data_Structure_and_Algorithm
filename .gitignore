@@ -16,3 +16,6 @@
 *.db
 *.opendb
 *.suo
+*.pdf
+
+*/build*/
