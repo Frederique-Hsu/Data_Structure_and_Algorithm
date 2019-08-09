@@ -11,6 +11,9 @@
 #ifndef CLASS_TEMPLATES_H
 #define CLASS_TEMPLATES_H
 
+	#include <cstdio>
+	#include <iostream>
+
 	template<class Type> class QueueItem;
 	template<class Type> class Queue;
 
@@ -57,6 +60,7 @@
 		{
 			return (head == 0);
 		}
+		void showQueue();
 	private:
 		QueueItem<Type>* head;
 		QueueItem<Type>* tail;
@@ -98,6 +102,26 @@
 		for (QueueItem<Type>* pt = orig.head; pt; pt = pt->next)
 		{
 			push(pt->item);
+		}
+	}
+
+	template<class Type> void Queue<Type>::showQueue()
+	{
+		std::printf("\nCurrent queue is showed as below : \n");
+		std::printf("Node#\t\t| Item\t\t| Current node address\t\t| Next node address\n");
+		std::printf("----------------+---------------+-------------------------------+-------------------------------\n");
+
+		QueueItem<Type>* pnode = head;
+		int index = 1;
+		while (pnode != 0)
+		{
+			std::cout << index++ << "\t\t| " << pnode->item << "\t\t| ";
+			std::printf("0x%016llX \t%s| 0x%016llX\n", 
+				        (unsigned long long)pnode, 
+						(pnode == head) ? "head\t" : ((pnode != tail) ? "\t" : "tail\t"),
+				        (unsigned long long)pnode->next);
+			std::printf("----------------+---------------+-------------------------------+-------------------------------\n");
+			pnode = pnode->next;
 		}
 	}
 
