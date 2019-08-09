@@ -1,9 +1,19 @@
 #include "testing.h"
 #include "Function_Templates.h"
 #include "Class_Templates.h"
+#include "utilities.h"
 
 #include <string>
 using namespace std;
+
+void execute_test_cases(void)
+{
+	instantiate_class_templates();
+}
+
+
+
+
 
 void execute_array_init(void)
 {
