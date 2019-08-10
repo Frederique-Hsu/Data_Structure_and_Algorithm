@@ -9,6 +9,8 @@ using namespace std;
 void execute_test_cases(void)
 {
 	instantiate_class_templates();
+	std::cout << "\n===============================================================\n" << std::endl;
+	instantiate_access_member_template();
 }
 
 
