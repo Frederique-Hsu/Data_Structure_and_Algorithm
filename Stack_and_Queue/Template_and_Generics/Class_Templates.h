@@ -15,12 +15,17 @@
 	#include <iostream>
 
 	template<class Type> class QueueItem;
-	template<class Type> class Queue;
+	template<class Type> class Queue;		/* declaration that Queue is a template needed for friend declaration in QueueItem */
+
+	/* function template declaration must precede friend declaration in QueueItem and Queue. */
+	template<class Type> std::ostream& operator<<(std::ostream& os, const Queue<Type>& q);
+	template<typename Type> std::istream& operator>>(Type value, Queue<Type>& q);
 
 	template <class Type>
 	class QueueItem
 	{
-		template<class Type> friend class Queue;
+		friend class Queue<Type>;
+		friend std::ostream& operator<< <Type>(std::ostream& os, const Queue<Type>& q);
 	private:
 		QueueItem(const Type& t) : item(t), next(0)
 		{
@@ -32,6 +37,7 @@
 	template<class Type>
 	class Queue
 	{
+		friend std::ostream& operator<< <Type>(std::ostream& os, const Queue<Type>& q);
 	public:
 		Queue() : head(0), tail(0)			/* default constructor */
 		{
@@ -40,6 +46,8 @@
 		{
 			copy_elems(q);
 		}
+		/* construct a Queue from a pair of iterators on some sequence */
+		template<class It> Queue(It begin, It end);		
 		// Queue& operator=(const Queue& other);
 		~Queue()
 		{
@@ -61,11 +69,15 @@
 			return (head == 0);
 		}
 		void showQueue();
+		/* replace current queue by contents delimited by a pair of iterators */
+		template<class Iter> void assign(Iter, Iter);
 	private:
 		QueueItem<Type>* head;
 		QueueItem<Type>* tail;
 		void destroy();
 		void copy_elems(const Queue&);
+		/* version of copy to be used by assign to copy elements from iterator range */
+		template<class Iter> void copy_elems(Iter, Iter);
 	};
 
 	template<class Type> void Queue<Type>::destroy()
@@ -122,6 +134,41 @@
 				        (unsigned long long)pnode->next);
 			std::printf("----------------+---------------+-------------------------------+-------------------------------\n");
 			pnode = pnode->next;
+		}
+	}
+
+	template<class Type> std::ostream& operator<<(std::ostream& os, const Queue<Type>& q)
+	{
+		os << "< ";
+		QueueItem<Type>* p;
+		for (p = q.head; p; p = p->next)
+		{
+            os << p->item << ", ";
+		}
+		os << ">";
+		return os;
+	}
+
+	template<class Type> template<class Iter>
+	Queue<Type>::Queue(Iter begin, Iter end) : head(0), tail(0)
+	{
+		copy_elems(begin, end);
+	}
+
+	template<class Type> template<class Iter>
+	void Queue<Type>::assign(Iter begin, Iter end)
+	{
+		destroy();
+		copy_elems(begin, end);
+	}
+
+	template<class Type> template<class Iter>
+	void Queue<Type>::copy_elems(Iter begin, Iter end)
+	{
+		while (begin != end)
+		{
+			push(*begin);
+			++begin;
 		}
 	}
 
