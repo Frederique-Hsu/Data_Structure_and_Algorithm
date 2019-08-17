@@ -18,5 +18,5 @@
 *.suo
 *.pdf
 
-*/build*/
+*build*/
 .vs/
