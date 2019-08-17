@@ -15,9 +15,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Class_Templates.cpp \
     Function_Templates.cpp \
+    List.cpp \
     Main.cpp \
-    testing.cpp
+    Screen.cpp \
+    testing.cpp \
+    utilities.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -27,4 +31,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     Class_Templates.h \
     Function_Templates.h \
-    testing.h
+    List.h \
+    Screen.h \
+    testing.h \
+    utilities.h

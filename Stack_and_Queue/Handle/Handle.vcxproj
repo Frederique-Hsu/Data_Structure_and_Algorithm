@@ -19,27 +19,24 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Class_Templates.cpp" />
-    <ClCompile Include="Function_Templates.cpp" />
-    <ClCompile Include="List.cpp" />
+    <ClCompile Include="Basket.cpp" />
+    <ClCompile Include="Item_base.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Screen.cpp" />
-    <ClCompile Include="testing.cpp" />
-    <ClCompile Include="utilities.cpp" />
+    <ClCompile Include="Sales_item.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Class_Templates.h" />
-    <ClInclude Include="Function_Templates.h" />
-    <ClInclude Include="List.h" />
-    <ClInclude Include="Screen.h" />
-    <ClInclude Include="testing.h" />
-    <ClInclude Include="utilities.h" />
+    <ClInclude Include="Basket.h" />
+    <ClInclude Include="Item_base.h" />
+    <ClInclude Include="Sales_item.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{BF79C98C-83A3-4C30-96CB-6F788579947D}</ProjectGuid>
+    <ProjectGuid>{D0F65A2D-2889-49EF-9DA6-FE10D5186665}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>TemplateandGenerics</RootNamespace>
+    <RootNamespace>Handle</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
