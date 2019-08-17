@@ -23,14 +23,22 @@
     <ClCompile Include="Item_base.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Sales_item.cpp" />
+    <ClCompile Include="TextQuery\Query.cpp" />
+    <ClCompile Include="TextQuery\Query_base.cpp" />
+    <ClCompile Include="TextQuery\testing.cpp" />
+    <ClCompile Include="TextQuery\TextQuery.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Basket.h" />
     <ClInclude Include="Item_base.h" />
     <ClInclude Include="Sales_item.h" />
+    <ClInclude Include="TextQuery\Query.h" />
+    <ClInclude Include="TextQuery\Query_base.h" />
+    <ClInclude Include="TextQuery\testing.h" />
+    <ClInclude Include="TextQuery\TextQuery.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram.cd" />
+    <None Include="TextQuery\TextQuery_Module_Classes_Diagram.cd" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
