@@ -11,9 +11,10 @@
  **************************************************************************************************/
 
 #include "BitSet.h"
+#include <cstdio>
 
 int main(int argc, char* argv[])
 {
     execute_test_cases();
-    return 0;
+    return std::getchar();
 }

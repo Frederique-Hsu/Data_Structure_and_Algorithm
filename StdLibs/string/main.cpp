@@ -13,8 +13,10 @@
 #include <cstdlib>
 #include "testing.h"
 
+#include <cstdio>
+
 int main(int argc, char* argv[])
 {
     executeTestCases();
-    return EXIT_SUCCESS;
+    return std::getchar();
 }
