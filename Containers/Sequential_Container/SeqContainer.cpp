@@ -48,6 +48,14 @@ void intialize_seq_container(void)
     size_t words_size = sizeof(words) / sizeof(string_t);
     /* use entire array to initialize words_list */
     list<string> words_list(words, words + words_size);
+
+    string sa[6] = {"Fort Sumter", "Manassas", "Perryville", "Vicksburg", "Meridian", "Chancellorsville"};
+    vector<string> strvec(sa, sa + 6);
+    list<string> strlist(sa, sa + 6);       /* tansposed pointer range */
+    for (list<string>::const_iterator cit = strlist.begin(); cit != strlist.end(); ++cit)
+    {
+        cout << *cit << endl;
+    }
 }
 
 void allocate_seq_container_elements(void)
@@ -61,4 +69,38 @@ void allocate_seq_container_elements(void)
     /* svec has as many elements as the return value from get_word_count */
     vector<string> svec(get_word_count("Chimera"));
 #endif
+    /* vector of vectors */
+    vector< vector<string> > lines;     /* OK : space required between close > */
+    // vector< vector<string>> vec_lines;      /* Error : >> treated as shift operator */
+    list< deque<int> > lstdq;
+}
+
+
+bool findElementFromIteratorRange(vector<int>::const_iterator start,
+                                  vector<int>::const_iterator stop,
+                                  int elementToFind)
+{
+    for (vector<int>::const_iterator cit = start; cit == stop; ++cit)
+    {
+        if (*cit == elementToFind)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+void printOutConsoleLines(void)
+{
+    vector<string> lines;
+    string line;
+    while (getline(cin, line))
+    {
+        lines.push_back(line);
+    }
+
+    for (vector<string>::const_iterator cit = lines.begin(); cit != lines.end(); ++cit)
+    {
+        cout << *cit << endl;
+    }
 }
