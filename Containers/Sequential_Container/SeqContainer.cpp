@@ -10,6 +10,13 @@
 
 using namespace std;
 
+bool findElementFromIteratorRange(vector<int>::const_iterator start,
+    vector<int>::const_iterator stop,
+    int elementToFind);
+void printOutConsoleLines(void);
+void split_list_container(list<int> origin, deque<int>& odd, deque<int>& even);
+
+
 void intialize_seq_container(void)
 {
     vector<string> svec;
@@ -75,7 +82,88 @@ void allocate_seq_container_elements(void)
     list< deque<int> > lstdq;
 }
 
+void utilize_container_defined_types(void)
+{
+    /* iter is the iterator type-defined by list<string> */
+    list<string>::iterator iter;
+    /* cnt is the difference_type type-defined by vector<int> */
+    vector<int>::difference_type cnt;
 
+    list<int> ilist;
+    for (size_t ix = 0; ix != 4; ++ix)
+    {
+        ilist.push_back(ix);
+    }
+    for (size_t idx = 100; idx != 90; --idx)
+    {
+        ilist.push_front(idx);
+    }
+    for (list<int>::const_reverse_iterator criter = ilist.rbegin(); criter != ilist.rend(); ++criter)
+    {
+        cout << *criter << endl;
+    }
+
+    deque<int> odd, even;
+    split_list_container(ilist, odd, even);
+}
+
+void manipulate_container(void)
+{
+    vector<string> svec;
+    list<string> slist;
+    string spouse("Beth");
+    /* equivalent to calling slist.push_front(spouse) */
+    slist.insert(slist.begin(), spouse);
+
+    /* no push_front on vector, but we can insert before begin()
+     * warning: inserting anywhere but at the end of a vector is an expensive operation.
+     */
+    svec.insert(svec.begin(), spouse);
+    svec.insert(svec.end(), 10, "Anna");
+
+#if 0
+    /* repeatly insert the new element in the front of list */
+    list<string> lst;
+    list<string>::iterator iter = lst.begin();
+    string word;
+    while (cin >> word)
+    {
+        iter = lst.insert(iter, word);      /* same as calling push_front */
+    }
+#endif
+
+    string sarray[4] = {"Quasi", "Simba", "Frollo", "Scar"};
+    /* insert all the elements in sarray at end of slist */
+    slist.insert(slist.end(), sarray, sarray + 4);
+    // list<string>::iterator slist_iter = (slist.begin() + 2);    /* list<> container class does not overload the iterator + arithmetic operator */
+    vector<string>::iterator vec_iter = (svec.begin() + 2);
+    svec.insert(vec_iter, sarray, sarray + 3);
+
+    vector<int> ivec(1, 10);
+    vector<int>::iterator first = ivec.begin(), last = ivec.end();      /* cache end iterator */
+    int number = 42;
+#if defined (NOT_FLUSH_END_ITERATOR)
+    /* disaster : behaviour of this loop is undefined */
+    while (first != last)       /* here last iterator had not been refreshed, invalid iterator */
+#else
+    /* safer : recalculate end on each trip whenever the loop adds/erases elements */
+    while (first != ivec.end())
+#endif
+    {
+        /* do some processing 
+         * insert new value and reassign first, which otherwise would be invalid 
+         */
+        first = ivec.insert(first, number++);
+        ++first;    /* advance first just past the element we added */
+        if (ivec.size() >= 25)
+        {
+            break;
+        }
+    }
+}
+
+/*=================================================================================================*/
+/* Exercises : */
 bool findElementFromIteratorRange(vector<int>::const_iterator start,
                                   vector<int>::const_iterator stop,
                                   int elementToFind)
@@ -102,5 +190,21 @@ void printOutConsoleLines(void)
     for (vector<string>::const_iterator cit = lines.begin(); cit != lines.end(); ++cit)
     {
         cout << *cit << endl;
+    }
+}
+
+void split_list_container(const list<int> origin, deque<int>& odd, deque<int>& even)
+{
+    for (list<int>::const_iterator iter = origin.begin(); iter != origin.end(); ++iter)
+    {
+        int number = *iter;
+        if (number % 2 == 0)
+        {
+            even.push_back(number);
+        }
+        else
+        {
+            odd.push_back(number);
+        }
     }
 }
