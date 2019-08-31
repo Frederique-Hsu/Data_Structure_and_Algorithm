@@ -13,9 +13,11 @@
 #include <cstdio>
 
 #include "StringContainer.h"
+#include "exercises.h"
 
 int main(int argc, char* argv[])
 {
     execute_test_cases();
+    verifyExercises();
     return std::getchar();
 }

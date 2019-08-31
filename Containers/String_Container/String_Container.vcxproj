@@ -19,10 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="exercises.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="StringContainer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="exercises.h" />
     <ClInclude Include="StringContainer.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
