@@ -7,6 +7,7 @@
 #include <string>
 #include <cstdio>
 #include <cstring>
+#include <algorithm>
 
 using namespace std;
 
@@ -15,6 +16,7 @@ bool findElementFromIteratorRange(vector<int>::const_iterator start,
     int elementToFind);
 void printOutConsoleLines(void);
 void split_list_container(list<int> origin, deque<int>& odd, deque<int>& even);
+void eraseSpecificElementFromDeque(deque<string>& strdeque, const string& elementToDelete);
 
 
 void intialize_seq_container(void)
@@ -162,6 +164,150 @@ void manipulate_container(void)
     }
 }
 
+static int yield(int x)
+{
+    return (x + 3) * (x - 5);
+}
+template<class T> void process(T arg)
+{
+    cout << "Current element is " << arg << endl;
+}
+void manipulate_elements_inside_container(void)
+{
+    list<int> ilst;
+    for (int idx = -10; idx <= 10; ++idx)
+    {
+        ilst.push_back(yield(idx));
+    }    
+    for (list<int>::iterator iter = ilst.begin(); iter != ilst.end(); ++iter)
+    {
+        list<int>::reference element = *iter;
+        cout << element << endl;
+    }
+    cout << "The size of this list: " << ilst.size() << ", and its max size: " << ilst.max_size() << endl;
+    /* Check that there are elements before dereferencing an iterator 
+     * or calling front or back.
+     */
+    if (!ilst.empty())
+    {
+        /* val and val2 refer to the same element */
+        list<int>::reference val = *ilst.begin();
+        list<int>::reference val2 = ilst.front();
+
+        /* last and last2 refer to the same element */
+        list<int>::reference last = *(--ilst.end());    /* cannot use ilst.end()-- */
+        list<int>::reference last2 = ilst.back();
+
+        cout << "The front element is " << val2 << ", and the last element is " << last << endl;
+    }
+#if 0
+    while (!ilst.empty())
+    {
+        process(ilst.front());  /* do something with the current top of ilst */
+        ilst.pop_front();       /* done; remove first element */
+    }
+#endif
+
+    int yield_array[] = { yield(0), yield(2), yield(5), yield(6), yield(10) };
+    vector<int> ivec(yield_array, yield_array+4);
+    cout << "The element[0] of ivec is: " << ivec[0] << endl;
+    cout << "The element at position 3 is: " << ivec.at(3) << endl;
+
+    string companies[] = { "Apple", "Intel", "Huawei", "Google", "Facebook", "Lenovo", "Chanel", "Qualcomm", 
+        "Amazon", "Ferrari", "Microsoft", "Alibaba", "BMW", "Sony", "Tencent" };
+    list<string> company_list(companies, companies+15);
+    string comapnyToDelete = "Qualcomm";
+    list<string>::iterator iter = find(company_list.begin(), company_list.end(), comapnyToDelete);
+    if (iter != company_list.end())
+    {
+        company_list.erase(iter);
+    }
+    /* delete range of elements between two values */
+    list<string>::iterator elem1_iter, elem2_iter;
+    elem1_iter = find(company_list.begin(), company_list.end(), "Google");
+    elem2_iter = find(elem1_iter, company_list.end(), "Amazon");
+    /* erase range from elem1 up to but not including elem2 */
+    company_list.erase(elem1_iter, elem2_iter);
+
+    deque<string> strdeque(companies, companies + 4);
+    strdeque.assign(company_list.begin(), company_list.end());
+    eraseSpecificElementFromDeque(strdeque, "Sony");
+
+#if false
+    /* delete all the elements within the container */
+    company_list.clear();
+    company_list.assign(5, "Hiya");     /* 10 elements; each one is "Hiya"! */
+#endif
+
+    list<string> core_socialist_values;
+    core_socialist_values.push_back("Prosperity");
+    core_socialist_values.push_back("Democracy");
+    core_socialist_values.push_back("Civility");
+    core_socialist_values.push_back("Harmony");
+    core_socialist_values.push_back("Freedom");
+    core_socialist_values.push_back("Equality");
+    core_socialist_values.push_back("Justice");
+    core_socialist_values.push_back("Rule of law");
+    core_socialist_values.push_back("Patriotism");
+    core_socialist_values.push_back("Dedication");
+    core_socialist_values.push_back("Integrity");
+    core_socialist_values.push_back("Friendship");
+
+    cout << "The original company_list is : " << endl;
+    for (list<string>::const_iterator citer = company_list.begin(); citer != company_list.end(); ++citer)
+    {
+        cout << *citer << endl;
+    }
+    cout << "The original core_socialist_values is : " << endl;
+    for (list<string>::iterator iter = core_socialist_values.begin(); iter != core_socialist_values.end(); ++iter)
+    {
+        cout << *iter << endl;
+    }
+    company_list.swap(core_socialist_values);
+    cout << "After swapping company_list with core_socialist_values, they are now becoming : " << endl;
+    cout << "company_list = " << endl;
+    for (list<string>::const_iterator citer = company_list.begin(); citer != company_list.end(); ++citer)
+    {
+        cout << *citer << endl;
+    }
+    cout << "core_socialist_values = " << endl;
+    for (list<string>::iterator iter = core_socialist_values.begin(); iter != core_socialist_values.end(); ++iter)
+    {
+        cout << *iter << endl;
+    }
+}
+
+void manage_container_size_capacity(void)
+{
+    vector<int> ivec;
+    /* size should be zero; capacity is implementation defined */
+    cout << "ivec: size = " << ivec.size() << ", capacity = " << ivec.capacity() << endl;
+    /* give ivec 24 elements */
+    for (vector<int>::size_type idx = 0; idx != 25; ++idx)
+    {
+        ivec.push_back(idx);
+        cout << "ivec: size = " << ivec.size() << ", capacity = " << ivec.capacity() << endl;
+    }
+    /* size shoule be 24; capacity will be >= 24 and is implementation defined */
+    cout << "ivec: size = " << ivec.size() << ", capacity = " << ivec.capacity() << endl;
+
+    ivec.reserve(50);       /* sets capacity to at least 50; might be more */
+    /* size should be 25, capacity will be >= 50 and is implementation defined */
+    cout << "ivec: size = " << ivec.size() << ", capacity = " << ivec.capacity() << endl;
+
+    /* add elements to use up the excess capacity */
+    while (ivec.size() != ivec.capacity())
+    {
+        ivec.push_back(0);
+    }
+    /* size should be 50; capacity should be unchanged */
+    cout << "ivec: size = " << ivec.size() << ", capacity = " << ivec.capacity() << endl;
+
+    ivec.push_back(70);     /* add one more element */
+    /* size should be 51; capacity will be >= 51 */
+    cout << "ivec: size = " << ivec.size() << ", capacity = " << ivec.capacity() << endl;
+}
+
 /*=================================================================================================*/
 /* Exercises : */
 bool findElementFromIteratorRange(vector<int>::const_iterator start,
@@ -206,5 +352,14 @@ void split_list_container(const list<int> origin, deque<int>& odd, deque<int>& e
         {
             odd.push_back(number);
         }
+    }
+}
+
+void eraseSpecificElementFromDeque(deque<string>& strdeque, const string& elementToDelete)
+{
+    deque<string>::iterator iter = find(strdeque.begin(), strdeque.end(), elementToDelete);
+    if (iter != strdeque.end())
+    {
+        strdeque.erase(iter);
     }
 }
