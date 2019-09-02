@@ -18,6 +18,6 @@
 int main(int argc, char* argv[])
 {
     execute_test_cases();
-    verifyExercises();
+    // verifyExercises();
     return std::getchar();
 }

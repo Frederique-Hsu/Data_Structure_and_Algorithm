@@ -10,7 +10,7 @@ void verifyExercises(void)
     toUpper(sentence);
     cout << sentence << endl;
 
-    string love = "You are so Beautiful that I have fallen in LOVE with you.";
+    string love = "YOU are So BeauTiFUL that I have fallen in LOVE with you.";
     cout << love << endl;
     eraseUpperLettersFrom(love);
     cout << love << endl;
@@ -31,6 +31,12 @@ void verifyExercises(void)
     myName.push_back('u');
     string name = instantiateStringObjectFromVector(myName);
     cout << "My name is " << name << endl;
+
+    string generic1("Dear Ms Daisy:");
+    string generic2("MrsMsMissPeople");
+    string lastName("Swift");
+    string salute = greet(generic1, lastName, generic2, 5, 4);
+    cout << salute << endl;     /* print out : Dear Miss Swift */
 }
 
 void toUpper(string& origin)
@@ -46,6 +52,7 @@ void toUpper(string& origin)
 
 void eraseUpperLettersFrom(string& origin)
 {
+#if 1
     string::iterator iter = origin.begin();
     while (iter != origin.end())
     {
@@ -62,6 +69,16 @@ void eraseUpperLettersFrom(string& origin)
         }
         ++iter;
     } 
+#else
+    for (string::size_type index = 0; index < origin.size(); ++index)
+    {
+        if (('A' <= origin[index]) && (origin[index] <= 'Z'))
+        {
+            origin.erase(index, 1);
+            index--;
+        }
+    }
+#endif
 }
 
 string instantiateStringObjectFromVector(const vector<char>& charvec)
@@ -72,4 +89,15 @@ string instantiateStringObjectFromVector(const vector<char>& charvec)
         str.push_back(*citer);
     }
     return str;
+}
+
+string greet(string from, string lastname, string title, string::size_type pos, int length)
+{
+    string::size_type pos_Daisy = from.find("Daisy");
+    string::size_type colonPosition = from.find(":");
+    from.replace(pos_Daisy, colonPosition - pos_Daisy, lastname);
+
+    string miss = title.substr(pos, length);
+    from.replace(from.find("Ms"), 2, miss);
+    return from;
 }
