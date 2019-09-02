@@ -1,22 +1,20 @@
 /**************************************************************************************************
- * Project name	: string
- * Description	: Study the standard string type
+ * Project      : Adpater
+ * Description  : Study the container's adapter concept
  * ================================================================================================
- * File name	: main.cpp
- * Description	: This file implements the main() entry function for current project.
- * Creator		: Frederique Hsu
- * Creation date: Sat.	17 Aug. 2019
- * Copyright(C)	2019	All rights reserved.
+ * File name    : Main.cpp
+ * Description  : This file implements the main() entry function for current project.
+ * Creator      : Frederick Hsu
+ * Creation date: Mon.  02 Sep. 2019
+ * Copyright(C) 2019    All rights reserved.
  *
  **************************************************************************************************/
 
-#include <cstdlib>
-#include "testing.h"
-
 #include <cstdio>
+#include "Adapter.h"
 
 int main(int argc, char* argv[])
 {
-    executeTestCases();
+    execute_test_cases();
     return std::getchar();
 }
