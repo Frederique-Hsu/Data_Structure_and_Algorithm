@@ -11,8 +11,12 @@
  **************************************************************************************************/
 
 #include <cstdio>
+#include "testing.h"
 
 int main(int argc, char* argv[])
 {
+    execute_test_cases();
+
+    // execute_exercises(argc, argv);
     return std::getchar();
 }
