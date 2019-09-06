@@ -20,14 +20,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Generic_Algorithm_Basics.cpp" />
-    <ClCompile Include="interview.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Sorting_Algorithms.cpp" />
     <ClCompile Include="testing.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Generic_Algorithm_Basics.h" />
-    <ClInclude Include="interview.h" />
     <ClInclude Include="Sorting_Algorithms.h" />
     <ClInclude Include="testing.h" />
   </ItemGroup>
