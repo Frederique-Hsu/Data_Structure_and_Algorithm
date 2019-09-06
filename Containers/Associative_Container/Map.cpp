@@ -1,4 +1,4 @@
-#include "AssociativeContainer.h"
+#include "Map.h"
 
 #include <map>
 #include <string>
@@ -98,4 +98,9 @@ void traverse_map_through_iterator(void)
         cout << "The word \"" << map_cit->first << "\" occurs " << map_cit->second << " times." << endl;
         ++map_cit;      /* increment iterator to denote the next element */
     }
+}
+
+void insert_erase_multimap_elements(void)
+{
+
 }

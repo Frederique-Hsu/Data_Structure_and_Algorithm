@@ -19,16 +19,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AssociativeContainer.cpp" />
     <ClCompile Include="exercises.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Map.cpp" />
     <ClCompile Include="pair_type.cpp" />
     <ClCompile Include="Set.cpp" />
     <ClCompile Include="testing.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AssociativeContainer.h" />
     <ClInclude Include="exercises.h" />
+    <ClInclude Include="Map.h" />
     <ClInclude Include="pair_type.h" />
     <ClInclude Include="Set.h" />
     <ClInclude Include="testing.h" />
