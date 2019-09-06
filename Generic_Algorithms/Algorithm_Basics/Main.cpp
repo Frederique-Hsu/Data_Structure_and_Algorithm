@@ -19,7 +19,7 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-#if 0
+#if 1
     execute_test_cases();
 #else
     unsigned hexnumber;
