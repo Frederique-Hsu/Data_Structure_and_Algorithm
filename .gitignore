@@ -17,6 +17,7 @@
 *.opendb
 *.suo
 *.pdf
+*.new.obj.enc
 
 *build*/
 .vs/

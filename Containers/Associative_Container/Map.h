@@ -17,6 +17,7 @@
     void initialize_map_objects(void);
     void access_map_objects(void);
     void traverse_map_through_iterator(void);
+    void insert_erase_multimap_elements(void);
 
 
 #endif  /* ASSOCIATIVE_CONTAINER_H */

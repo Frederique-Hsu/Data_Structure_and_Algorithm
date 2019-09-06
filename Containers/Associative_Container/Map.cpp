@@ -102,5 +102,62 @@ void traverse_map_through_iterator(void)
 
 void insert_erase_multimap_elements(void)
 {
+    multimap<string, string> authors;
+    typedef multimap<string, string>::value_type    KVP;
+    typedef multimap<string, string>::key_type      Key;
+    typedef multimap<string, string>::mapped_type   Value;
 
+    /* adds first element with key Barth */
+    authors.insert(make_pair(string("Barth, John"), string("Sot-Weed Factor")));
+    authors.insert(KVP("Alain de Botton", "Head First HTML, CSS & JavaScript"));
+    /* adds second element with key Barth */
+    authors.insert(make_pair(string("Barth, John"), string("Lost in the Funhouse")));
+    authors.insert(pair<string, string>("Adam Drozdek", "Data Structures and Algorithms in C++"));
+    authors.insert(KVP("Stanley B. Lippman", "C++ Primer"));
+    authors.insert(pair<string, string>("Alain de Botton", "Qt 5 development"));
+    authors.insert(make_pair("Josee Lajoie", "C++ Primer"));
+    authors.insert(make_pair("Barbara E. Moo", "C++ Primer"));
+    authors.insert(KVP("Alain de Botton", "Build the embedded Linux system"));
+
+    string search_item("Kazuo Ishiguro");
+    /* erase all elements with this key; returns number of elements removed. */
+    multimap<string, string>::size_type cnt = authors.erase(search_item);
+
+    multimap<string, string>::iterator iter_to_erase = authors.find("Josee Lajoie");
+    iter_to_erase = authors.erase(iter_to_erase);
+
+    Key search_author("Alain de Botton");;
+    /* how many entries are there for this author */
+    typedef multimap<string, string>::size_type sz_type;
+    sz_type entries = authors.count(search_author);
+    /* get iterator to the first entry for this author */
+    multimap<string, string>::iterator iter = authors.find(search_author);
+    /* loop through the number of entries there are for this author */
+    for (sz_type cnt = 0; cnt != entries; ++cnt, ++iter)
+    {
+        cout << iter->second << endl;   /* print out each book title */
+    }
+    cout << "\n\n" << endl;
+
+    /* begin and end iterators denotes range of elements for this author */
+    typedef multimap<string, string>::iterator author_iter;
+    author_iter begin = authors.lower_bound(search_author),
+        end = authors.upper_bound(search_author);
+    /* loop through the number of entries there are for this author */
+    while (begin != end)
+    {
+        cout << begin->second << endl;
+        ++begin;
+    }
+    cout << "\n\n" << endl;
+
+    pair<author_iter, author_iter> pos = authors.equal_range(search_author);
+    while (pos.first != pos.second)
+    {
+        cout << pos.first->second << endl;
+        pos.first++;
+    }
+
+    pos = authors.equal_range("Barth, John");
+    authors.erase(pos.first, pos.second);
 }
