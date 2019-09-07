@@ -5,11 +5,12 @@
 	#include <string>
 	#include <set>
 	#include <map>
-	#include <iosfwd>
+    #include <fstream>
 
 	class TextQuery
 	{
 	public:
+        explicit TextQuery(void) {}      /* default constructor, no need to initialize any member */
 		/* typedefs to make declarations easier */
 		typedef std::vector<std::string>::size_type line_no;
 		/* interface:
