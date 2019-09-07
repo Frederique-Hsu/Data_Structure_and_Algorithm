@@ -1,4 +1,4 @@
-#include "testing.h";
+#include "testing.h"
 #include "TextQuery.h"
 
 #include <iostream>
