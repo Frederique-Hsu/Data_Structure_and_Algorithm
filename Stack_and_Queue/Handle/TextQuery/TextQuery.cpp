@@ -1,7 +1,7 @@
 #include "TextQuery.h"
 
 #include <iostream>
-#include <istream>
+#include <sstream>
 
 using namespace std;
 
@@ -13,6 +13,12 @@ void TextQuery::store_file(std::ifstream& is)
 	{
 		lines_of_text.push_back(textline);
 	}
+}
+
+void TextQuery::read_file(std::ifstream &is)
+{
+    store_file(is);
+    build_map();
 }
 
 /* finds whitespace-separated words in the input vector, and
