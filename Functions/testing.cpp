@@ -70,3 +70,18 @@ void pass_non_const_reference_parameter(void)
     // v3 = incr(v1 + v2);     /* error: addition doesn't yield an lvalue */
     int v4 = incr(v3);      /* OK: v3 is a non const object type int */
 }
+
+void call_function_pointer(void)
+{
+    cmpFcn pf1 = 0;                 /* OK: unbound pointer to function */
+    cmpFcn pf2 = lengthCompare;     /* OK: pointer type matches function's type */
+    pf1 = &lengthCompare;           /* OK: pointer type matches function's type */
+
+    cmpFcn pf; // = sumLength;      /* Error: return type differs */
+    // pf = cstringCompare;         /* Error: parameter types differ */
+    pf = lengthCompare;             /* OK: function and pointer types match exactly */
+
+    lengthCompare("hi", "bye");     /* direct call */
+    pf("hi", "bye");                /* equivalent call: pf implicitly dereferenced */
+    (*pf)("hi", "bye");             /* equivalent call: pf explicitly dereferenced */
+}

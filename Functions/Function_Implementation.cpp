@@ -1,6 +1,7 @@
 #include "Function_Prototype.h"
 #include <cstdlib>
 #include <iostream>
+#include <cstring>
 
 int gcd(int v1, int v2)
 {
@@ -10,6 +11,13 @@ int gcd(int v1, int v2)
         v2 = v1 % v2;
         v1 = temp;
     }
+    return v1;
+}
+
+int rgcd(int v1, int v2)
+{
+    if (v2 != 0)
+        return rgcd(v2, v1%v2);
     return v1;
 }
 
@@ -151,4 +159,33 @@ const string& shorterString(const string& s1, const string& s2)
 char& get_val(string& str, string::size_type pos)
 {
     return str[pos];
+}
+
+unsigned factorial(unsigned n)
+{
+    if (n > 1)
+        return factorial(n-1) * n;
+    return 1;
+}
+
+size_t count_calls()
+{
+    static size_t ctr = 0;  /* value will persist across calls */
+    return ++ctr;
+}
+
+bool lengthCompare(const string& str1, const string& str2)
+/* compare lengths of two strings. */
+{
+    return (str1.size() <= str2.size());
+}
+
+string::size_type sumLength(const string& str1, const string& str2)
+{
+    return (str1.size() + str2.size());
+}
+
+bool cstringCompare(char* str1, char* str2)
+{
+    return ((strcmp(str1, str2) >= 0) ? true : false);
 }
