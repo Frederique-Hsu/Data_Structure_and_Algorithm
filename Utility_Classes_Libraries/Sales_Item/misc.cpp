@@ -21,3 +21,57 @@ std::string Record::get_name() const
 {
     return name;
 }
+
+/*============================================================================================*/
+
+/* constructor for 'ConstRef' must explicitly
+ * intialize the const member 'constNum'.
+ */
+ConstRef::ConstRef(int num) : number(num), constNum(num), refNum(num)
+{
+#if false
+    number = num;
+    /* cannot assign to non-static data member 'constNum' with
+     * const-qualified type 'const int'.
+     */
+    constNum = num;
+    refNum = num;
+#endif
+}
+
+/*============================================================================================*/
+
+double Account::interestRate = initialRate();
+
+void Account::applyInterest()
+{
+    amount += amount * interestRate;
+}
+
+double Account::rate()
+{
+    return interestRate;
+}
+
+void Account::rate(double newRate)
+{
+    interestRate = newRate;
+}
+
+/*============================================================================================*/
+
+NoName::NoName() : pstring(new std::string), i(0), d(0.00)
+{
+}
+
+NoName::~NoName()
+{
+    pstring->clear();
+    delete pstring;
+}
+
+NoName::NoName(const NoName& orig) : i(orig.i), d(orig.d)
+{
+    std::string str = std::string(orig.pstring->data());
+    pstring = new std::string(str);
+}
