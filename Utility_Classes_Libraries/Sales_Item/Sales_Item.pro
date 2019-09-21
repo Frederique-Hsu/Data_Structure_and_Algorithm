@@ -22,12 +22,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+        Folder.cpp \
+        Message.cpp \
         Sales_item.cpp \
         Screen.cpp \
         Window_Mgr.cpp \
         misc.cpp
 
 HEADERS += \
+        Folder.h \
+        Message.h \
         Sales_item.h \
         Screen.h \
         Window_Mgr.h \
