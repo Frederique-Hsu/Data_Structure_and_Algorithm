@@ -70,3 +70,11 @@ istream& operator>>(istream& in, Sales_item& item)
     in >> item.revenue;
     return in;
 }
+
+Sales_item& Sales_item::operator=(const Sales_item &other)
+{
+    isbn = other.isbn;
+    units_sold = other.units_sold;
+    revenue = other.revenue;
+    return *this;
+}

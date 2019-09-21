@@ -58,7 +58,7 @@
   <Class Name="Sales_item">
     <Position X="5" Y="0.5" Width="3.5" />
     <TypeIdentifier>
-      <HashCode>CAAAAAAAAAAAAAAAAAABAQEAAAAAAAAAAAAEAAgAAAQ=</HashCode>
+      <HashCode>CAAAAAAAAAAAAAAAAAABAQEAAAAAAAAAAAAkAAgAAAQ=</HashCode>
       <FileName>Sales_item.h</FileName>
     </TypeIdentifier>
   </Class>
