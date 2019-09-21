@@ -19,23 +19,21 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Utility_Classes_Libraries\Sales_Item\Sales_item.cpp" />
-    <ClCompile Include="insert_iterator.cpp" />
-    <ClCompile Include="iostream_iterator.cpp" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="reverse_iterator.cpp" />
-    <ClCompile Include="testing.cpp" />
+    <ClCompile Include="..\Sales_Item\Sales_item.cpp" />
+    <ClCompile Include="..\Sales_Item\Screen.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="unit_testing.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Utility_Classes_Libraries\Sales_Item\Sales_item.h" />
-    <ClInclude Include="iterators.h" />
-    <ClInclude Include="testing.h" />
+    <ClInclude Include="..\Sales_Item\Sales_item.h" />
+    <ClInclude Include="..\Sales_Item\Screen.h" />
+    <ClInclude Include="unit_testing.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{96944890-5A22-475B-8567-CD4A4D018734}</ProjectGuid>
+    <ProjectGuid>{1EF8FAAD-A45D-4C74-B046-45154B11245F}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Iterators</RootNamespace>
+    <RootNamespace>UnitTesting</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
