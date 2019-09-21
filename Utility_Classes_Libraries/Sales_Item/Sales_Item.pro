@@ -24,11 +24,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         Sales_item.cpp \
         Screen.cpp \
+        Window_Mgr.cpp \
         misc.cpp
 
 HEADERS += \
         Sales_item.h \
         Screen.h \
+        Window_Mgr.h \
         misc.h
 unix {
     target.path = /usr/lib
