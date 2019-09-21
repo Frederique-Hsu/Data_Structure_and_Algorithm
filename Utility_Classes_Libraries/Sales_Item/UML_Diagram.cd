@@ -76,5 +76,12 @@
       <FileName>misc.h</FileName>
     </TypeIdentifier>
   </Typedef>
+  <Typedef Name="PNoName" Collapsed="true">
+    <Position X="8.25" Y="6.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>misc.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
