@@ -13,11 +13,13 @@
         friend istream& operator>>(istream& in, Sales_item& item);
         friend ostream& operator<<(ostream& out, const Sales_item& item);
     public:
-        explicit Sales_item();
+        Sales_item();
+        explicit Sales_item(const string& book);
+        Sales_item(const string& book, int cnt, double price);
+        explicit Sales_item(istream& in);
+        Sales_item(const Sales_item& orig);    /* copy constructor */
+        // Sales_item& operator=(const Sales_item& other);
         virtual ~Sales_item();
-        Sales_item(string isbn, double price);
-        Sales_item(const Sales_item& other);
-        Sales_item& operator=(const Sales_item& other);
 
         Sales_item& operator+=(const Sales_item& item);
         bool same_isbn(const Sales_item& other) const;
