@@ -3,5 +3,8 @@
 
     void execute_test_cases(void);
     void instantiateObjects();
+    void const_overload();
+    void callConstructor();
+    void copyControl();
 
 #endif  /* UNIT_TESTING_H */
