@@ -62,6 +62,20 @@
       <FileName>Sales_item.h</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Message">
+    <Position X="12.25" Y="0.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAgACAAACAAQAEAAAACAAAAAAAAAAAAgAgIAAAIAA=</HashCode>
+      <FileName>Message.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Folder">
+    <Position X="12.25" Y="4" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAIIAQAAAAAgAAAABAA=</HashCode>
+      <FileName>Folder.h</FileName>
+    </TypeIdentifier>
+  </Class>
   <Struct Name="NoName">
     <Position X="5" Y="5.25" Width="2.5" />
     <TypeIdentifier>
