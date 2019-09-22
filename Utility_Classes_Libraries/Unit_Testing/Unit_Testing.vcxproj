@@ -19,14 +19,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\Pointers_in_Class\HasPtr.cpp" />
     <ClCompile Include="..\Sales_Item\Sales_item.cpp" />
     <ClCompile Include="..\Sales_Item\Screen.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="testing_pointers_in_class.cpp" />
     <ClCompile Include="unit_testing.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Pointers_in_Class\HasPtr.h" />
     <ClInclude Include="..\Sales_Item\Sales_item.h" />
     <ClInclude Include="..\Sales_Item\Screen.h" />
+    <ClInclude Include="testing_pointers_in_class.h" />
     <ClInclude Include="unit_testing.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
