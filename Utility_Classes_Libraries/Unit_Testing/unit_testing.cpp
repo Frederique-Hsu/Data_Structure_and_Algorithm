@@ -3,11 +3,13 @@
 #include "../Sales_Item/Screen.h"
 
 #include <fstream>
+#include <vector>
 
 void execute_test_cases(void)
 {
-    instantiateObjects();
-    callConstructor();
+    // instantiateObjects();
+    // callConstructor();
+    freeObjects();
 }
 
 #include <iostream>
@@ -64,4 +66,18 @@ void copyControl()
                                 Sales_item(string("978-7-121-28108-2")),
                                 Sales_item(string("978-7-03-019483-1")),
                                 Sales_item() };
+}
+
+void freeObjects()
+{
+    Sales_item* pItem = new Sales_item();
+    {
+        Sales_item item(*pItem);
+        delete pItem;
+    }
+
+    Sales_item *p = new Sales_item[10];      /* dynamically allocated */
+    vector<Sales_item> vec(p, p+10);        /* local object */
+
+    delete [] p;
 }

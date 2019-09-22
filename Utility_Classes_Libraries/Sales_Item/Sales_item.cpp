@@ -37,7 +37,9 @@ Sales_item::Sales_item() : isbn(10, '9'), units_sold(0), revenue(0.00)
 
 Sales_item::~Sales_item()
 {
+#if defined (NDEBUG)
     cout << "called Sales_item::~Sales_item() destructor." << endl;
+#endif
 }
 
 Sales_item::Sales_item(const string& book) : isbn(book), units_sold(0), revenue(0.0)
@@ -69,4 +71,12 @@ istream& operator>>(istream& in, Sales_item& item)
     cout << "enter the revenue: ";
     in >> item.revenue;
     return in;
+}
+
+Sales_item& Sales_item::operator=(const Sales_item &other)
+{
+    isbn = other.isbn;
+    units_sold = other.units_sold;
+    revenue = other.revenue;
+    return *this;
 }

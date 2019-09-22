@@ -19,11 +19,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Folder.cpp" />
+    <ClCompile Include="Message.cpp" />
     <ClCompile Include="misc.cpp" />
     <ClCompile Include="Sales_item.cpp" />
     <ClCompile Include="Screen.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Folder.h" />
+    <ClInclude Include="Message.h" />
     <ClInclude Include="misc.h" />
     <ClInclude Include="Sales_item.h" />
     <ClInclude Include="Screen.h" />

@@ -18,7 +18,7 @@
         Sales_item(const string& book, int cnt, double price);
         explicit Sales_item(istream& in);
         Sales_item(const Sales_item& orig);    /* copy constructor */
-        // Sales_item& operator=(const Sales_item& other);
+        Sales_item& operator=(const Sales_item& other);     /* assign constructor */
         virtual ~Sales_item();
 
         Sales_item& operator+=(const Sales_item& item);

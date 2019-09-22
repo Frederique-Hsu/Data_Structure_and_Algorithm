@@ -6,5 +6,6 @@
     void const_overload();
     void callConstructor();
     void copyControl();
+    void freeObjects();
 
 #endif  /* UNIT_TESTING_H */
