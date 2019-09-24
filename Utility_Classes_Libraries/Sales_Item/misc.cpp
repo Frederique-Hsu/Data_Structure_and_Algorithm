@@ -75,3 +75,15 @@ NoName::NoName(const NoName& orig) : i(orig.i), d(orig.d)
     std::string str = std::string(orig.pstring->data());
     pstring = new std::string(str);
 }
+
+/*============================================================================================*/
+
+int& Foo::operator[](const std::size_t index)
+{
+    return data[index];
+}
+
+const int& Foo::operator[](const std::size_t index) const
+{
+    return data[index];
+}
