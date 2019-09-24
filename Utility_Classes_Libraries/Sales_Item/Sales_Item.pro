@@ -26,6 +26,7 @@ SOURCES += \
         Message.cpp \
         Sales_item.cpp \
         Screen.cpp \
+        ScreenPtr.cpp \
         Window_Mgr.cpp \
         misc.cpp
 
@@ -34,6 +35,7 @@ HEADERS += \
         Message.h \
         Sales_item.h \
         Screen.h \
+        ScreenPtr.h \
         Window_Mgr.h \
         misc.h
 unix {
