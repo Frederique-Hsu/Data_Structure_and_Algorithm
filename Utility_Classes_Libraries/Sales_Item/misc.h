@@ -2,6 +2,10 @@
 #define MISC_H
 
     #include <string>
+    #include <utility>
+    #include <vector>
+    #include <iostream>
+    using namespace std;
 
     class Record
     {
@@ -67,5 +71,71 @@
     };
 
     typedef struct NoName *PNoName;
+
+    /*============================================================================================*/
+
+    class Date
+    {
+    public:
+        typedef enum Month
+        {
+            January = 1,
+            February = 2,
+            March = 3,
+            April = 4,
+            May = 5,
+            June = 6,
+            July = 7,
+            August = 8,
+            September = 9,
+            October = 10,
+            November = 11,
+            December = 12
+        } Month;
+    public:
+        Date(unsigned year, unsigned month, unsigned day);
+        Date(const Date& date);
+        Date& operator=(const Date& date);
+    public:
+        static Date currentDate();
+
+        unsigned getYear();
+        unsigned getMonth();
+        unsigned getDay();
+        void setYear(unsigned year);
+        void setMonth(unsigned month);
+        void setDay(unsigned day);
+    private:
+        unsigned year;
+        Month month;
+        unsigned day;
+    };
+
+    class CheckoutRecord
+    {
+        friend std::ostream& operator<<(std::ostream& out, const CheckoutRecord& record);
+        friend std::istream& operator>>(std::istream& in, CheckoutRecord& record);
+    public:
+        CheckoutRecord();
+        pair<string, string>* operator[](size_t index);
+    private:
+        double book_id;
+        string title;
+        Date date_borrowed;
+        Date date_due;
+        pair<string, string> borrower;
+        vector< pair<string, string>* > wait_list;
+    };
+
+    /*============================================================================================*/
+
+    class Foo
+    {
+    public:
+        int& operator[](const std::size_t);
+        const int& operator[](const std::size_t) const;
+    private:
+        vector<int> data;
+    };
 
 #endif  /* MISC_H */

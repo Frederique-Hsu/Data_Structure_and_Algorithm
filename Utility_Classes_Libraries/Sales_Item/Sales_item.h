@@ -12,6 +12,7 @@
     {
         friend istream& operator>>(istream& in, Sales_item& item);
         friend ostream& operator<<(ostream& out, const Sales_item& item);
+        friend bool operator==(const Sales_item& lhs, const Sales_item& rhs);
     public:
         Sales_item();
         explicit Sales_item(const string& book);
@@ -19,8 +20,9 @@
         explicit Sales_item(istream& in);
         Sales_item(const Sales_item& orig);    /* copy constructor */
         Sales_item& operator=(const Sales_item& other);     /* assign constructor */
+        Sales_item& operator=(const string& isbn);
         virtual ~Sales_item();
-
+    public:
         Sales_item& operator+=(const Sales_item& item);
         bool same_isbn(const Sales_item& other) const;
         inline double avg_price() const;
@@ -30,5 +32,6 @@
         double revenue;
     };
     Sales_item operator+(const Sales_item& lhs, const Sales_item& rhs);
+    bool operator!=(const Sales_item& lhs, const Sales_item& rhs);
 
 #endif  /* SALES_ITEM_H */

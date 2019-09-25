@@ -1,4 +1,5 @@
 #include "Sales_item.h"
+#include <cmath>
 
 string make_plural(size_t number, const string& word, const string& ending)
 /* copy constructor used to copy the return value;
@@ -62,21 +63,78 @@ Sales_item::Sales_item(const string& book, int cnt, double price) :
 {
 }
 
-istream& operator>>(istream& in, Sales_item& item)
-{
-    cout << endl << "Please enter the book's ISBN: ";
-    in >> item.isbn;
-    cout << "enter the amount to sell, units_sold: ";
-    in >> item.units_sold;
-    cout << "enter the revenue: ";
-    in >> item.revenue;
-    return in;
-}
-
 Sales_item& Sales_item::operator=(const Sales_item &other)
 {
     isbn = other.isbn;
     units_sold = other.units_sold;
     revenue = other.revenue;
     return *this;
+}
+
+Sales_item& Sales_item::operator=(const string &isbn)
+{
+    this->isbn = isbn;
+    units_sold = 0;
+    revenue = 0.00;
+    return *this;
+}
+
+ostream& operator<<(ostream& out, const Sales_item& item)
+{
+    out << item.isbn << "\t" << item.units_sold << "\t"
+        << item.revenue << "\t" << item.avg_price();
+    return out;
+}
+
+istream& operator>>(istream& in, Sales_item& item)
+{
+    double price;
+    cout << "Enter the ISBN: ";
+    in >> item.isbn;
+
+    cout << "how many units sold: ";
+    in >> item.units_sold;
+
+    cout << "and the unit price: ";
+    in >> price;
+    /* check that the inputs succeeded */
+    if (in)
+        item.revenue = item.units_sold * price;
+    else
+    {
+        item = Sales_item();    /* input failed: reset object to default state */
+    }
+    return in;
+}
+
+Sales_item operator+(const Sales_item& lhs, const Sales_item& rhs)
+/* assume that both objects refer to the same isbn. */
+{
+    Sales_item item(lhs);   /* copy lhs into a local object that we'll return */
+    item += rhs;            /* add in the contents of rhs */
+    return item;
+}
+
+Sales_item& Sales_item::operator+=(const Sales_item &item)
+{
+    if (same_isbn(item))
+    {
+        isbn = item.isbn;
+        units_sold += item.units_sold;
+        revenue += item.revenue;
+    }
+    return *this;
+}
+
+inline bool operator==(const Sales_item& lhs, const Sales_item& rhs)
+{
+    return ( (lhs.units_sold == rhs.units_sold) &&
+             (fabs(lhs.revenue - rhs.revenue) <= 0.005) &&
+             lhs.same_isbn(rhs) );
+}
+
+
+inline bool operator!=(const Sales_item& lhs, const Sales_item& rhs)
+{
+    return !(lhs == rhs);
 }
