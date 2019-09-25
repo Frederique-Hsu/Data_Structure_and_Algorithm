@@ -7,7 +7,10 @@ ScrPtr::ScrPtr(Screen* p) : sp(p), use(1)
 
 ScrPtr::~ScrPtr()
 {
-    delete sp;
+    if (--use == 0)
+    {
+        delete sp;
+    }
 }
 
 ScreenPtr::ScreenPtr(Screen* p) : ptr(new ScrPtr(p))
@@ -58,4 +61,67 @@ const Screen& ScreenPtr::operator*() const
 const Screen* ScreenPtr::operator->() const
 {
     return ptr->sp;
+}
+
+CheckedPtr::CheckedPtr(int* b, int* e) : beg(b), end(e), curr(b)
+{
+}
+
+CheckedPtr& CheckedPtr::operator++()
+{
+    if (curr == end)
+    {
+        throw out_of_range("increment past the end of CheckedPtr");
+    }
+    ++curr;
+    return *this;
+}
+
+CheckedPtr& CheckedPtr::operator--()
+{
+    if (curr == beg)
+    {
+        throw out_of_range("decrement past the beginning of CheckedPtr");
+    }
+    --curr;
+    return *this;
+}
+
+CheckedPtr CheckedPtr::operator++(int)
+{
+    /* no check needed here, the call to prefix increment will do the check. */
+    CheckedPtr ret(*this);      /* save current value */
+    ++*this;                    /* advance one element, checking the increment */
+    return ret;                 /* return saved state */
+}
+
+CheckedPtr CheckedPtr::operator--(int)
+{
+    CheckedPtr ret(*this);
+    --*this;                    /* move backward one element and check */
+    return ret;
+}
+
+int CheckedPtr::operator[](int index)
+{
+    int* ptr = beg;
+    for (int n = 0; n < index; ++n)
+    {
+        if (ptr == end)
+        {
+            return *ptr;
+        }
+        ptr++;
+    }
+    return *ptr;
+}
+
+int& CheckedPtr::operator*()
+{
+    return *curr;
+}
+
+unsigned int AbsInt::operator()(int val)
+{
+    return ((val < 0) ? (-val) : (val));
 }

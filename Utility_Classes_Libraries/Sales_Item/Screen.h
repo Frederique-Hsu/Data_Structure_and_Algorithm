@@ -17,7 +17,7 @@
     public:
         Screen();
         Screen(index ht, index wd);
-
+    public:
         char get() const;
         /* explicitly declared as inline; will be defined outside the class declaration */
         inline char get(index ht, index wd) const;
