@@ -23,19 +23,23 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         Folder.cpp \
+        GT_calculations.cpp \
         Message.cpp \
         Sales_item.cpp \
         Screen.cpp \
         ScreenPtr.cpp \
+        SmallInt.cpp \
         Window_Mgr.cpp \
         misc.cpp
 
 HEADERS += \
         Folder.h \
+        GT_calculations.h \
         Message.h \
         Sales_item.h \
         Screen.h \
         ScreenPtr.h \
+        SmallInt.h \
         Window_Mgr.h \
         misc.h
 unix {
