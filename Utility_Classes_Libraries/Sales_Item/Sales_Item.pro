@@ -22,8 +22,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+        Bulk_item.cpp \
         Folder.cpp \
         GT_calculations.cpp \
+        Item_base.cpp \
         Message.cpp \
         Sales_item.cpp \
         Screen.cpp \
@@ -33,8 +35,10 @@ SOURCES += \
         misc.cpp
 
 HEADERS += \
+        Bulk_item.h \
         Folder.h \
         GT_calculations.h \
+        Item_base.h \
         Message.h \
         Sales_item.h \
         Screen.h \
