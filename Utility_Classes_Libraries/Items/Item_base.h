@@ -5,6 +5,8 @@
     #include <string>
     using namespace std;
 
+    #define NDEBUG
+
     class Item_base;
 
     /* Item sold at an undiscounted price
@@ -12,8 +14,11 @@
      */
     class Item_base
     {
+        friend bool operator<(const Item_base& item_a, const Item_base& item_b);
     public:
         Item_base(const string& book = "", double sales_price = 0.00);
+        Item_base(const Item_base& orig);
+        Item_base& operator=(const Item_base& orig);
         virtual ~Item_base();
     public:
         string book() const;
@@ -25,6 +30,7 @@
     };
 
     void print_total(ostream& os, const Item_base& item, size_t n);
+    void get_price(Item_base object, const Item_base* pointer, const Item_base& reference);
 
 
 #endif  /* ITEM_BASE_H */

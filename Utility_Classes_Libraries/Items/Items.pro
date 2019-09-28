@@ -1,12 +1,12 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2019-09-08T03:27:26
+# Project created by QtCreator 2019-09-29T02:15:32
 #
 #-------------------------------------------------
 
 QT       -= core gui
 
-TARGET = Sales_Item
+TARGET = Items
 TEMPLATE = lib
 CONFIG += staticlib
 
@@ -22,26 +22,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        Folder.cpp \
-        GT_calculations.cpp \
-        Message.cpp \
-        Sales_item.cpp \
-        Screen.cpp \
-        ScreenPtr.cpp \
-        SmallInt.cpp \
-        Window_Mgr.cpp \
-        misc.cpp
+    Bulk_item.cpp \
+    Disc_item.cpp \
+    Item_base.cpp
 
 HEADERS += \
-        Folder.h \
-        GT_calculations.h \
-        Message.h \
-        Sales_item.h \
-        Screen.h \
-        ScreenPtr.h \
-        SmallInt.h \
-        Window_Mgr.h \
-        misc.h
+    Bulk_item.h \
+    Disc_item.h \
+    Item_base.h
 unix {
     target.path = /usr/lib
     INSTALLS += target
