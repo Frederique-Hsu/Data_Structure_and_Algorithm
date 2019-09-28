@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Utility_Classes_Libraries\Sales_Item\Bulk_item.cpp" />
+    <ClCompile Include="..\..\Utility_Classes_Libraries\Sales_Item\Disc_item.cpp" />
     <ClCompile Include="..\..\Utility_Classes_Libraries\Sales_Item\Item_base.cpp" />
     <ClCompile Include="..\..\Utility_Classes_Libraries\Sales_Item\Sales_item.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -28,6 +29,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Utility_Classes_Libraries\Sales_Item\Bulk_item.h" />
+    <ClInclude Include="..\..\Utility_Classes_Libraries\Sales_Item\Disc_item.h" />
     <ClInclude Include="..\..\Utility_Classes_Libraries\Sales_Item\Item_base.h" />
     <ClInclude Include="..\..\Utility_Classes_Libraries\Sales_Item\Sales_item.h" />
     <ClInclude Include="misc.h" />
