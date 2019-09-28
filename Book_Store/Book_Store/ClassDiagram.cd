@@ -1,24 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
-  <Class Name="Sales_item">
-    <Position X="4.75" Y="0.5" Width="3.5" />
+  <Class Name="Bulk_item">
+    <Position X="1.5" Y="7.75" Width="5" />
     <TypeIdentifier>
-      <HashCode>CAAAAAAAAAAAAAAAAAABAQEAAAAAAAAAAAAkAAgAAAQ=</HashCode>
-      <FileName>D:\Programming\CPP_Data_Structures\Utility_Classes_Libraries\Sales_Item\Sales_item.h</FileName>
+      <HashCode>AAAAABAAAAAABAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>D:\Programming\CPP_Data_Structures\Utility_Classes_Libraries\Items\Bulk_item.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Bulk_item">
-    <Position X="1" Y="4.5" Width="2.75" />
+  <Class Name="Disc_item">
+    <Position X="1.5" Y="4" Width="5" />
     <TypeIdentifier>
-      <HashCode>AAAAgBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
-      <FileName>D:\Programming\CPP_Data_Structures\Utility_Classes_Libraries\Sales_Item\Bulk_item.h</FileName>
+      <HashCode>AAAAABAAAAAAAAAAAAAAEAAAAAQAAACAAAAgABIAAAA=</HashCode>
+      <FileName>D:\Programming\CPP_Data_Structures\Utility_Classes_Libraries\Items\Disc_item.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Item_base">
-    <Position X="0.5" Y="0.5" Width="3.5" />
+    <Position X="2.25" Y="0.5" Width="3.5" />
     <TypeIdentifier>
-      <HashCode>AAABAJAAAAAAAAAAAAABQAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
-      <FileName>D:\Programming\CPP_Data_Structures\Utility_Classes_Libraries\Sales_Item\Item_base.h</FileName>
+      <HashCode>AAABAJAAAAAAAAAAAAABQAAAAAAAAAIAAAAgAAAAAAA=</HashCode>
+      <FileName>D:\Programming\CPP_Data_Structures\Utility_Classes_Libraries\Items\Item_base.h</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
