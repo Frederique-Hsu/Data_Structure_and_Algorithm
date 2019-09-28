@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Utility_Classes_Libraries\Sales_Item\Sales_item.cpp" />
+    <ClCompile Include="const_iterator.cpp" />
     <ClCompile Include="insert_iterator.cpp" />
     <ClCompile Include="iostream_iterator.cpp" />
     <ClCompile Include="Main.cpp" />
