@@ -22,14 +22,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Basket.cpp \
     Bulk_item.cpp \
     Disc_item.cpp \
-    Item_base.cpp
+    Item_base.cpp \
+    Sales_item.cpp
 
 HEADERS += \
+    Basket.h \
     Bulk_item.h \
     Disc_item.h \
-    Item_base.h
+    Item_base.h \
+    Sales_item.h
 unix {
     target.path = /usr/lib
     INSTALLS += target
