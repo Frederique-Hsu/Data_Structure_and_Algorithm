@@ -1,5 +1,7 @@
 #include "testing.h"
 #include "../../Utility_Classes_Libraries/Items/Bulk_item.h"
+#include "../../Utility_Classes_Libraries/Items/Sales_item.h"
+#include "../../Utility_Classes_Libraries/Items/Basket.h"
 
 #include <iostream>
 #include <set>
@@ -17,6 +19,9 @@ void execute_test_cases()
     cout << "\n" << endl;
 
     call_virtual_destructor();
+    cout << "\n" << endl;
+
+    utilize_associative_container_comparison();
 }
 
 void transform_derived_from_base()
@@ -83,4 +88,18 @@ void save_objects_into_container()
     Bulk_item bulk;
     basket.insert(base);        /* OK: add copy of base to basket */
     basket.insert(bulk);        /* OK: but bulk sliced down to its base part */
+}
+
+void utilize_associative_container_comparison()
+{
+    multiset<Sales_item, Comp> items(compare);
+
+    Basket cart;
+    cart.add_item(Sales_item(Bulk_item("978-7-03-019483-1", 27.00, 50, 0.25)));
+    cart.add_item(Sales_item(Bulk_item("978-7-121-28108-2", 45.00, 5, 0.15)));
+    cart.add_item(Sales_item(Item_base("978-7-121-28108-2", 45.00)));
+    cart.add_item(Sales_item(Bulk_item("978-7-5612-1135-9", 28.00, 30, 0.20)));
+
+    cout << cart.size(Sales_item(Item_base("978-7-121-28108-2"))) << endl;
+    cout << "The total price is: " << cart.total() << endl;
 }
