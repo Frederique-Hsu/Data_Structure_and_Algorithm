@@ -19,17 +19,21 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Utility_Classes_Libraries\Items\Basket.cpp" />
     <ClCompile Include="..\..\Utility_Classes_Libraries\Items\Bulk_item.cpp" />
     <ClCompile Include="..\..\Utility_Classes_Libraries\Items\Disc_item.cpp" />
     <ClCompile Include="..\..\Utility_Classes_Libraries\Items\Item_base.cpp" />
+    <ClCompile Include="..\..\Utility_Classes_Libraries\Items\Sales_item.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="misc.cpp" />
     <ClCompile Include="testing.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Utility_Classes_Libraries\Items\Basket.h" />
     <ClInclude Include="..\..\Utility_Classes_Libraries\Items\Bulk_item.h" />
     <ClInclude Include="..\..\Utility_Classes_Libraries\Items\Disc_item.h" />
     <ClInclude Include="..\..\Utility_Classes_Libraries\Items\Item_base.h" />
+    <ClInclude Include="..\..\Utility_Classes_Libraries\Items\Sales_item.h" />
     <ClInclude Include="misc.h" />
     <ClInclude Include="testing.h" />
   </ItemGroup>
