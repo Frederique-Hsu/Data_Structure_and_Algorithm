@@ -24,6 +24,11 @@ string Item_base::book() const
     return isbn;
 }
 
+Item_base* Item_base::clone() const
+{
+    return (new Item_base(*this));
+}
+
 double Item_base::net_price(size_t n) const
 /* returns total sales price for a specified number of items,
  * derived classes will override and apply different discount algorithms.

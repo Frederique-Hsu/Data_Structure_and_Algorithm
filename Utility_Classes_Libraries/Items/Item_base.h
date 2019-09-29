@@ -23,6 +23,7 @@
     public:
         string book() const;
         virtual double net_price(size_t n) const;
+        virtual Item_base* clone() const;
     private:
         string isbn;    /* identifier for the item */
     protected:
