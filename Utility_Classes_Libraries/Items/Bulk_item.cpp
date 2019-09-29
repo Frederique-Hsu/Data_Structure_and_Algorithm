@@ -25,3 +25,12 @@ Bulk_item::~Bulk_item()
     cout << "Bulk_item::~Bulk_item() called." << endl;
 #endif
 }
+
+Bulk_item* Bulk_item::clone() const
+{
+    return new Bulk_item(*this);
+}
+
+Bulk_item::Bulk_item(const Bulk_item& orig) : Disc_item(orig)
+{
+}

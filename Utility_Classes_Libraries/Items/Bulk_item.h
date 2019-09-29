@@ -15,9 +15,11 @@
                   double sales_price = 0.00,
                   size_t qty = 0,
                   double disc_rate = 0.00);
+        Bulk_item(const Bulk_item& orig);
         ~Bulk_item();
     public:
         double net_price(size_t n) const;
+        Bulk_item* clone() const;
     private:
     };
 
