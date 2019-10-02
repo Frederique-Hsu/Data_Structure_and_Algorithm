@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="TextQuery">
+    <Position X="0.5" Y="0.5" Width="4" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Typedef Name="TextQuery::line_no" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>D:\Programming\CPP_Data_Structures\Utility_Classes_Libraries\TextQuery\TextQuery.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAgAAAAIAAAAABAAAAAAIAAIABAgAAAIA=</HashCode>
+      <FileName>D:\Programming\CPP_Data_Structures\Utility_Classes_Libraries\TextQuery\TextQuery.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Query_base">
+    <Position X="5.25" Y="0.5" Width="3.25" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Typedef Name="Query_base::line_no" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>D:\Programming\CPP_Data_Structures\Utility_Classes_Libraries\TextQuery\Query_base.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAEAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Programming\CPP_Data_Structures\Utility_Classes_Libraries\TextQuery\Query_base.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Query">
+    <Position X="9.25" Y="0.5" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAEAQAAAAAAAAAAAAAAEAAAgABCAgAAAAAAA=</HashCode>
+      <FileName>D:\Programming\CPP_Data_Structures\Utility_Classes_Libraries\TextQuery\Query.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NotQuery">
+    <Position X="7.5" Y="4.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAIBAAAAAA=</HashCode>
+      <FileName>D:\Programming\CPP_Data_Structures\Utility_Classes_Libraries\TextQuery\NotQuery.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WordQuery">
+    <Position X="3.5" Y="4.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAgAAAAAAAAAAAEAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>D:\Programming\CPP_Data_Structures\Utility_Classes_Libraries\TextQuery\WordQuery.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BinaryQuery">
+    <Position X="11.5" Y="4.75" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAIAAAEABAABAAAAAAAAAIA=</HashCode>
+      <FileName>D:\Programming\CPP_Data_Structures\Utility_Classes_Libraries\TextQuery\BinaryQuery.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AndQuery">
+    <Position X="10.5" Y="8" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\Programming\CPP_Data_Structures\Utility_Classes_Libraries\TextQuery\AndQuery.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrQuery">
+    <Position X="14.5" Y="8" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>D:\Programming\CPP_Data_Structures\Utility_Classes_Libraries\TextQuery\OrQuery.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
