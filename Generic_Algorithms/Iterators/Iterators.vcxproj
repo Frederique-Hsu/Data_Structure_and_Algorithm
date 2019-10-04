@@ -19,13 +19,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Utility_Classes_Libraries\Sales_Item\Sales_item.cpp" />
+    <ClCompile Include="const_iterator.cpp" />
+    <ClCompile Include="insert_iterator.cpp" />
+    <ClCompile Include="iostream_iterator.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="reverse_iterator.cpp" />
+    <ClCompile Include="testing.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="insert_iterator.cpp" />
-    <ClInclude Include="iostream_iterator.cpp" />
+    <ClInclude Include="..\..\Utility_Classes_Libraries\Sales_Item\Sales_item.h" />
     <ClInclude Include="iterators.h" />
-    <ClInclude Include="reverse_iterator.cpp" />
+    <ClInclude Include="testing.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
