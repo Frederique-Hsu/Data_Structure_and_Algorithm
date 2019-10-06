@@ -22,6 +22,7 @@
     <ClCompile Include="..\Utility_Classes_Libraries\Sales_Item\Sales_item.cpp" />
     <ClCompile Include="class_template.cpp" />
     <ClCompile Include="function_template.cpp" />
+    <ClCompile Include="List.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="testing.cpp" />
   </ItemGroup>
@@ -29,6 +30,7 @@
     <ClInclude Include="..\Utility_Classes_Libraries\Sales_Item\Sales_item.h" />
     <ClInclude Include="class_template.h" />
     <ClInclude Include="function_template.h" />
+    <ClInclude Include="List.h" />
     <ClInclude Include="testing.h" />
   </ItemGroup>
   <ItemGroup>
