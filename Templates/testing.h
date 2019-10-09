@@ -7,4 +7,6 @@
     void instantiate_class_templates();
     void access_template_members();
 
+    void validate_list();
+
 #endif  /* TESTING_H */

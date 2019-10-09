@@ -17,4 +17,5 @@ HEADERS += \
     Screen.h \
     class_template.h \
     function_template.h \
+    misc.h \
     testing.h
