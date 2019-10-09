@@ -110,6 +110,11 @@ istream& operator>>(istream& in, Sales_item& item)
 Sales_item operator+(const Sales_item& lhs, const Sales_item& rhs)
 /* assume that both objects refer to the same isbn. */
 {
+    if (!lhs.same_isbn(rhs))
+    {
+        /* throws exception if both objects do not refer to the same ISBN */
+        throw runtime_error("Data must refer to the same ISBN.");
+    }
     Sales_item item(lhs);   /* copy lhs into a local object that we'll return */
     item += rhs;            /* add in the contents of rhs */
     return item;
