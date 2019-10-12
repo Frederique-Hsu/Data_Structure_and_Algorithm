@@ -4,4 +4,10 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
-        main.cpp
+        CThread.cpp \
+        source.cpp \
+        threads.cpp
+
+HEADERS += \
+    CThread.h \
+    threads.h
