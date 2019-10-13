@@ -1,4 +1,5 @@
 #include "Sales_item.h"
+#include "exceptions.h"
 #include <cmath>
 
 string make_plural(size_t number, const string& word, const string& ending)
@@ -112,8 +113,12 @@ Sales_item operator+(const Sales_item& lhs, const Sales_item& rhs)
 {
     if (!lhs.same_isbn(rhs))
     {
+    	#if 0
         /* throws exception if both objects do not refer to the same ISBN */
         throw runtime_error("Data must refer to the same ISBN.");
+        #else
+        throw isbn_mismatch("isbn mismatch", lhs.book(), rhs.book());
+        #endif
     }
     Sales_item item(lhs);   /* copy lhs into a local object that we'll return */
     item += rhs;            /* add in the contents of rhs */
@@ -129,6 +134,11 @@ Sales_item& Sales_item::operator+=(const Sales_item &item)
         revenue += item.revenue;
     }
     return *this;
+}
+
+string Sales_item::book() const
+{
+    return  isbn;
 }
 
 inline bool operator==(const Sales_item& lhs, const Sales_item& rhs)

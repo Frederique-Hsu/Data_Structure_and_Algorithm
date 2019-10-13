@@ -26,6 +26,7 @@
         Sales_item& operator+=(const Sales_item& item);
         bool same_isbn(const Sales_item& other) const;
         inline double avg_price() const;
+        string book() const;
     private:
         string isbn;
         unsigned units_sold;
