@@ -27,5 +27,6 @@
     };
 
     void mytest(const int i, const TestThread& thd);
+    void display_thread_id(const TestThread& thd);
 
 #endif  /* CTHREAD_H */

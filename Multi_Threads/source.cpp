@@ -27,12 +27,17 @@ int main(int argc, char* argv[])
     thread mythrd(myprint, myvar, string(buf));
     // mythrd.join();
     mythrd.detach();
-#else
+#elif 0
     int myvar = 1;
     int mypar = 2;
     thread mythrd(mytest, myvar, TestThread(mypar));
     // mythrd.join();
     mythrd.detach();
+#else
+    cout << "The thread id of current main thread is: " << this_thread::get_id() << endl;
+    int myarg = 10;
+    thread mythrd(display_thread_id, TestThread(myarg));
+    mythrd.join();
 #endif
 
     cout << "The main thread ends." << endl;
