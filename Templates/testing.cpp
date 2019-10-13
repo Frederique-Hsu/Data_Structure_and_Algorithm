@@ -2,6 +2,7 @@
 #include "function_template.h"
 #include "class_template.h"
 #include "Screen.h"
+#include "List.h"
 #include "../Utility_Classes_Libraries/Sales_Item/Sales_item.h"
 
 #include <iostream>
@@ -12,7 +13,8 @@ void execute_test_cases()
 {
     // instantiate_function_templates();
     // instantiate_class_templates();
-    access_template_members();
+    // access_template_members();
+    validate_list();
 }
 
 void instantiate_function_templates()
@@ -92,4 +94,17 @@ void access_template_members()
     generate_fibonacci<50>(fib_vec);
     fib_queue.assign(fib_vec.begin(), fib_vec.end());
     cout << fib_queue << endl;
+}
+
+void validate_list()
+{
+    List<int> mylst;
+    mylst.append(1);
+    mylst.append(3);
+    cout << mylst << endl;
+
+    List<int> otherlst(mylst);
+    cout << otherlst << endl;
+    cin >> otherlst;
+    cout << otherlst << endl;
 }

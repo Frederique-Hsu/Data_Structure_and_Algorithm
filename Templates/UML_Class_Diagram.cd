@@ -21,5 +21,19 @@
       <FileName>class_template.h</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="ListItem&lt;elemType&gt;">
+    <Position X="5.25" Y="5.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAIEAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>List.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="List&lt;elemType&gt;">
+    <Position X="8.5" Y="5.25" Width="3.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACABBEAAAEhAAAAEAAAAAAAAAACAEgAAAAQAI=</HashCode>
+      <FileName>List.h</FileName>
+    </TypeIdentifier>
+  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

@@ -1,14 +1,16 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2019-09-08T03:27:26
+# Project created by QtCreator 2019-10-06T03:43:37
 #
 #-------------------------------------------------
 
-QT       -= core gui
+QT       -= core
+#gui
 
-TARGET = Sales_Item
+TARGET = Handle
 TEMPLATE = lib
-CONFIG += staticlib
+
+DEFINES += HANDLE_LIBRARY
 
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
@@ -22,28 +24,22 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        Folder.cpp \
-        GT_calculations.cpp \
-        Message.cpp \
-        Sales_item.cpp \
-        Screen.cpp \
-        ScreenPtr.cpp \
-        SmallInt.cpp \
-        Window_Mgr.cpp \
-        exceptions.cpp \
-        misc.cpp
+        Basket.cpp \
+        Bulk_item.cpp \
+        Disc_item.cpp \
+        Handle.cpp \
+        Item_base.cpp \
+        Sales_item.cpp
 
 HEADERS += \
-        Folder.h \
-        GT_calculations.h \
-        Message.h \
+        Basket.h \
+        Bulk_item.h \
+        Disc_item.h \
+        Handle.h \
+        Item_base.h \
         Sales_item.h \
-        Screen.h \
-        ScreenPtr.h \
-        SmallInt.h \
-        Window_Mgr.h \
-        exceptions.h \
-        misc.h
+        handle_global.h 
+
 unix {
     target.path = /usr/lib
     INSTALLS += target
