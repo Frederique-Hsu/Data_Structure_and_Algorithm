@@ -6,6 +6,8 @@
 
     using namespace std;
 
+namespace CPlusPlus_Primer
+{
     class Sales_item;
 
     class Sales_item
@@ -32,7 +34,9 @@
         unsigned units_sold;
         double revenue;
     };
+
     Sales_item operator+(const Sales_item& lhs, const Sales_item& rhs);
     bool operator!=(const Sales_item& lhs, const Sales_item& rhs);
+}
 
 #endif  /* SALES_ITEM_H */

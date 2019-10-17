@@ -4,6 +4,8 @@
     #include <stdexcept>
     using namespace std;
 
+namespace BookStore
+{
     /* hypothetical exception classes for a bookstore application */
     class out_of_stock : public runtime_error
     {
@@ -20,5 +22,6 @@
 
         const string left, right;
     };
+}
 
 #endif  /* EXCEPTIONS_H */
