@@ -1,6 +1,9 @@
 #ifndef RESOURCE_H
 #define RESOURCE_H
 
+namespace BookStore
+{
+#if 0
     class Resource
     {
     public:
@@ -13,5 +16,7 @@
         resource_type* allocate(params p);      /* allocate this resource */
         void release(resource_type*);       /* free this resource */
     };
+#endif
+}
 
 #endif  /* RESOURCE_H */

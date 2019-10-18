@@ -1,20 +1,25 @@
 #include "Resource.h"
 
-Resource::Resource(params p) : r(allocate(p))
+namespace BookStore
 {
-}
+    #if 0
+    Resource::Resource(params p) : r(allocate(p))
+    {
+    }
 
-Resource::~Resource()
-{
-    release(r);
-}
+    Resource::~Resource()
+    {
+        release(r);
+    }
 
-resource_type* Resource::allocate(params p)
-{
+    resource_type* Resource::allocate(params p)
+    {
 
-}
+    }
 
-void Resource::release(resource_type* p)
-{
+    void Resource::release(resource_type* p)
+    {
 
+    }
+    #endif
 }
