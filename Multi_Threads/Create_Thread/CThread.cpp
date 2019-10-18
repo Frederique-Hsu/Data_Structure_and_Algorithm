@@ -36,18 +36,23 @@ void CThread::operator()()
 #endif
 }
 
+void CThread::operator()(int number)
+{
+    cout << "The sum is: " << m_i + number << endl;
+}
+
 TestThread::TestThread(int value) : m_value(value)
 {
     cout << "[TestThread::TestThread(int value) constructor called.]" << endl;
     cout << "current pointer = 0x" << this << endl;
-    cout << "current thread id = " << std::this_thread::get_id() << "\n" << endl;
+    cout << "sub-thread id = " << std::this_thread::get_id() << "\n" << endl;
 }
 
 TestThread::TestThread(const TestThread& orig) : m_value(orig.m_value)
 {
     cout << "[TestThread::TestThread(const TestThread& orig) copy constructor called.]" << endl;
-    cout << "current pointer = 0x" << this <<  endl;
-    cout << "current thread id = " << std::this_thread::get_id() << "\n" << endl;
+    cout << "current pointer = 0x" << this << endl;
+    cout << "sub-thread id = " << std::this_thread::get_id() << "\n" << endl;
 }
 
 TestThread& TestThread::operator=(const TestThread& orig)
@@ -61,7 +66,12 @@ TestThread::~TestThread()
 {
     cout << "current pointer = 0x" << this << endl;
     cout << "[TestThread::~TestThread() destructor called.]" << endl;
-    cout << "current thread id = " << std::this_thread::get_id() << "\n" << endl;
+    cout << "sub-thread id = " << std::this_thread::get_id() << "\n" << endl;
+}
+
+void TestThread::work(int num)
+{
+    cout << "I am working, the number is: " << num << endl;
 }
 
 void mytest(const int i, const TestThread& thd)
@@ -74,4 +84,16 @@ void display_thread_id(const TestThread& thd)
 {
     cout << "In this child-thread, the address of argument object is: " << &thd << endl;
     cout << "The thread id of current child-thread is: " << this_thread::get_id() << endl;
+}
+
+void modify_ref_object(TestThread& thd)
+{
+    cout << "Here we want to change the private member, \
+to check whether it reflects the original object." << endl;
+    thd.m_value = 0xFF;
+}
+
+void pass_smart_ptr(unique_ptr<int> upi)
+{
+    cout << "current smart pointer is: " << *upi << endl;
 }
