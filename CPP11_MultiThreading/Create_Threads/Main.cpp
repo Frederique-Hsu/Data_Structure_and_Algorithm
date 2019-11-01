@@ -64,7 +64,7 @@ using namespace std;
         cout << "Exiting from Main Thread" << endl;
         return 0;
     }
-#elif 0
+#elif 1
     /* Creating a thread using Lambda functions */
     int main(int argc, char* argv[])
     {
