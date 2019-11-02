@@ -15,7 +15,12 @@ int Wallet::getMoney() const
 
 void Wallet::addMoney(int money)
 {
-#if defined (USE_LOCK_GUARD)
+#if 0       /* Demonstrate race condition scenario on the shared data */
+    for (int i = 0; i < money; ++i)
+    {
+        m_Money++;
+    }
+#elif defined (USE_LOCK_GUARD)
     mtx.lock();
     for (int i = 0; i < money; ++i)
     {
