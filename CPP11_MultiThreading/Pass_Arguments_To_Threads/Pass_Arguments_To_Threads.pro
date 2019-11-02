@@ -4,4 +4,8 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
+    CDummy.cpp \
     Main.cpp
+
+HEADERS += \
+    CDummy.h

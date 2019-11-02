@@ -16,6 +16,8 @@
 
 using namespace std;
 
+#include "CDummy.h"
+
 #if 0
     void threadCallBack(int x, string str)
     {
@@ -35,7 +37,7 @@ using namespace std;
 
         return 0;
     }
-#elif 1
+#elif 0
     /* Do not pass addresses of variables from local stack to thread's callback function.
      * Because it might be possible that local variable in main thread goes out of scope,
      * but the child thread is still trying to access it through its address.
@@ -64,6 +66,75 @@ using namespace std;
         startNewThread();
         std::chrono::milliseconds dura(2000);
         std::this_thread::sleep_for(dura);
+        return 0;
+    }
+#elif 0
+    /* Be careful while passing pointer to memory allocated on heap to thread.
+     * because it might be possible that some thread deletes that memory 
+     * before new thread tries to access it.
+     * In such scenario accessing invalid address can cause unexpected behaviour.
+     */
+    void newThreadCallback(int* p)
+    {
+        cout << "Inside the child thread : "" : ptr = " << p << endl;
+        std::chrono::milliseconds dura(1000);
+        std::this_thread::sleep_for(dura);
+        *p = 2019;
+    }
+
+    void launchNewThread()
+    {
+        int *pnum = new int();
+        *pnum = 10;
+        cout << "Inside the main thread : "" : *ptr = " << *pnum << endl;
+
+        std::thread newThread(newThreadCallback, pnum);
+        newThread.detach();
+
+        delete pnum;
+        pnum = NULL;
+    }
+
+    int main(int argc, char* argv[])
+    {
+        launchNewThread();
+        std::chrono::milliseconds dura(2000);
+        std::this_thread::sleep_for(dura);
+        return 0;
+    }
+#elif 0
+    void threadCallback(int const& x)
+    {
+        int& y = const_cast<int&>(x);
+        y++;
+        cout << "Inside the child thread : x = " << x << endl;
+    }
+
+    int main(int argc, char* argv[])
+    {
+        int x = 9;
+        cout << "Inside the main thread : Before new child thread starts, x = " << x << endl;
+    #if defined (PASS_REF_TOTHREAD)
+        std::thread thrdObj(threadCallback, x);     // Even if threadCallback accepts arguments as reference, but still changes done it
+        thrdObj.join();                             // are not visible outside the thread.  Because x in the thread function threadCallback()
+                                                    // is reference to the temporary value copied at the new thread's stack.
+    #else
+        std::thread thrdObj(threadCallback, std::ref(x));
+        thrdObj.join();
+    #endif
+        cout << "Inside main thread : After child thread joins, x = " << x << endl;
+        return 0;
+    }
+#else
+    int main(int argc, char* argv[])
+    {
+        CDummy dummyObj;
+        int x = 10;
+
+        std::thread thrdObj(&CDummy::work, &dummyObj, x);
+        thrdObj.join();
+
+        cout << "Inside main thread : x = " << x << endl;
         return 0;
     }
 #endif
