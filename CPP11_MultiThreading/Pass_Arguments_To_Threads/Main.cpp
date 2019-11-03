@@ -125,6 +125,29 @@ using namespace std;
         cout << "Inside main thread : After child thread joins, x = " << x << endl;
         return 0;
     }
+#elif 1
+    /* Starting thread with static member function 
+     * As static function are not associated with any object of class, so we can directly pass
+     * the static member function of class as thread function without passing any pointer to object.
+     */
+    class Task
+    {
+    public:
+        static void test(string command)
+        {
+            for (int i = 0; i < 20; ++i)
+            {
+                cout << command << " :: " << i << endl;
+            }
+        }
+    };
+
+    int main(int argc, char* argv[])
+    {
+        std::thread taskThread(&Task::test, "Task");
+        taskThread.join();
+        return 0;
+    }
 #else
     int main(int argc, char* argv[])
     {
