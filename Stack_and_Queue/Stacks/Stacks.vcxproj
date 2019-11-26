@@ -19,12 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="HugeNumber_Calculation.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="testing.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="genListStack.h" />
     <ClInclude Include="genStack.h" />
+    <ClInclude Include="HugeNumber_Calculation.h" />
     <ClInclude Include="testing.h" />
   </ItemGroup>
   <ItemGroup>
