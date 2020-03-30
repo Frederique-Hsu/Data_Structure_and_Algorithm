@@ -8,24 +8,27 @@
 OPTIONS = -Wall -std=c++14
 DEBUG = -g
 
-OBJS = main.o function_template.o class_template/Queue.o class_template/QueueItem.o \
+OBJS = main.o testing.o class_template/misc.o function_template.o generic_handle/utilizing_handle.o
 
 templates : $(OBJS)
 	g++ $(DEBUG) $(OPTIONS) $(OBJS) -o templates
 
-main.o : main.cpp
+main.o : main.cpp testing.h generic_handle/utilizing_handle.h
 	g++ $(DEBUG) $(OPTIONS) -c main.cpp
+
+testing.o : testing.cpp testing.h class_template/Queue.h class_template/List.h class_template/Screen.h \
+function_template.h
+	g++ $(DEBUG) $(OPTIONS) -c testing.cpp
+
+misc.o : misc.cpp misc.h
+	g++ $(DEBUG) $(OPTIONS) -c misc.cpp
 
 function_template.o : function_template.cpp function_template.h
 	g++ $(DEBUG) $(OPTIONS) -c function_template.cpp
 
-Queue.o : Queue.cpp Queue.h QueueItem.h
-	g++ $(DEBUG) $(OPTIONS) -c Queue.cpp
-
-QueueItem.o : QueueItem.cpp QueueItem.h
-	g++ $(DEBUG) $(OPTIONS) -c QueueItem.cpp
-
+utilizing_handle.o : utilizing_handle.cpp utilizing_handle.h Handle.h
+	g++ $(DEBUG) $(OPTIONS) -c utilizing_handle.cpp
 
 .PHONY : clean
 clean :
-	-rm -frv $(OBJS) templates *.d
+	-rm -frv $(OBJS) templates *.d *.o
