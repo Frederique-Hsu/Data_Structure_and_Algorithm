@@ -43,3 +43,17 @@ template<size_t N> void fibonacci_series(vector<size_t> &fib)
         fib.push_back(fib[index-1] + fib[index-2]);
     }
 }
+
+template<size_t N> void fibonacci_ratio_series(vector<long double> &fib_ratio)
+{
+    vector<size_t> fib;
+    fib.push_back(1);
+    fib.push_back(1);
+
+    for (size_t index = 2; index < N; ++index)
+    {
+        fib.push_back(fib[index-1] + fib[index-2]);
+        fib_ratio.push_back(static_cast<long double>(fib[index-2]) / static_cast<long double>(fib[index-1]));
+    }
+    return;
+}
