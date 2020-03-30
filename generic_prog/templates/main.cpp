@@ -12,7 +12,15 @@
 
 #include <iostream>
 
+#include "testing.h"
+#include "generic_handle/utilizing_handle.h"
+
 int main(int argc, char* argv[])
 {
+    instantiateClassTemplates();
+
+    instantiate_object_from_other_iterators_range();
+
+    how_generic_handle_works();
     return 0;
 }
