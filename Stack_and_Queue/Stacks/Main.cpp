@@ -10,11 +10,21 @@
  *
  **************************************************************************************************/
 
+#include "testing.h"
 #include <iostream>
 
 using namespace std;
 
 int main(int argc, char* argv[])
 {
+    string hugenumber_sum = addHugeNumbers("18274364583929273748459595684373", "8129498165026350236");
+    cout << hugenumber_sum << endl;
+
+    if (hugenumber_sum == "18274364583937403246624622034609")
+    {
+        cout << "This huge numbers adding algorithm through stack is correct." << endl;
+    }
+
+    getchar();
 	return 0;
 }
