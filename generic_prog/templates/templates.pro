@@ -10,7 +10,6 @@ SOURCES += \
     bookstore_app/Item_base.cpp \
     bookstore_app/Sales_item.cpp \
     class_template/misc.cpp \
-    function_template.cpp \
     generic_handle/utilizing_handle.cpp \
     main.cpp \
     testing.cpp
@@ -26,7 +25,7 @@ HEADERS += \
     class_template/QueueItem.h \
     class_template/Screen.h \
     class_template/misc.h \
-    function_template.h \
+    function_template/function_template.h \
     generic_handle/Handle.h \
     generic_handle/utilizing_handle.h \
     testing.h
