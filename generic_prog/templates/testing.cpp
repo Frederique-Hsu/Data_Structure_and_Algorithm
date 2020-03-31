@@ -2,7 +2,7 @@
 #include "class_template/Queue.h"
 #include "class_template/List.h"
 #include "class_template/Screen.h"
-#include "function_template.h"
+#include "function_template/function_template.h"
 
 #include <string>
 #include <iomanip>
@@ -50,4 +50,30 @@ void instantiate_object_from_other_iterators_range(void)
     Queue<long double> fib_ratio_queue;
     fib_ratio_queue.assign(fib_ratio.begin(), fib_ratio.end());
     cout << fixed << setprecision(20) << fib_ratio_queue << endl;
+}
+
+void instantiateSpecificFnctTemplate(void)
+{
+    const char *cp1 = "hello", *cp2 = "world";
+    int inum1 = 15, inum2 = 87;
+
+    compare(cp1, cp2);
+    compare(inum1, inum2);
+}
+
+void call_specialized_class_template(void)
+{
+    Queue<const char*> queue_char;
+    queue_char.push("hi");
+    queue_char.push("bye");
+    queue_char.push("world");
+
+    cout << queue_char.origQueue() << endl;
+
+    Queue<const char*> quechar(queue_char);
+    cout << quechar.origQueue() << endl;
+
+    Queue<const char*> another_queue;   /* empty Queue */
+    another_queue = queue_char;
+    cout << another_queue.origQueue() << endl;
 }

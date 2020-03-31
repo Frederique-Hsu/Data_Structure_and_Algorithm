@@ -7,4 +7,8 @@
 
     void instantiate_object_from_other_iterators_range(void);
 
+    void instantiateSpecificFnctTemplate(void);
+
+    void call_specialized_class_template(void);
+
 #endif  /* TESTING_H */
