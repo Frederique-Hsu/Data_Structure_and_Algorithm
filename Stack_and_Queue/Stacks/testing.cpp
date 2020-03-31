@@ -1,9 +1,11 @@
 #include "testing.h"
 #include "genStack.h"
 #include "genListStack.h"
+#include "HugeNumber_Calculation.h"
 
 #include <cstdlib>
 #include <stdexcept>
+#include <iostream>
 
 static int digit2Int(char digit)
 {
@@ -92,4 +94,29 @@ string addHugeNumbers(const string& hugenumber1, const string& hugenumber2)
         sum += digit2Char(sum_stack.pop());
     }
     return sum;
+}
+
+void test_HugeNumber_Calculation(void)
+{
+    /*
+    HugeNumber_Calculation hugenum("1234567890123456789");
+
+    cout << print(hugenum) << endl;
+
+    HugeNumber_Calculation hnum1("6958"), hnum2("0009437");
+    HugeNumber_Calculation sum = hnum1 + hnum2;
+    cout << print(sum) << endl;
+     */
+
+#if 0
+    HugeNumber_Calculation hnum1("6574"), hnum2("3928");
+    string difference = hnum1 - hnum2;
+    cout << difference << endl;
+
+    cout << hnum2 - hnum1 << endl;
+#else
+    HugeNumber_Calculation hnum_multiplier("6357"), hnum_multiplicand("482");
+    HugeNumber_Calculation product = hnum_multiplier * hnum_multiplicand;
+    cout << print(product) << endl;
+#endif
 }
