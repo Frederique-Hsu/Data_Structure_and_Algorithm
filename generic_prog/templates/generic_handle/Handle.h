@@ -82,4 +82,18 @@
         throw std::runtime_error("access through unbound Handle.");
     }
 
+    template<class Type> const Type& Handle<Type>::operator*() const
+    {
+        if (ptr)
+            return *ptr;
+        throw std::runtime_error("dereference of unbound Handle.");
+    }
+
+    template<class Type> const Type* Handle<Type>::operator->() const
+    {
+        if (ptr)
+            return ptr;
+        throw std::runtime_error("access through unbound Handle.");
+    }
+
 #endif  /* HANDLE_H */
