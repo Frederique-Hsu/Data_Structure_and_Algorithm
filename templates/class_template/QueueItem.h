@@ -8,8 +8,8 @@
     template<class Type> class QueueItem;
 
     /* function template declaration must precede friend declaration in QueueItem */
-    template<class Type> std::ostream& operator<<(std::ostream& os, const Queue<Type>& q);
-    template<class Type> void operator>>(std::iostream& is, Queue<Type>& queue);
+    template<class Type> std::ostream& operator<<(std::ostream& os, const Queue<Type>& queue);
+    template<class Type> std::istream& operator>>(std::istream& is,       Queue<Type>& queue);
 
 /*================================================================================================*/
 
@@ -18,7 +18,8 @@
     {
         friend class Queue<Type>;
         /* needs access to item and next */
-        friend std::ostream& operator<< <Type>(std::ostream& os, const Queue<Type>& q);
+        friend std::ostream& operator<< <Type>(std::ostream& os, const Queue<Type>& queue);
+        friend std::istream& operator>> <Type>(std::istream& is,       Queue<Type>& queue);
     private:    /* private class, no public section */
         QueueItem(const Type& t);
     private:

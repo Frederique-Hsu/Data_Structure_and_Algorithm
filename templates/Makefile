@@ -11,7 +11,7 @@ DEBUG = -g
 BOOKSTORE_APP = bookstore_app/Sales_item.o bookstore_app/Item_base.o bookstore_app/Disc_item.o bookstore_app/Bulk_item.o \
 bookstore_app/Basket.o
 
-OBJS = main.o testing.o class_template/misc.o function_template.o generic_handle/utilizing_handle.o \
+OBJS = main.o testing.o class_template/misc.o function_template/verify.o generic_handle/utilizing_handle.o \
 $(BOOKSTORE_APP)
 
 templates : $(OBJS)
@@ -21,14 +21,11 @@ main.o : main.cpp testing.h generic_handle/utilizing_handle.h
 	g++ $(DEBUG) $(OPTIONS) -c main.cpp
 
 testing.o : testing.cpp testing.h class_template/Queue.h class_template/List.h class_template/Screen.h \
-function_template.h
+function_template/function_template.h
 	g++ $(DEBUG) $(OPTIONS) -c testing.cpp
 
 misc.o : misc.cpp misc.h
 	g++ $(DEBUG) $(OPTIONS) -c misc.cpp
-
-function_template.o : function_template.cpp function_template.h
-	g++ $(DEBUG) $(OPTIONS) -c function_template.cpp
 
 utilizing_handle.o : utilizing_handle.cpp utilizing_handle.h Handle.h
 	g++ $(DEBUG) $(OPTIONS) -c utilizing_handle.cpp
@@ -47,6 +44,9 @@ Bulk_item.o : Bulk_item.cpp Bulk_item.h Disc_item.h
 
 Basket.o : Basket.cpp Basket.h Sales_item.h
 	g++ -DDEBUG $(DEBUG) $(OPTIONS) -c Basket.cpp
+
+verify.o : verify.cpp verify.h template_overload.h
+	g++ $(DEBUG) $(OPTIONS) -c verify.cpp
 
 .PHONY : clean
 clean :

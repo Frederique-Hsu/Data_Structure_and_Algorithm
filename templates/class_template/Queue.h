@@ -2,16 +2,23 @@
 #define QUEUE_H
 
     #include "QueueItem.h"
+    #include <string>
+    #include <cstring>
+
+    #define SPECIALIZE_CLASS_TEMPLATE   1
+    #define SPECIALIZE_CLASS_MEMBER     2
+    #define SPECIALIZE_WHOM             SPECIALIZE_CLASS_TEMPLATE
 
     template<class Type> class Queue;
+    template<> class Queue<const char*>;
 
 /*================================================================================================*/
 
-    template<class Type>
-    class Queue
+    template<class Type> class Queue
     {
         /* needs access to head. */
         friend std::ostream& operator<< <Type>(std::ostream& os, const Queue<Type>& queue);
+        friend std::istream& operator>> <Type>(std::istream& is,       Queue<Type>& queue);
     public:
         Queue();                    /* default constructor */
         Queue(const Queue& q);      /* copy control to manage pointers to QueueItems in the Queue */
@@ -41,8 +48,37 @@
         template<class Iter> void copy_elems(Iter, Iter);
     };
 
-/*================================================================================================*/
+#if (SPECIALIZE_WHOM == SPECIALIZE_CLASS_TEMPLATE)
+    /* definition of specialization for const char*
+     * this class forwards its work to Queue<string>;
+     * the push() function translates the const char* parameter to a string
+     * the front() functions return a string rather a const char*
+     */
+    template<> class Queue<const char*>
+    {
+    public:
+        Queue();
+        Queue(const Queue& orig);
+        Queue& operator=(const Queue& orig);
+    public:
+        void push(const char*);
+        void pop();
+        bool empty() const;
+        std::string front();    /* Note: return type does not match template parameter type */
+        const std::string &front() const;
+        const Queue<std::string>& origQueue() const;
+    private:
+        Queue<std::string> real_queue;      /* forward calls to real_queue */
+    };
+#endif
 
+#if (SPECIALIZE_WHOM == SPECIALIZE_CLASS_MEMBER)
+    template<> void Queue<const char*>::push(const char* const&);
+    template<> void Queue<const char*>::pop();
+#endif
+
+
+/*================================================================================================*/
 
     template<class Type> Queue<Type>::Queue() : head(0), tail(0)
     {
@@ -150,6 +186,16 @@
         return os;
     }
 
+    template<class Type> std::istream& operator>>(std::istream& is, Queue<Type>& queue)
+    {
+        Type element;
+        while (is >> element)
+        {
+            queue.push(element);
+        }
+        return is;
+    }
+
     template<class Type> template<class Iter> 
     Queue<Type>::Queue(Iter begin, Iter end) : head(0), tail(0)
     {
@@ -170,5 +216,83 @@
             ++begin;
         }
     }
+
+#if (SPECIALIZE_WHOM == SPECIALIZE_CLASS_TEMPLATE)
+    void Queue<const char*>::push(const char* val)
+    {
+        /* implicitly call Queue<std::string>::push(string(const char*)) */
+        return real_queue.push(val);
+    }
+
+    void Queue<const char*>::pop()
+    {
+        real_queue.pop();
+    }
+
+    bool Queue<const char*>::empty() const
+    {
+        return real_queue.empty();
+    }
+
+    std::string Queue<const char*>::front()
+    {
+        return real_queue.front();      /* equals to "std::string Queue<string>::front();" */
+    }
+
+    const std::string& Queue<const char*>::front() const
+    {
+        return real_queue.front();
+    }
+
+    const Queue<std::string>& Queue<const char*>::origQueue() const
+    {
+        return real_queue;
+    }
+
+    Queue<const char*>::Queue(const Queue& orig)
+    {
+        real_queue = orig.real_queue;
+    }
+
+    Queue<const char*>::Queue() : real_queue()
+    {
+    }
+
+    Queue<const char*>& Queue<const char*>::operator=(const Queue& orig)
+    {
+        if (this != &orig)
+        {
+            real_queue = orig.real_queue;
+        }
+        return *this;
+    }
+#endif
+
+#if (SPECIALIZE_WHOM == SPECIALIZE_CLASS_MEMBER)
+    template<> void Queue<const char*>::push(const char* const& val)
+    {
+        char* new_item = new char[std::strlen(val) + 1];
+        std::strncpy(new_item, val, std::strlen(val) + 1);
+
+        QueueItem<const char*> *pt = new QueueItem<const char*>(new_item);
+        if (empty())
+        {
+            head = tail = pt;
+        }
+        else
+        {
+            tail->next = pt;
+            tail = pt;
+        }
+    }
+
+    template<> void Queue<const char*>::pop()
+    {
+        QueueItem<const char*> *pnode = head;
+        head = head->next;
+        delete pnode->item;     /* delete the array allocated in push */
+        delete pnode;           /* delete the old head */
+    }
+#endif
 
 #endif  /* QUEUE_H */

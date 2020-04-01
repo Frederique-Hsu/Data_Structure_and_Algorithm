@@ -17,10 +17,17 @@
 
 int main(int argc, char* argv[])
 {
-    instantiateClassTemplates();
+    // instantiateClassTemplates();
 
     instantiate_object_from_other_iterators_range();
 
     how_generic_handle_works();
+
+    instantiateSpecificFnctTemplate();
+
+    call_specialized_class_template();
+
+    verify_list_structure();
+
     return 0;
 }
