@@ -18,6 +18,7 @@
     {
         /* needs access to head. */
         friend std::ostream& operator<< <Type>(std::ostream& os, const Queue<Type>& queue);
+        friend std::istream& operator>> <Type>(std::istream& is,       Queue<Type>& queue);
     public:
         Queue();                    /* default constructor */
         Queue(const Queue& q);      /* copy control to manage pointers to QueueItems in the Queue */
@@ -183,6 +184,16 @@
         }
         os << ">";
         return os;
+    }
+
+    template<class Type> std::istream& operator>>(std::istream& is, Queue<Type>& queue)
+    {
+        Type element;
+        while (is >> element)
+        {
+            queue.push(element);
+        }
+        return is;
     }
 
     template<class Type> template<class Iter> 

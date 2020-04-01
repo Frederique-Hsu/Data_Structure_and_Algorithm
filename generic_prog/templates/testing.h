@@ -11,4 +11,6 @@
 
     void call_specialized_class_template(void);
 
+    void verify_list_structure(void);
+
 #endif  /* TESTING_H */

@@ -17,7 +17,7 @@
 
 int main(int argc, char* argv[])
 {
-    instantiateClassTemplates();
+    // instantiateClassTemplates();
 
     instantiate_object_from_other_iterators_range();
 
@@ -26,6 +26,8 @@ int main(int argc, char* argv[])
     instantiateSpecificFnctTemplate();
 
     call_specialized_class_template();
+
+    verify_list_structure();
 
     return 0;
 }

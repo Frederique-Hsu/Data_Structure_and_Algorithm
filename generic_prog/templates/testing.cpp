@@ -17,6 +17,8 @@ void instantiateClassTemplates(void)
     qi.push(s);
     qi.push(i);
     qi.push(10);
+    std::cout << "Please enter numbers which you want to push into the queue: ";
+    std::cin >> qi;
 
     std::cout << qi << std::endl;
 
@@ -28,6 +30,24 @@ void instantiateClassTemplates(void)
 
     Queue<std::string> qs;
     qs.push("Hello");
+}
+
+void verify_list_structure(void)
+{
+    int numbers[] = {5, 7, 11, 13, 17, 19};
+    List<int> primer_nums;
+    primer_nums.append(2);
+    primer_nums.assign(numbers, numbers + sizeof(numbers)/sizeof(int));
+    primer_nums.insert(1, 2);
+    cout << primer_nums << endl;
+
+    primer_nums.remove(1);
+    primer_nums.insert(1, 3);
+
+    cout << primer_nums << endl;
+    cout << "Append a new primer number at the end: ";
+    cin >> primer_nums;
+    cout << primer_nums << endl;
 }
 
 void instantiate_nontype_parameter_templates(void)
