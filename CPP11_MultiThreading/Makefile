@@ -9,7 +9,7 @@ OBJS = program.o \
 thread_creation.o join_detach_thread.o ThreadRAII.o \
 pass_args_to_threads.o Dummy.o Wallet.o race_conditions.o \
 event_handling.o Application.o returning_value_from_threads.o \
-async_thread_handling.o
+async_thread_handling.o create_async_packaged_task.o
 
 MultiThreading : $(OBJS)
 	g++ $(OPTIONS) $(FLAGS) $(OBJS) -o MultiThreading -lpthread
@@ -53,6 +53,9 @@ returning_value_from_threads.o : returning_value_from_threads.cpp returning_valu
 
 async_thread_handling.o : async_thread_handling.cpp async_thread_handling.h
 	g++ $(OPTIONS) $(FLAGS) -c async_thread_handling.cpp
+
+create_async_packaged_task.o : create_async_packaged_task.cpp create_async_packaged_task.h
+	g++ $(OPTIONS) $(FLAGS) -c create_async_packaged_task.cpp
 
 .PHONY : clean
 clean :
