@@ -23,4 +23,7 @@
 *build*/
 .vs/
 Interview/
+Interview_Test/
 temp/
+Multi_Threads/
+Tesla*/
