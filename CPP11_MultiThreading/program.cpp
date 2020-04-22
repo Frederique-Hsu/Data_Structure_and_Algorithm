@@ -10,6 +10,7 @@
 #include "pass_args_to_threads.h"
 #include "race_conditions.h"
 #include "event_handling.h"
+#include "returning_value_from_threads.h"
 
 int main(int argc, char* argv[])
 {
@@ -23,7 +24,8 @@ int main(int argc, char* argv[])
     // pass_reference_arguments_to_threads();
     // pass_memberFunction_arguments_to_threads();
     // verifyMultiThreadConflict();
-    handle_event();
+    // handle_event();
+    return_values_from_threads();
 
     return 0;
 }
