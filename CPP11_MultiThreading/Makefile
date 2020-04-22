@@ -8,7 +8,8 @@ FLAGS = -p
 OBJS = program.o \
 thread_creation.o join_detach_thread.o ThreadRAII.o \
 pass_args_to_threads.o Dummy.o Wallet.o race_conditions.o \
-event_handling.o Application.o returning_value_from_threads.o
+event_handling.o Application.o returning_value_from_threads.o \
+async_thread_handling.o
 
 MultiThreading : $(OBJS)
 	g++ $(OPTIONS) $(FLAGS) $(OBJS) -o MultiThreading -lpthread
@@ -49,6 +50,9 @@ Application.o : Application.cpp Application.h
 
 returning_value_from_threads.o : returning_value_from_threads.cpp returning_value_from_threads.h
 	g++ $(OPTIONS) $(FLAGS) -c returning_value_from_threads.cpp
+
+async_thread_handling.o : async_thread_handling.cpp async_thread_handling.h
+	g++ $(OPTIONS) $(FLAGS) -c async_thread_handling.cpp
 
 .PHONY : clean
 clean :
