@@ -11,6 +11,8 @@
 #include "race_conditions.h"
 #include "event_handling.h"
 #include "returning_value_from_threads.h"
+#include "async_thread_handling.h"
+#include "create_async_packaged_task.h"
 
 int main(int argc, char* argv[])
 {
@@ -25,7 +27,10 @@ int main(int argc, char* argv[])
     // pass_memberFunction_arguments_to_threads();
     // verifyMultiThreadConflict();
     // handle_event();
-    return_values_from_threads();
+    // return_values_from_threads();
+    // async_execute_thread();
+    // async_with_functor_or_lambda_callback();
+    execute_async_packaged_task();
 
     return 0;
 }
