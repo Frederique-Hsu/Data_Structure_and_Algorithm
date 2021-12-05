@@ -19,15 +19,14 @@ IntCell::IntCell()
 /*!
  *  \brief  Contruct the IntCell, initial value is the initialValue
  */
-IntCell::IntCell(int initialValue)
+IntCell::IntCell(int initialValue) : storedValue{ initialValue }
 {
-    storedValue = initialValue;
 }
 
 /*!
  *  \brief  Return the stored value.
  */
-int IntCell::read()
+int IntCell::read() const
 {
     return storedValue;
 }
@@ -39,3 +38,4 @@ void IntCell::write(int x)
 {
     storedValue = x;
 }
+

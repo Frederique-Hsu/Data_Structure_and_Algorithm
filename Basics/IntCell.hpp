@@ -17,9 +17,9 @@
     {
     public:
         IntCell();
-        IntCell(int initialValue);
+        explicit IntCell(int initialValue = 0);
     public:
-        int read();
+        int read() const;
         void write(int x);
     private:
         int storedValue;
