@@ -4,3 +4,6 @@
 *.o
 *.obj
 *.exe
+*.user
+
+build-*/
