@@ -16,13 +16,18 @@
     class IntCell
     {
     public:
-        IntCell();
-        explicit IntCell(int initialValue = 0);
+        IntCell();                                  /* default constructor */
+        explicit IntCell(int initialValue = 0);     /* constructor */
+        ~IntCell();                                 /* destructor */
+        IntCell(const IntCell& rhs);                /* copy constructor */
+        IntCell(IntCell&& rhs);                     /* move constructor */
+        IntCell& operator=(const IntCell& rhs);     /* copy assignment operator= */
+        IntCell& operator=(IntCell&& rhs);          /* move assignment operator= */
     public:
         int read() const;
         void write(int x);
     private:
-        int storedValue;
+        int *storedValue;
     };
 
 #endif  /* INT_CELL_HPP */

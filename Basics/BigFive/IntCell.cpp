@@ -8,19 +8,55 @@
 
 #include "IntCell.hpp"
 
+#include <iostream>
+
 /*!
  *  \brief  Contruct the IntCell, initial value is 0.
  */
 IntCell::IntCell()
 {
-    storedValue = 0;
+    storedValue = nullptr;
 }
 
 /*!
  *  \brief  Contruct the IntCell, initial value is the initialValue
  */
-IntCell::IntCell(int initialValue) : storedValue{ initialValue }
+IntCell::IntCell(int initialValue)
 {
+    storedValue = new int{initialValue};
+}
+
+IntCell::~IntCell()
+{
+#if defined (DEBUG)
+    std::cout << "Invoking IntCell::~IntCell() destructor." << std::endl;
+#endif
+    delete storedValue;
+}
+
+IntCell::IntCell(const IntCell& rhs)
+{
+    storedValue = new int{ *(rhs.storedValue) };
+}
+
+IntCell::IntCell(IntCell&& rhs) : storedValue(rhs.storedValue)
+{
+    rhs.storedValue = nullptr;
+}
+
+IntCell& IntCell::operator=(const IntCell& rhs)
+{
+    if (this != &rhs)
+    {
+        *storedValue = *(rhs.storedValue);  /*! \note this must assign the value, not assign the pointer. */
+    }
+    return *this;
+}
+
+IntCell& IntCell::operator=(IntCell&& rhs)
+{
+    std::swap(storedValue, rhs.storedValue);
+    return *this;
 }
 
 /*!
@@ -28,7 +64,7 @@ IntCell::IntCell(int initialValue) : storedValue{ initialValue }
  */
 int IntCell::read() const
 {
-    return storedValue;
+    return *storedValue;
 }
 
 /*!
@@ -36,6 +72,6 @@ int IntCell::read() const
  */
 void IntCell::write(int x)
 {
-    storedValue = x;
+    *storedValue = x;
 }
 
