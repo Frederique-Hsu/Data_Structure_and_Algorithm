@@ -5,11 +5,16 @@ CONFIG -= qt
 LIBS += -lgtest -lgmock -lpthread
 
 SOURCES += \
-        IntCell.cpp \
+        BigFive/IntCell.cpp \
+        BigFive/utest_IntCell.c++ \
+        Functions.cpp \
         main.cpp \
-        utest_IntCell.c++ \
+        utest_Functions.c++ \
         utest_Lvalue_Rvalue_reference.c++ \
         utest_Vector_String.c++
 
 HEADERS += \
-    IntCell.hpp
+    BigFive/IntCell.hpp \
+    Functions.hpp \
+    Swap.hpp \
+    Swap_impl.hpp
