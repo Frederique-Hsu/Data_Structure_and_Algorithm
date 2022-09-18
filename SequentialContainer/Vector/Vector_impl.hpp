@@ -21,7 +21,7 @@ template<typename ObjType> Vector<ObjType>::~Vector()
 
 template<typename ObjType> Vector<ObjType>::Vector() : m_size(0), m_capacity(SPARE_CAPACITY)
 {
-    m_objects = nullptr;
+    m_objects = new ObjType[m_capacity];
 }
 
 template<typename ObjType> Vector<ObjType>::Vector(const Vector& rhs) : m_size(rhs.m_size),
@@ -76,11 +76,11 @@ template<typename ObjType> void Vector<ObjType>::reserve(int newCapacity)
     ObjType* newArray = new ObjType[newCapacity];
     for (int index = 0; index < m_size; ++index)
     {
-        newArray[index] = std::move(m_objects[index]);
+        newArray[index] = std::move(m_objects[index]);      // Firstly move m_objects to newArray
     }
     m_capacity = newCapacity;
-    std::swap(m_objects, newArray);
-    delete [] newArray;
+    std::swap(m_objects, newArray);     // Then swap newArray to m_objects
+    delete [] newArray;     // And finally delete newArray
 }
 
 template<typename ObjType> ObjType& Vector<ObjType>::operator[](int index)
