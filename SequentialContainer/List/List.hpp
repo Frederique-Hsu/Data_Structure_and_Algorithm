@@ -7,6 +7,9 @@
 #pragma once
 
 #include <functional>
+#include "IteratorException.hpp"
+
+#define ENABLE_ITERATOR_ERROR_CHECKING
 
 template<typename ObjType> class List
 {
@@ -17,8 +20,12 @@ private:
         Node    *prev;
         Node    *next;
 
-        Node(const ObjType& d = ObjType{}, Node *prevnode = nullptr, Node *nextnode = nullptr);
-        Node(ObjType&& d, Node *prevnode = nullptr, Node *nextnode = nullptr);
+        Node(const ObjType& d = ObjType{},
+             Node *prevnode = nullptr,
+             Node *nextnode = nullptr);
+        Node(ObjType&& d,
+             Node *prevnode = nullptr,
+             Node *nextnode = nullptr);
     };
 public:
     class const_iterator
@@ -28,15 +35,23 @@ public:
         const_iterator();
     protected:
         Node *current;
+        const List<ObjType> *theList;
+
         const_iterator(Node *p);
+        const_iterator(const List<ObjType>& lst, Node *p);
     public:
         const ObjType& operator*() const;
-        const_iterator& operator++();
-        const_iterator  operator++(int);
+        const_iterator& operator++();           // for prefix operator : ++itr
+        const_iterator  operator++(int);        // for postfix operator: itr++
+        const_iterator& operator+(int n);       // itr + n
+        const_iterator& operator--();
+        const_iterator  operator--(int);
+        const_iterator& operator-(int n);
         bool operator==(const const_iterator& rhs) const;
         bool operator!=(const const_iterator& rhs) const;
     protected:
         ObjType& retrieve() const;
+        void assertIsValid() const;
     };
 
     class iterator : public const_iterator
@@ -46,11 +61,16 @@ public:
         iterator();
     protected:
         iterator(Node *p);
+        iterator(const List<ObjType>& lst, Node *p);
     public:
-        ObjType& operator*();
-        const ObjType& operator*() const;
+        ObjType& operator*();               // mutator of operator*
+        const ObjType& operator*() const;   // accessor of operator*
         iterator& operator++();
-        iterator operator++(int);
+        iterator  operator++(int);
+        iterator& operator+(int n);
+        iterator& operator--();
+        iterator  operator--(int);
+        iterator& operator-(int n);
     };
 public:
     List();
