@@ -5,6 +5,7 @@
 *.obj
 *.exe
 *.user
+*.json
 
 build-*/
 Simulate_GoogleTest/
