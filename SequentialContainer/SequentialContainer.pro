@@ -6,15 +6,14 @@ CONFIG -= qt
 LIBS += -lgtest -lgmock -lpthread
 
 SOURCES += \
+        List/IteratorException.cpp \
         List/UTest_List.c++ \
         Vector/UTest_Vector.c++ \
-        main.cpp \
-        utest_misc.c++
+        main.cpp
 
 HEADERS += \
+    List/IteratorException.hpp \
     List/List.hpp \
     List/List_impl.hpp \
     Vector/Vector.hpp \
-    Vector/Vector_impl.hpp \
-    misc.hpp \
-    misc_impl.hpp
+    Vector/Vector_impl.hpp
