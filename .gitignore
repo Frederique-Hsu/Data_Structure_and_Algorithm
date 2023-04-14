@@ -5,5 +5,9 @@
 *.obj
 *.exe
 *.user
+*.json
 
 build-*/
+Simulate_GoogleTest/
+CMake_Tutorial/
+Trees_old/
