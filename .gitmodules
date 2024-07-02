@@ -1,3 +1,6 @@
 [submodule "hello-algo"]
 	path = hello-algo
 	url = git@github.com:krahets/hello-algo.git
+[submodule "Sorting_Visualization"]
+	path = Sorting_Visualization
+	url = git@github.com:bbdzs/Sorting-Visualization-bbdzs.git
