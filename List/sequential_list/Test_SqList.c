@@ -7,7 +7,7 @@
 
 #include "SqList.h"
 
-#include "../../unity.test.framework/extras/fixture/unity_fixture.h"
+#include <unity/unity_fixture.h>
 
 TEST_GROUP(UTest4SqList);
 
@@ -41,7 +41,7 @@ TEST(UTest4SqList, CheckInitializeAndDestroySqList)
 
     int elements_total_size = sizeof(list.elem);
     int element_unit_size = sizeof(list.elem[0]);
-    int element_array_length = elements_total_size / element_unit_size;
+    [[maybe_unused]] int element_array_length = elements_total_size / element_unit_size;
 
     DestroyList(&list);
     TEST_ASSERT_TRUE(list.elem == NULL);
