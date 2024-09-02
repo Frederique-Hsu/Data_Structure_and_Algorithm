@@ -16,7 +16,7 @@ set(Unity_BINARY_DIR ${BUILD_DIR}/_deps/unity-build)
 if(ON)
     include(FetchContent)
     FetchContent_Declare(unity
-        GIT_REPOSITORY      https://github.com/ThrowTheSwitch/Unity.git
+        GIT_REPOSITORY      https://github.com/Frederick-Hsu/Unity.git
         GIT_TAG             master)
 
     FetchContent_GetProperties(unity)
@@ -31,8 +31,14 @@ endif()
 file(GLOB_RECURSE sources *.c)
 file(GLOB_RECURSE headers *.h)
 
-add_executable(${PROJECT_NAME} 
-    main.c
-    ${sources}
-    ${headers})
+add_executable(${PROJECT_NAME}
+    main.c)
 target_link_libraries(${PROJECT_NAME} PRIVATE unity)
+
+
+#===============================================================================
+
+enable_testing()
+
+add_test(NAME UTest_${PROJECT_NAME}
+    COMMAND $<TARGET_FILE:${PROJECT_NAME}> -v)
