@@ -47,11 +47,11 @@ Position Find(ElementType elem, SearchTree tree)
     }
     if (elem < tree->element)
     {
-        Find(elem, tree->left);
+        return Find(elem, tree->left);
     }
     else if (tree->element < elem)
     {
-        Find(elem, tree->right);
+        return Find(elem, tree->right);
     }
     else    /* elem == tree->element */
     {
