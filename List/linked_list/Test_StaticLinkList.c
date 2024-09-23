@@ -5,7 +5,8 @@
  */
 
 
-#include "../../unity.test.framework/extras/fixture/unity_fixture.h"
+
+#include <unity/unity_fixture.h>
 
 #include "StaticLinkList.h"
 

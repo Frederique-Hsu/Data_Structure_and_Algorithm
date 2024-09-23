@@ -6,9 +6,9 @@
 
 
 #include "Test_LinkedList.h"
-#include "../../unity.test.framework/extras/fixture/unity_fixture.h"
-
 #include "LinkedList.h"
+
+#include <unity/unity_fixture.h>
 
 
 TEST_GROUP(UTest4LinkedList);

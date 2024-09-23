@@ -23,4 +23,5 @@ target_link_libraries(${CURRENT_PROJECT_NAME} PRIVATE unity)
 
 
 add_test(NAME UTest_${CURRENT_PROJECT_NAME}
-    COMMAND $<TARGET_FILE:${CURRENT_PROJECT_NAME}> -v)
+    COMMAND valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose 
+            $<TARGET_FILE:${CURRENT_PROJECT_NAME}> -v)
