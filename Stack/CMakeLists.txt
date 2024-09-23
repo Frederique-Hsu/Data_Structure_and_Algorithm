@@ -30,9 +30,12 @@ endif()
 
 file(GLOB_RECURSE sources *.c)
 file(GLOB_RECURSE headers *.h)
+list(FILTER sources EXCLUDE REGEX "${BUILD_DIR}/*")
+list(FILTER headers EXCLUDE REGEX "${BUILD_DIR}/*")
 
 add_executable(${PROJECT_NAME}
-    main.c)
+    ${sources}
+    ${headers})
 target_link_libraries(${PROJECT_NAME} PRIVATE unity)
 
 
@@ -41,4 +44,5 @@ target_link_libraries(${PROJECT_NAME} PRIVATE unity)
 enable_testing()
 
 add_test(NAME UTest_${PROJECT_NAME}
-    COMMAND $<TARGET_FILE:${PROJECT_NAME}> -v)
+    COMMAND valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose 
+            $<TARGET_FILE:${PROJECT_NAME}> -v)
