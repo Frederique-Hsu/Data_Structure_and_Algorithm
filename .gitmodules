@@ -10,3 +10,6 @@
 [submodule "unit_test_frameworks/munit"]
 	path = unit_test_frameworks/munit
 	url = https://github.com/nemequ/munit.git
+[submodule "Sorting/external_libs/librandom"]
+	path = Sorting/external_libs/librandom
+	url = https://github.com/cgwrench/librandom.git
