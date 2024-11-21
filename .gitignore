@@ -6,6 +6,8 @@
 *.exe
 *.user
 *.json
+*.idx
+*.txt
 
 build-*/
 Simulate_GoogleTest/
@@ -13,4 +15,5 @@ CMake_Tutorial/
 Trees_old/
 interview/
 */build/*
+*/.cache/
 build/
