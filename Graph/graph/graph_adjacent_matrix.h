@@ -1,13 +1,13 @@
 /*!
  *  \file       graph_adjacent_matrix.h
- *  \brief      
- *  
+ *  \brief
+ *
  */
 
 
 #pragma once
 
-#define VERTEX_NUM      5
+#define VERTEX_NUM      20
 
 typedef int     VertexElemType;
 
@@ -16,7 +16,7 @@ typedef struct GraphAdjacentMatrix
     VertexElemType vertices[VERTEX_NUM];
     int adjacent_matrix[VERTEX_NUM][VERTEX_NUM];
     int size;
-} 
+}
 GraphAdjacentMatrix;
 
 GraphAdjacentMatrix* createGraphAdjacentMatrix();
