@@ -1,9 +1,9 @@
 [submodule "hello-algo"]
 	path = hello-algo
 	url = git@github.com:krahets/hello-algo.git
-[submodule "Sorting_Visualization"]
-	path = Sorting_Visualization
-	url = git@github.com:bbdzs/Sorting-Visualization-bbdzs.git
 [submodule "Sorting/external_libs/librandom"]
 	path = Sorting/external_libs/librandom
 	url = https://github.com/cgwrench/librandom.git
+[submodule "Sorting/Sorting_Visualization"]
+	path = Sorting/Sorting_Visualization
+	url = https://github.com/bbdzs/Sorting-Visualization-bbdzs.git
