@@ -28,20 +28,43 @@ if(${BUILD_UT_FROM_SRC})
     FetchContent_MakeAvailable(Unity)
 endif()
 
+#===============================================================================
 
-add_executable(c_${CURRENT_PROJECT_NAME}
-    ${csources}
-    ${cheaders})
-set_target_properties(c_${CURRENT_PROJECT_NAME} PROPERTIES
+add_executable(utest_graph_adjacent_matrix
+    main.c
+    test_graph_adjacent_matrix.c)
+set_target_properties(utest_graph_adjacent_matrix PROPERTIES
     C_STANDARD          11
     C_EXTENSIONS        NO
     C_STANDARD_REQUIRED YES)
-target_compile_options(c_${CURRENT_PROJECT_NAME} PUBLIC
+target_compile_options(utest_graph_adjacent_matrix PUBLIC
     "-Wall"
     "-Wextra"
     "-Werror")
-target_link_libraries(c_${CURRENT_PROJECT_NAME} PUBLIC unity cgraph)
+target_compile_definitions(utest_graph_adjacent_matrix PUBLIC "GRAPH_ADJACENT_MATRIX")
+target_link_libraries(utest_graph_adjacent_matrix PUBLIC
+    unity
+    graph_adjacent_matrix)
 
+#===============================================================================
+
+add_executable(utest_graph_adjacent_list
+    main.c
+    test_graph_adjacent_list.c)
+set_target_properties(utest_graph_adjacent_list PROPERTIES
+    C_STANDARD          11
+    C_EXTENSIONS        NO
+    C_STANDARD_REQUIRED YES)
+target_compile_options(utest_graph_adjacent_list PUBLIC
+    "-Wall"
+    "-Wextra"
+    "-Werror")
+target_compile_definitions(utest_graph_adjacent_list PUBLIC "GRAPH_ADJACENT_LIST")
+target_link_libraries(utest_graph_adjacent_list PUBLIC
+    unity
+    graph_adjacent_list)
+
+#===============================================================================
 
 add_executable(cpp_${CURRENT_PROJECT_NAME}
     ${cppsources}
@@ -56,9 +79,14 @@ target_compile_options(cpp_${CURRENT_PROJECT_NAME} PUBLIC
     "-Werror")
 target_link_libraries(cpp_${CURRENT_PROJECT_NAME} PUBLIC Catch2 cppgraph)
 
+#===============================================================================
+
 enable_testing()
-add_test(NAME c_${CURRENT_PROJECT_NAME}
-    COMMAND $<TARGET_FILE:c_${CURRENT_PROJECT_NAME}> -v)
+add_test(NAME utest_graph_adjacent_matrix
+    COMMAND $<TARGET_FILE:utest_graph_adjacent_matrix> -v)
+
+add_test(NAME utest_graph_adjacent_list
+    COMMAND $<TARGET_FILE:utest_graph_adjacent_list> -v)
 
 add_test(NAME cpp_${CURRENT_PROJECT_NAME}
     COMMAND $<TARGET_FILE:cpp_${CURRENT_PROJECT_NAME}>)

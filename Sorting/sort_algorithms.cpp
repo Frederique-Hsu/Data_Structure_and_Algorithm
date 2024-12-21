@@ -102,3 +102,9 @@ void comb_sort(T data[], int n)
         }
     }
 }
+
+template<typename T> 
+void shell_sort(T data[], int n)
+{
+
+}

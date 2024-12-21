@@ -41,7 +41,7 @@ set_target_properties(${CURRENT_CPP_PROJECT_NAME} PROPERTIES
     CXX_STANDARD                14
     CXX_STANDARD_EXTENSIONS     OFF
     CXX_STANDARD_REQUIRED       ON)
-target_link_libraries(${CURRENT_CPP_PROJECT_NAME} PRIVATE GTest::gtest)
+target_link_libraries(${CURRENT_CPP_PROJECT_NAME} PRIVATE gtest)
 
 #===============================================================================
 

@@ -8,6 +8,7 @@
 *.json
 *.idx
 *.txt
+*.pyc
 
 build-*/
 Simulate_GoogleTest/

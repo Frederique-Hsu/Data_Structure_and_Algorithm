@@ -1,7 +1,7 @@
 /*!
  *  \file       main.c
- *  \brief      
- *  
+ *  \brief
+ *
  */
 
 
@@ -19,7 +19,12 @@ int main(int argc, char* argv[])
 void runAllTests(void)
 {
     RUN_TEST_GROUP(UTest4CStandard);
+
+#if defined (GRAPH_ADJACENT_MATRIX)
     RUN_TEST_GROUP(UTest4GraphAdjacentMatrix);
+#elif defined (GRAPH_ADJACENT_LIST)
+    RUN_TEST_GROUP(UTest4GraphAdjacentList);
+#endif
 }
 
 
