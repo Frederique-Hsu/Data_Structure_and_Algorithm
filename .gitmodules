@@ -4,9 +4,6 @@
 [submodule "Sorting_Visualization"]
 	path = Sorting_Visualization
 	url = git@github.com:bbdzs/Sorting-Visualization-bbdzs.git
-[submodule "unit_test_frameworks/Unity"]
-	path = unit_test_frameworks/Unity
-	url = https://github.com/Frederick-Hsu/Unity.git
 [submodule "unit_test_frameworks/munit"]
 	path = unit_test_frameworks/munit
 	url = https://github.com/nemequ/munit.git
