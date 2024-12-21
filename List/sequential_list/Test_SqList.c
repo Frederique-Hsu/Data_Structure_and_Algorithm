@@ -7,7 +7,7 @@
 
 #include "SqList.h"
 
-#include <unity/unity_fixture.h>
+#include <unity_fixture.h>
 
 TEST_GROUP(UTest4SqList);
 

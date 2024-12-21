@@ -7,7 +7,7 @@
 
 #include "CircularLinkedList.h"
 
-#include <unity/unity_fixture.h>
+#include <unity_fixture.h>
 
 TEST_GROUP(UTest4CircularLinkedList);
 
