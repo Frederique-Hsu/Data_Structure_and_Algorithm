@@ -40,7 +40,8 @@ set_target_properties(graph_adjacent_list PROPERTIES
 target_compile_options(graph_adjacent_list PUBLIC
     "-Wall"
     "-Wextra"
-    "-Werror")
+    "-Werror"
+    "-Wno-unused-function")
 
 add_library(graph_adjacent_list-static STATIC
     $<TARGET_OBJECTS:graph_adjacent_list>)
