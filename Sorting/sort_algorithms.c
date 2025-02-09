@@ -59,3 +59,41 @@ void bubble_sort(DataType data[], int n)
         }
     }
 }
+
+void swap(DataType nums[], int i, int j)
+{
+    DataType tmp = nums[i];
+    nums[i] = nums[j];
+    nums[j] = tmp;
+}
+
+int partition(DataType data[], int left, int right)
+{
+    int i = left, j = right;
+    while (i < j)
+    {
+        while (i < j && data[j] >= data[left])
+        {
+            j--;
+        }
+        while (i < j && data[i] <= data[left])
+        {
+            i++;
+        }
+        swap(data, i, j);
+    }
+    swap(data, i, left);
+    return i;
+}
+
+void quick_sort(DataType data[], int left, int right)
+{
+    if (left >= right)
+    {
+        return;
+    }
+    int pivot = partition(data, left, right);
+
+    quick_sort(data, left, pivot-1);
+    quick_sort(data, pivot+1, right);
+}
