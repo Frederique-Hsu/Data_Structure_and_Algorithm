@@ -6,3 +6,4 @@ enable_testing()
 
 add_subdirectory(graph)
 add_subdirectory(tests)
+add_subdirectory(test_boost_graph)
