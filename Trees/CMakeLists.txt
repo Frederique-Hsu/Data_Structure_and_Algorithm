@@ -32,8 +32,9 @@ endif()
 
 list(APPEND COMMON_COMPILE_OPTIONS
      "-Wall"
-     "-Werror"
-     "-Wpedantic")
+     "-Wextra"
+     "-Wpedantic"
+     "-Werror")
 
 enable_testing()
 
@@ -41,3 +42,4 @@ enable_testing()
 add_subdirectory(binary_search_tree)
 add_subdirectory(Adelson_Velskii_Landis_tree)
 add_subdirectory(red_black_tree)
+# add_subdirectory(bounding_volume_hierarchy_tree)
