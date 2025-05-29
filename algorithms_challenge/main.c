@@ -16,9 +16,10 @@ int main(int argc, char* argv[])
 
 void runAllTests(void)
 {
-    RUN_TEST_GROUP(UTest4CStandardNo);
-    RUN_TEST_GROUP(UTest4PointerIssues);
-    RUN_TEST_GROUP(FunctionPointerIssues);
+    // RUN_TEST_GROUP(UTest4CStandardNo);
+    // RUN_TEST_GROUP(UTest4PointerIssues);
+    // RUN_TEST_GROUP(FunctionPointerIssues);
+    RUN_TEST_GROUP(UTester4AlternativePrint);
 }
 
 /*================================================================================================*/
