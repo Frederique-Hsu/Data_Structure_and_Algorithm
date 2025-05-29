@@ -65,7 +65,7 @@ set_target_properties(${CURRENT_CPROJECT_NAME} PROPERTIES
     C_STANDARD              17
     C_EXTENSIONS            NO
     C_STANDARD_REQUIRED     YES)
-target_link_libraries(${CURRENT_CPROJECT_NAME} PUBLIC unity)
+target_link_libraries(${CURRENT_CPROJECT_NAME} PUBLIC unity pthread)
 
 #===============================================================================
 
