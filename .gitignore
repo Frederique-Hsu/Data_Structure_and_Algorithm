@@ -9,6 +9,7 @@
 *.idx
 *.pyc
 *.txt
+*.pdf
 
 Simulate_GoogleTest/
 CMake_Tutorial/
