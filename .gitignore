@@ -6,7 +6,13 @@
 *.exe
 *.user
 *.json
+*.idx
+*.pyc
 
-build-*/
+
 Simulate_GoogleTest/
 CMake_Tutorial/
+
+*/**/build
+build-*/
+build/
