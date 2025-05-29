@@ -1,22 +1,22 @@
 /*!
- *  \file   main.cpp
- *  \brief  In this project we will study the Tree data structure and \n
- *          some algorithms involved with Tree.
- *  \author Frederique Hsu (frederique.hsu@outlook.com)
- *  \date   Sun.    18 Sep. 2022
- *  \copyright  2022    All rights reserved.
+ *  \file       main.cpp
+ *  \brief      Study the data structure of tree.
  *
  */
 
-#include <iostream>
-#include <gtest/gtest.h>
 
+#include <gtest/gtest.h>
+#include <iostream>
 
 int main(int argc, char* argv[])
 {
-    std::cout << "Current C++ standard no. = " << __cplusplus << std::endl;
-    std::cout << "Current program is " << sizeof(void*) * 8 << "-bits.\n" << std::endl;
-
+    std::cout << "Study the data structure and algorithms of tree." << std::endl;
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
+}
+
+TEST(UTest4CppStandard, CheckCppStandardNo)
+{
+    std::cout << "Current C++ standard No. is: " << __cplusplus << std::endl;
+    std::cout << "Current program is " << sizeof(void*) * 8 << "-bits.\n" << std::endl;
 }

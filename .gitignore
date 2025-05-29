@@ -8,11 +8,17 @@
 *.json
 *.idx
 *.pyc
-
+*.txt
 
 Simulate_GoogleTest/
 CMake_Tutorial/
 
+build/
 */**/build
 build-*/
-build/
+*/build/*
+*/.cache/
+
+Trees_old/
+interview/
+
