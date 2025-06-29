@@ -11,10 +11,12 @@ set(BUILD_DIR ${ROOT_DIR}/build)
 
 enable_testing()
 
+include(cmake/valgrind.cmake)
+
 add_subdirectory(List)
 add_subdirectory(Stack)
 add_subdirectory(Trees)
-# add_subdirectory(Graph)
+add_subdirectory(Graph)
 add_subdirectory(algorithms_challenge)
 add_subdirectory(Sorting)
 add_subdirectory(Search)
