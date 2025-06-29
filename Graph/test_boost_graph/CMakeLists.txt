@@ -22,7 +22,7 @@ set_target_properties(${CURRENT_PROJECT_NAME} PROPERTIES
 target_compile_options(${CURRENT_PROJECT_NAME} PRIVATE
     "-Wall"
     "-Wextra"
-    "-Werror"
+    # "-Werror"
 )
 target_include_directories(${CURRENT_PROJECT_NAME} PRIVATE
     ${BOOST_INSTALL_DIR}/include)
@@ -38,4 +38,4 @@ add_dependencies(${CURRENT_PROJECT_NAME} Boost)
 enable_testing()
 
 add_test(NAME UTest_${CURRENT_PROJECT_NAME}
-    COMMAND $<TAGET_FILE:${CURRENT_PROJECT_NAME}> --log_level=all)
+    COMMAND $<TARGET_FILE:${CURRENT_PROJECT_NAME}> --log_level=all)

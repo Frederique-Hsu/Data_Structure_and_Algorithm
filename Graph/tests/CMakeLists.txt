@@ -67,22 +67,25 @@ target_link_libraries(utest_graph_adjacent_list PUBLIC
 
 #===============================================================================
 
-add_executable(cpp_${CURRENT_PROJECT_NAME}
+add_executable(utest_cpp_graph
     ${cppsources}
     ${cppheaders})
-set_target_properties(cpp_${CURRENT_PROJECT_NAME} PROPERTIES
+set_target_properties(utest_cpp_graph PROPERTIES
     CXX_STANDARD            11
     CXX_EXTENSIONS          NO
     CXX_STANDARD_REQUIRED   YES)
-target_compile_options(cpp_${CURRENT_PROJECT_NAME} PUBLIC
+target_compile_options(utest_cpp_graph PUBLIC
     "-Wall"
     "-Wextra"
     "-Werror")
-target_link_libraries(cpp_${CURRENT_PROJECT_NAME} PUBLIC Catch2 cppgraph)
+target_link_libraries(utest_cpp_graph PUBLIC
+    Catch2
+    cppgraph)
 
 #===============================================================================
 
 enable_testing()
+
 add_test(NAME utest_graph_adjacent_matrix
     COMMAND valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes 
             $<TARGET_FILE:utest_graph_adjacent_matrix> -v)
@@ -91,6 +94,6 @@ add_test(NAME utest_graph_adjacent_list
     COMMAND valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes 
             $<TARGET_FILE:utest_graph_adjacent_list> -v)
 
-add_test(NAME cpp_${CURRENT_PROJECT_NAME}
+add_test(NAME utest_cpp_graph
     COMMAND valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes 
-            $<TARGET_FILE:cpp_${CURRENT_PROJECT_NAME}>)
+            $<TARGET_FILE:utest_cpp_graph> -s)
