@@ -8,7 +8,6 @@
 *.json
 *.idx
 *.pyc
-*.txt
 *.pdf
 
 Simulate_GoogleTest/
