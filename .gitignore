@@ -7,14 +7,19 @@
 *.user
 *.json
 *.idx
-*.txt
 *.pyc
+*.txt
+*.pdf
 
-build-*/
 Simulate_GoogleTest/
 CMake_Tutorial/
-Trees_old/
-interview/
+
+build/
+*/**/build
+build-*/
 */build/*
 */.cache/
-build/
+
+Trees_old/
+interview/
+

@@ -40,7 +40,7 @@ GraphAdjacentMatrix<T>::~GraphAdjacentMatrix()
 template<typename T>
 int GraphAdjacentMatrix<T>::size() const
 {
-    return m_vertices.size();
+    return static_cast<int>(m_vertices.size());
 }
 
 template<typename T>

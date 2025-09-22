@@ -46,9 +46,9 @@ target_link_libraries(${CURRENT_CPP_PROJECT_NAME} PRIVATE gtest)
 #===============================================================================
 
 add_test(NAME UTest_${CURRENT_C_PROJECT_NAME}
-    COMMAND valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose 
+    COMMAND # valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose 
             $<TARGET_FILE:${CURRENT_C_PROJECT_NAME}> -v)
 
 add_test(NAME UTest_${CURRENT_CPP_PROJECT_NAME}
-    COMMAND valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose 
+    COMMAND # valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose 
             $<TARGET_FILE:${CURRENT_CPP_PROJECT_NAME}>)

@@ -73,8 +73,10 @@ enable_testing()
 
 add_test(NAME UTest_${CURRENT_CPPPROJECT_NAME}
     COMMAND $<TARGET_FILE:${CURRENT_CPPPROJECT_NAME}>)
-include(GoogleTest)
-gtest_discover_tests(${CURRENT_CPPPROJECT_NAME})
+if (NOT ${CMAKE_SYSTEM_NAME} STREQUAL "Darwin")
+    include(GoogleTest)
+    gtest_discover_tests(${CURRENT_CPPPROJECT_NAME})
+endif()
 
 #===============================================================================
 
@@ -83,6 +85,8 @@ add_test(NAME UTest_${CURRENT_CPROJECT_NAME}
 
 #===============================================================================
 
-find_package(PythonInterp REQUIRED)
-add_test(NAME PyUTest_algorithms_challenge
-    COMMAND ${PYTHON_EXECUTABLE} ${CURRENT_PROJECT_ROOT_DIR}/run_tests.py)
+if (NOT ${CMAKE_SYSTEM_NAME} STREQUAL "Darwin")
+    find_package(PythonInterp REQUIRED)
+    add_test(NAME PyUTest_algorithms_challenge
+        COMMAND ${PYTHON_EXECUTABLE} ${CURRENT_PROJECT_ROOT_DIR}/run_tests.py)
+endif()

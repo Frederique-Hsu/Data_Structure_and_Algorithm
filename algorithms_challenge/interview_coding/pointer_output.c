@@ -25,8 +25,8 @@ TEST(UTest4PointerIssues, Check_Pointer_Output)
     int **q[] = {p+1, p+4, p+3};
     p[1] = p[1] + 2;
     p[3] = p[0] + 4;
-    printf("%s %s\n", *(*q)++, **(q+2));
-    printf("%s", *(*q));
+    printf("%ls %ls\n", *(*q)++, **(q+2));
+    printf("%ls", *(*q));
     printf("\n");
 }
 

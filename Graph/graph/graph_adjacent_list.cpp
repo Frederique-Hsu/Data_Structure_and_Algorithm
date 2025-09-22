@@ -22,7 +22,7 @@ GraphAdjacentList<T>::~GraphAdjacentList()
 template<typename T>
 int GraphAdjacentList<T>::size()
 {
-    return adjacent_lists.size();
+    return static_cast<int>(adjacent_lists.size());
 }
 
 template<typename T>
